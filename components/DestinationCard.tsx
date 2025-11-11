@@ -63,7 +63,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOpti
                   </span>
                 </div>
                 <div className="text-xs text-slate-500 text-right">
-                  (volta por R$ {option.returnFlight.totalPrice.toLocaleString('pt-BR')})
+                  (ida R$ {option.departureFlight.totalPrice.toLocaleString('pt-BR')} + volta R$ {option.returnFlight.totalPrice.toLocaleString('pt-BR')})
                 </div>
               </div>
             ))
@@ -73,10 +73,6 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOpti
             </div>
           )}
         </div>
-
-        {tripOptions.length > 0 && <div className="mt-auto pt-4 text-xs text-center text-slate-500">
-            Custo total estimado (ida + volta).
-        </div>}
       </div>
     </div>
   );

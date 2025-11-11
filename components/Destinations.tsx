@@ -53,9 +53,14 @@ const calculateTripOptions = (destination: Destination): TripOption[] => {
         const title = normalizeStr(it.title);
         return title.includes(returnOrigin) && title.includes(returnDest);
     });
+    
+    // 3. Filter for specific return dates as requested by the user
+    const validReturnFlights = returnFlights.filter(it => 
+        it.events[0].startDate === '23/12' || it.events[0].startDate === '24/12'
+    );
 
-    // 3. Create trip combinations
-    for (const returnFlight of returnFlights) {
+    // 4. Create trip combinations
+    for (const returnFlight of validReturnFlights) {
         const departureDateStr = departureFlight.events[0].startDate;
         const returnDateStr = returnFlight.events[0].startDate;
         

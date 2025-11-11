@@ -40,27 +40,6 @@ export const FlybondiLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props)
     </svg>
 );
 
-export const BrasilSulLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <rect width="200" height="50" rx="10" fill="#0033A0"/>
-    <text x="100" y="35" fontFamily="Arial, sans-serif" fontSize="30" fill="white" textAnchor="middle">BRASILSUL</text>
-  </svg>
-);
-
-export const NordesteLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <rect width="200" height="50" rx="10" fill="#228B22"/>
-    <text x="100" y="35" fontFamily="Verdana, sans-serif" fontSize="28" fill="yellow" textAnchor="middle" fontWeight="bold">NORDESTE</text>
-  </svg>
-);
-
-export const AguiaBrancaLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg" {...props}>
-    <rect width="200" height="50" rx="10" fill="#0073e6"/>
-    <text x="100" y="35" fontFamily="Impact, sans-serif" fontSize="30" fill="white" textAnchor="middle">ÁGUIA BRANCA</text>
-  </svg>
-);
-
 export const MaxMilhasLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg width="48" height="48" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg" {...props}>
       <rect width="100" height="50" rx="10" fill="#2E8B57"/>
@@ -138,12 +117,6 @@ export const BaggageIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V14.25m-17.25 4.5v-1.875a3.375 3.375 0 0 1 3.375-3.375h9.75a3.375 3.375 0 0 1 3.375 3.375v1.875" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9.75V3.375A2.25 2.25 0 0 0 9.75 1.125h-3.75A2.25 2.25 0 0 0 3.75 3.375v6.375" />
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 9.75h4.5v-.375c0-.621-.504-1.125-1.125-1.125H12.75" />
-    </svg>
-);
-
-export const BusIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-        <path strokeLinecap="round" strokeLinejoin="round" d="M9 6.75V5.25a2.25 2.25 0 0 1 2.25-2.25h1.5a2.25 2.25 0 0 1 2.25 2.25v1.5m0 0a2.25 2.25 0 0 0 2.25 2.25H21a2.25 2.25 0 0 1 2.25 2.25v3.75a2.25 2.25 0 0 1-2.25 2.25H3.75A2.25 2.25 0 0 1 1.5 15.75V11.25a2.25 2.25 0 0 1 2.25-2.25H7.5a2.25 2.25 0 0 0 2.25-2.25M12 18a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm-3.75 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm7.5 0a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" />
     </svg>
 );
 

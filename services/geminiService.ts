@@ -64,16 +64,16 @@ export const searchFlights = async (config: UserConfig): Promise<Flight[]> => {
 const itinerarySchema = {
     type: Type.OBJECT,
     properties: {
-        title: { type: Type.STRING, description: "Um título descritivo para o itinerário, ex: 'Voo GOL para La Paz' ou 'Estadia no Hotel Copacabana Palace' ou 'Ônibus de São Paulo para o Rio'" },
+        title: { type: Type.STRING, description: "Um título descritivo para o itinerário, ex: 'Voo GOL para La Paz' ou 'Estadia no Hotel Copacabana Palace'" },
         totalPrice: { type: Type.NUMBER, description: "O preço total da reserva em BRL, extraído da imagem." },
         sourceUrl: { type: Type.STRING, description: "A URL completa visível na barra de endereço da captura de tela." },
         events: {
             type: Type.ARRAY,
-            description: "Uma lista de todos os eventos da viagem (voos, estadia, ônibus).",
+            description: "Uma lista de todos os eventos da viagem (voos, estadia).",
             items: {
                 type: Type.OBJECT,
                 properties: {
-                    type: { type: Type.STRING, enum: ['flight', 'accommodation', 'bus'] },
+                    type: { type: Type.STRING, enum: ['flight', 'accommodation'] },
                     startTime: { type: Type.STRING, description: "Horário de partida ou 'Check-in' para estadia." },
                     endTime: { type: Type.STRING, description: "Horário de chegada ou 'Check-out' para estadia." },
                     startDate: { type: Type.STRING, description: "Data de partida ou data de check-in." },
@@ -85,7 +85,7 @@ const itinerarySchema = {
                     company: {
                         type: Type.OBJECT,
                         properties: {
-                            name: { type: Type.STRING, description: "Nome da companhia (aérea, de ônibus) ou do site de reserva (Booking.com)." },
+                            name: { type: Type.STRING, description: "Nome da companhia (aérea) ou do site de reserva (Booking.com)." },
                             logo: { type: Type.STRING, description: "Apenas o nome da companhia, para mapeamento do logo." }
                         },
                         required: ["name", "logo"]
@@ -136,7 +136,7 @@ export const analyzeTravelScreenshot = async (imageDataBase64: string): Promise<
     const ai = getAiClient();
     const prompt = `
         Analise esta captura de tela de uma reserva de viagem. A imagem contém detalhes de um itinerário e uma barra de endereço do navegador no topo.
-        Sua primeira tarefa é identificar se a reserva é para um (1) Voo, (2) Estadia/Acomodação, ou (3) Ônibus.
+        Sua primeira tarefa é identificar se a reserva é para um (1) Voo ou (2) Estadia/Acomodação.
         Após identificar o tipo, extraia TODAS as informações relevantes e retorne-as como um único objeto JSON que siga estritamente o esquema fornecido.
 
         Instruções específicas por tipo:
@@ -152,11 +152,6 @@ export const analyzeTravelScreenshot = async (imageDataBase64: string): Promise<
           - 'duration' deve ser o número de noites (ex: '3 noites').
           - 'details' pode incluir número de hóspedes (ex: '2 adultos').
           - Deixe a seção 'baggage' de fora.
-        - **Para Ônibus:**
-           - Crie um evento do tipo 'bus'.
-           - 'startLocation' e 'endLocation' devem ser as cidades ou terminais.
-           - 'company.name' é a empresa de ônibus.
-           - Deixe a seção 'baggage' de fora.
 
         Pontos de atenção gerais:
         1.  **URL:** Extraia a URL completa da barra de endereço na imagem. Este é o 'sourceUrl'.

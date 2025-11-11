@@ -1,18 +1,17 @@
-
 import React from 'react';
-import type { Destination } from '../types';
+import type { Destination, Itinerary } from '../types';
 import { MapPinIcon } from './icons';
+import { TripOption } from './Destinations';
 
 interface DestinationCardProps {
   destination: Destination;
-  totalCost: number;
-  costBreakdown: { leg: string; price: number | null; note?: string }[];
-  duration: string;
+  tripOptions: TripOption[];
   onClick: () => void;
 }
 
-const DestinationCard: React.FC<DestinationCardProps> = ({ destination, totalCost, costBreakdown, duration, onClick }) => {
+const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOptions, onClick }) => {
   const { themeColor, icon } = destination;
+  const departureFlight = tripOptions[0]?.departureFlight;
 
   return (
     <div 
@@ -30,55 +29,54 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, totalCos
         </div>
         <h3 className="text-xl font-bold relative z-10 drop-shadow-sm flex items-baseline">
           <span>{destination.title}</span>
-          {duration && <span className="text-base font-normal text-white/80 ml-2 whitespace-nowrap">{duration}</span>}
         </h3>
         <p className="text-sm text-white/90 relative z-10 mt-1 h-10 drop-shadow-sm">{destination.description}</p>
       </div>
 
-      {/* Body with cost breakdown */}
-      <div className="p-5 flex-grow">
-        <div className="space-y-2.5">
-          {costBreakdown.map((item, index) => (
-            <div key={index} className="flex justify-between items-center text-sm text-slate-700">
-              <div className="flex items-center truncate pr-2">
-                <MapPinIcon 
-                    className={`h-4 w-4 mr-2 flex-shrink-0 ${item.price !== null ? 'text-[var(--theme-color)]' : 'text-slate-400'}`} 
-                />
-                <span className="truncate">{item.leg}</span>
-              </div>
-              {item.note ? (
-                 <span className="font-semibold text-xs text-green-800 bg-green-100 px-2 py-0.5 rounded-full">
-                  {item.note}
-                </span>
-              ) : item.price !== null ? (
-                <span 
-                  className="font-semibold text-slate-800 px-2 py-0.5 rounded"
-                  style={{ backgroundColor: `${themeColor}20`}}
-                >
-                  R$ {item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                </span>
-              ) : (
-                <span className="text-xs text-slate-500 font-medium">A buscar</span>
-              )}
+      {/* Body with trip options */}
+      <div className="p-5 flex-grow flex flex-col">
+        {departureFlight && (
+            <div className="mb-4 text-sm">
+                <div className="flex justify-between items-center text-slate-700">
+                    <div className="flex items-center truncate pr-2">
+                        <MapPinIcon className="h-4 w-4 mr-2 flex-shrink-0 text-[var(--theme-color)]" />
+                        <span className="font-semibold">Voo de Ida</span>
+                    </div>
+                    <span 
+                        className="font-semibold text-slate-800 px-2 py-0.5 rounded"
+                        style={{ backgroundColor: `${themeColor}20`}}
+                    >
+                        R$ {departureFlight.totalPrice.toLocaleString('pt-BR')}
+                    </span>
+                </div>
             </div>
-          ))}
+        )}
+        
+        <div className="space-y-4 flex-grow">
+          {tripOptions.length > 0 ? (
+            tripOptions.map((option, index) => (
+              <div key={index}>
+                <div className="flex justify-between items-center text-sm font-semibold text-slate-800">
+                  <span>Volta em {option.returnDate} ({option.duration})</span>
+                  <span className="text-lg font-bold" style={{color: themeColor}}>
+                     R$ {option.totalCost.toLocaleString('pt-BR')}
+                  </span>
+                </div>
+                <div className="text-xs text-slate-500 text-right">
+                  (volta por R$ {option.returnFlight.totalPrice.toLocaleString('pt-BR')})
+                </div>
+              </div>
+            ))
+          ) : (
+            <div className="text-center text-sm text-slate-500 pt-4">
+              <p>Nenhuma combinação de ida e volta encontrada com os voos salvos.</p>
+            </div>
+          )}
         </div>
-      </div>
 
-      {/* Footer with total cost */}
-      <div 
-        className="bg-white/40 p-4 mt-auto border-t-4"
-        style={{ borderColor: themeColor }}
-      >
-         <div className="flex justify-between items-center">
-            <span className="text-sm font-semibold text-slate-700">Custo Estimado (Trechos)</span>
-            <span 
-              className="text-xl font-bold"
-              style={{ color: themeColor }}
-            >
-              R$ {totalCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-            </span>
-        </div>
+        {tripOptions.length > 0 && <div className="mt-auto pt-4 text-xs text-center text-slate-500">
+            Custo total estimado (ida + volta).
+        </div>}
       </div>
     </div>
   );

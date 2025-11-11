@@ -2,8 +2,6 @@ import React from 'react';
 import type { Itinerary } from './types';
 import { 
     LatamLogoIcon, 
-    BrasilSulLogoIcon,
-    AguiaBrancaLogoIcon,
     MaxMilhasLogoIcon,
     AzulLogoIcon,
     DecolarLogoIcon,
@@ -12,42 +10,12 @@ import {
 
 export const initialItineraries: Itinerary[] = [
   {
-    id: 3,
-    title: 'Ônibus Brasil Sul: São Paulo → Foz do Iguaçu',
-    savedDate: '2024-07-25',
-    totalPrice: 199.99,
-    sourceUrl: '#',
-    events: [
-      {
-        type: 'bus',
-        startTime: '13:00', endTime: '05:15', startDate: '13/01', endDate: '14/01',
-        startLocation: 'São Paulo (Barra Funda)', endLocation: 'Foz do Iguaçu', duration: '16h 15m', details: 'Leito',
-        company: { name: 'Brasil Sul', logo: React.createElement(BrasilSulLogoIcon, { className: "h-8 w-auto" }) },
-      }
-    ],
-  },
-  {
-    id: 4,
-    title: 'Ônibus Águia Branca: Rio de Janeiro → São Paulo',
-    savedDate: '2024-07-25',
-    totalPrice: 149.90,
-    sourceUrl: '#',
-    events: [
-      {
-        type: 'bus',
-        startTime: '00:20', endTime: '07:20', startDate: '13/01', endDate: '13/01',
-        startLocation: 'Rio de Janeiro (Novo Rio)', endLocation: 'São Paulo (Barra Funda)', duration: '7h', details: 'Leito',
-        company: { name: 'Águia Branca', logo: React.createElement(AguiaBrancaLogoIcon, { className: "h-8 w-auto" }) },
-      }
-    ],
-  },
-  {
     id: 14,
     title: 'LATAM: Rio de Janeiro → Porto Seguro (18/12)',
     subtitle: 'Só Ida · Econômica · 1 passageiro',
-    savedDate: '2024-07-26',
+    savedDate: '2024-07-26 17:51',
     totalPrice: 492.00,
-    sourceUrl: 'https://www.google.com/flights',
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJU1dFMVIwdGpXRlUwWWxsQlFVODFjMUZDUnkwdExTMHRMUzB0TFMwdFkyZDJOMEZCUVVGQlIydFViMkk0U0ZOU2NrMUJFZ1pNUVRNd01UTWFDd2o3L3dJUUFob0RRbEpNT0J4dzZVZz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
     events: [
       {
         type: 'flight',
@@ -72,56 +40,15 @@ export const initialItineraries: Itinerary[] = [
         {
             provider: 'Reserve com a LATAM',
             price: 532.00,
-            url: '#',
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJU1dFMVIwdGpXRlUwWWxsQlFVODFjMUZDUnkwdExTMHRMUzB0TFMwdFkyZDJOMEZCUVVGQlIydFViMkk0U0ZOU2NrMUJFZ1pNUVRNd01UTWFDd2o3L3dJUUFob0RRbEpNT0J4dzZVZz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
             tag: 'Companhia aérea'
         },
         {
             provider: 'Reserve com a maxmilhas',
             price: 492.00,
-            url: '#',
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJU1dFMVIwdGpXRlUwWWxsQlFVODFjMUZDUnkwdExTMHRMUzB0TFMwdFkyZDJOMEZCUVVGQlIydFViMkk0U0ZOU2NrMUJFZ1pNUVRNd01UTWFDd2o3L3dJUUFob0RRbEpNT0J4dzZVZz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
-        }
-    ],
-  },
-  {
-    id: 15,
-    title: 'Azul: Porto Seguro → Rio de Janeiro',
-    subtitle: 'Só Ida · Econômica · 1 passageiro',
-    savedDate: '2024-07-26',
-    totalPrice: 316.00,
-    sourceUrl: 'https://www.google.com/flights',
-    events: [
-      {
-        type: 'flight',
-        startTime: '16:30',
-        endTime: '20:25',
-        startDate: '24/12',
-        endDate: '24/12',
-        startLocation: 'BPS',
-        endLocation: 'SDU',
-        duration: '3h 55m',
-        details: '1 parada em CNF (1h 30m)',
-        company: { name: 'Azul', logo: React.createElement(AzulLogoIcon, { className: "h-10 w-10" }) },
-      }
-    ],
-    baggage: {
-      personal: { status: 'Não disponível', details: 'Item pessoal (bolsa ou mochila)' },
-      carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
-      checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
-    },
-    bookingOptions: [
-        {
-            provider: 'Reserve com a Decolar',
-            price: 316.00,
-            url: '#',
-            logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10" }),
-        },
-        {
-            provider: 'Reserve com a Booking.com',
-            price: 325.00,
-            url: '#',
-            logo: React.createElement(BookingLogoIcon, { className: "h-10 w-10" })
         }
     ],
   },
@@ -129,9 +56,9 @@ export const initialItineraries: Itinerary[] = [
     id: 16,
     title: 'LATAM: Rio de Janeiro → Porto Seguro (20/12)',
     subtitle: 'Só Ida · Econômica · 1 passageiro',
-    savedDate: '2024-07-26',
-    totalPrice: 492.00,
-    sourceUrl: 'https://www.google.com/flights',
+    savedDate: '2024-07-26 17:48',
+    totalPrice: 499.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTIwIiAKA0dJRxIKMjAyNS0xMi0yMBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTldOcVpuVlJZMFF3ZDFGQlFVSkRNM2RDUnkwdExTMHRMUzB0TFMxalpXWXlNa0ZCUVVGQlIydFViMUpKVGw4eFVVbEJFZ1pNUVRNd01UTWFDd2p0bmdNUUFob0RRbEpNT0J4dzEwND0SAggAIgMSATA&hl=pt-BR&gl=br&curr=BRL',
     events: [
       {
         type: 'flight',
@@ -156,16 +83,141 @@ export const initialItineraries: Itinerary[] = [
         {
             provider: 'Reserve com a LATAM',
             price: 532.00,
-            url: '#',
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTIwIiAKA0dJRxIKMjAyNS0xMi0yMBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTldOcVpuVlJZMFF3ZDFGQlFVSkRNM2RDUnkwdExTMHRMUzB0TFMxalpXWXlNa0ZCUVVGQlIydFViMUpKVGw4eFVVbEJFZ1pNUVRNd01UTWFDd2p0bmdNUUFob0RRbEpNT0J4dzEwND0SAggAIgMSATA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
             tag: 'Companhia aérea'
         },
         {
             provider: 'Reserve com a maxmilhas',
-            price: 492.00,
-            url: '#',
+            price: 499.00,
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTIwIiAKA0dJRxIKMjAyNS0xMi0yMBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTldOcVpuVlJZMFF3ZDFGQlFVSkRNM2RDUnkwdExTMHRMUzB0TFMxalpXWXlNa0ZCUVVGQlIydFViMUpKVGw4eFVVbEJFZ1pNUVRNd01UTWFDd2p0bmdNUUFob0RRbEpNT0J4dzEwND0SAggAIgMSATA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
         }
+    ],
+  },
+  {
+    id: 17,
+    title: 'LATAM: Rio de Janeiro → Porto Seguro (19/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-26 17:50',
+    totalPrice: 509.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJZFhnM2QwSm5WR0psTkUxQlFVaDRiRkZDUnkwdExTMHRMUzB0TFhscFltSjFOa0ZCUVVGQlIydFViMWxuUjBaVlZXbEJFZ1pNUVRNd01UTWFDd2l6alFNUUFob0RRbEpNT0J4d3NFcz0SBggAIAIoASIDEgEw&hl=pt-BR&gl=br&curr=BRL',
+    events: [
+      {
+        type: 'flight',
+        startTime: '23:40',
+        endTime: '01:15',
+        startDate: '19/12',
+        endDate: '20/12',
+        startLocation: 'GIG',
+        endLocation: 'BPS',
+        duration: '1h 35m',
+        details: 'Sem escalas',
+        company: { name: 'LATAM', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }) },
+        operator: 'Operado por Latam Airlines Brasil',
+      }
+    ],
+    baggage: {
+      personal: { status: 'Não disponível', details: 'Item pessoal (bolsa ou mochila)' },
+      carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
+      checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
+    },
+    bookingOptions: [
+        {
+            provider: 'Reserve com a LATAM',
+            price: 532.00,
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJZFhnM2QwSm5WR0psTkUxQlFVaDRiRkZDUnkwdExTMHRMUzB0TFhscFltSjFOa0ZCUVVGQlIydFViMWxuUjBaVlZXbEJFZ1pNUVRNd01UTWFDd2l6alFNUUFob0RRbEpNT0J4d3NFcz0SBggAIAIoASIDEgEw&hl=pt-BR&gl=br&curr=BRL',
+            logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
+            tag: 'Companhia aérea'
+        },
+        {
+            provider: 'Reserve com a maxmilhas',
+            price: 509.00,
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJZFhnM2QwSm5WR0psTkUxQlFVaDRiRkZDUnkwdExTMHRMUzB0TFhscFltSjFOa0ZCUVVGQlIydFViMWxuUjBaVlZXbEJFZ1pNUVRNd01UTWFDd2l6alFNUUFob0RRbEpNT0J4d3NFcz0SBggAIAIoASIDEgEw&hl=pt-BR&gl=br&curr=BRL',
+            logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
+        }
+    ],
+  },
+  {
+    id: 21,
+    title: 'LATAM: Porto Seguro → Rio de Janeiro (23/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-26 17:54',
+    totalPrice: 297.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTIzIiAKA0JQUxIKMjAyNS0xMi0yMxoDR0lHKgJMQTIEMzc1MmoNCAISCS9tLzAyYmZmOXIMCAISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJWlZsSGRESTBWVzFOZEVWQlFVODBNMEZDUnkwdExTMHRMUzB0TFdOblpHTXhNRUZCUVVGQlIydFViMncwUXpoYWFtMUJFZ1pNUVRNM05USWFDd2pONXdFUUFob0RRbEpNT0J4dzl5cz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
+      type: 'flight',
+      startTime: '03:35',
+      endTime: '05:15',
+      startDate: '23/12',
+      endDate: '23/12',
+      startLocation: 'BPS',
+      endLocation: 'GIG',
+      duration: '1h 40m',
+      details: 'Sem escalas',
+      company: { name: 'LATAM', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }) },
+      operator: 'Operado por Latam Airlines Brasil',
+    }],
+    baggage: {
+      personal: { status: 'Não disponível', details: 'Item pessoal (bolsa ou mochila)' },
+      carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
+      checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
+    },
+    bookingOptions: [
+      {
+        provider: 'Reserve com a LATAM',
+        price: 337.00,
+        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTIzIiAKA0JQUxIKMjAyNS0xMi0yMxoDR0lHKgJMQTIEMzc1MmoNCAISCS9tLzAyYmZmOXIMCAISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJWlZsSGRESTBWVzFOZEVWQlFVODBNMEZDUnkwdExTMHRMUzB0TFdOblpHTXhNRUZCUVVGQlIydFViMncwUXpoYWFtMUJFZ1pNUVRNM05USWFDd2pONXdFUUFob0RRbEpNT0J4dzl5cz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
+        tag: 'Companhia aérea'
+      },
+      {
+        provider: 'Reserve com a maxmilhas',
+        price: 297.00,
+        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTIzIiAKA0JQUxIKMjAyNS0xMi0yMxoDR0lHKgJMQTIEMzc1MmoNCAISCS9tLzAyYmZmOXIMCAISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJWlZsSGRESTBWVzFOZEVWQlFVODBNMEZDUnkwdExTMHRMUzB0TFdOblpHTXhNRUZCUVVGQlIydFViMncwUXpoYWFtMUJFZ1pNUVRNM05USWFDd2pONXdFUUFob0RRbEpNT0J4dzl5cz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
+      }
+    ],
+  },
+  {
+    id: 22,
+    title: 'LATAM: Porto Seguro → Rio de Janeiro (24/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-26 17:55',
+    totalPrice: 226.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTI0IiAKA0JQUxIKMjAyNS0xMi0yNBoDU0RVKgJMQTIENDU0M2oNCAISCS9tLzAyYmZmOXIMCAISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJZVRkNFRIVlJORkp2ZDFsQlFVZEdUMUZDUnkwdExTMHRMUzB0TFMxalpYTjZORUZCUVVGQlIydFViM1JOU1V4b1NVbEJFZ1pNUVRRMU5ETWFDd2pCc0FFUUFob0RRbEpNT0J4d3ZTRT0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
+      type: 'flight',
+      startTime: '14:35',
+      endTime: '16:10',
+      startDate: '24/12',
+      endDate: '24/12',
+      startLocation: 'BPS',
+      endLocation: 'SDU',
+      duration: '1h 35m',
+      details: 'Sem escalas',
+      company: { name: 'LATAM', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }) },
+      operator: 'Operado por Latam Airlines Brasil',
+    }],
+     baggage: {
+      personal: { status: 'Não disponível', details: 'Item pessoal (bolsa ou mochila)' },
+      carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
+      checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
+    },
+    bookingOptions: [
+      {
+        provider: 'Reserve com a LATAM',
+        price: 232.00,
+        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTI0IiAKA0JQUxIKMjAyNS0xMi0yNBoDU0RVKgJMQTIENDU0M2oNCAISCS9tLzAyYmZmOXIMCAISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJZVRkNFRIVlJORkp2ZDFsQlFVZEdUMUZDUnkwdExTMHRMUzB0TFMxalpYTjZORUZCUVVGQlIydFViM1JOU1V4b1NVbEJFZ1pNUVRRMU5ETWFDd2pCc0FFUUFob0RRbEpNT0J4d3ZTRT0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
+        tag: 'Companhia aérea'
+      },
+      {
+        provider: 'Reserve com a maxmilhas',
+        price: 226.00,
+        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTI0IiAKA0JQUxIKMjAyNS0xMi0yNBoDU0RVKgJMQTIENDU0M2oNCAISCS9tLzAyYmZmOXIMCAISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJZVRkNFRIVlJORkp2ZDFsQlFVZEdUMUZDUnkwdExTMHRMUzB0TFMxalpYTjZORUZCUVVGQlIydFViM1JOU1V4b1NVbEJFZ1pNUVRRMU5ETWFDd2pCc0FFUUFob0RRbEpNT0J4d3ZTRT0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
+      }
     ],
   },
 ];

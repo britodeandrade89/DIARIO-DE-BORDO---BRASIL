@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { destinations } from '../destinations';
 import DestinationCard from './DestinationCard';
@@ -9,104 +8,80 @@ import { detailedRoutes } from '../detailedRotes';
 
 const normalizeStr = (str: string) => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, '');
 
-const calculateRouteCosts = (destination: Destination) => {
+export interface TripOption {
+    returnDate: string;
+    totalCost: number;
+    duration: string;
+    departureFlight: Itinerary;
+    returnFlight: Itinerary;
+}
+
+const calculateTripOptions = (destination: Destination): TripOption[] => {
     const { places, title: destTitle } = destination;
-    let total = 0;
-    const breakdown: { leg: string; price: number | null; note?: string }[] = [];
-    const usedItineraryIds = new Set<number>();
-    let startDate: string | null = null;
+    const tripOptions: TripOption[] = [];
 
-    for (let i = 0; i < places.length - 1; i++) {
-        const origin = normalizeStr(places[i]);
-        const destinationStr = normalizeStr(places[i + 1]);
-        const legName = `${places[i]} → ${places[i + 1]}`;
+    // 1. Find the specific departure flight for this card
+    let departureFlight: Itinerary | undefined;
+    const departureOrigin = normalizeStr(places[0]);
+    const departureDest = normalizeStr(places[1]);
+    
+    const matchingDepartures = initialItineraries.filter(it => {
+        const title = normalizeStr(it.title);
+        const isDepartureFlight = title.includes(departureOrigin) && title.includes(departureDest);
+        if (!isDepartureFlight) return false;
 
-        let foundItinerary: Itinerary | undefined;
+        // Filter by the date in the destination card's title
+        if (destTitle.includes('(18/12)')) return it.title.includes('(18/12)');
+        if (destTitle.includes('(19/12)')) return it.title.includes('(19/12)');
+        if (destTitle.includes('(20/12)')) return it.title.includes('(20/12)');
+        return false;
+    });
 
-        // Special handling for the Assunção -> Buenos Aires leg, which uses the Puerto Iguazú airport.
-        if (origin === 'assuncao' && destinationStr === 'buenosaires') {
-            foundItinerary = initialItineraries.find(it => {
-                const title = normalizeStr(it.title);
-                return title.includes(normalizeStr('puertoiguazu')) && title.includes(normalizeStr('buenosaires'));
-            });
-        } else {
-            // Default logic to find matching itineraries
-            const matchingItineraries = initialItineraries.filter(it => {
-                const title = normalizeStr(it.title);
-                const parts = title.split(':')[1] || title; 
-                const baseMatch = (parts.includes(origin) && parts.includes(destinationStr));
-            
-                if (!baseMatch) return false;
-            
-                // Specific logic for Porto Seguro cards to select the correct outbound and inbound flights.
-                if (destTitle.toLowerCase().includes('porto seguro')) {
-                    const isOutboundLeg = origin === 'riodejaneiro';
-            
-                    // For the outbound leg, filter by the date in the destination title.
-                    if (isOutboundLeg) {
-                        if (destTitle.includes('(18/12)')) {
-                            return it.title.includes('(18/12)');
-                        }
-                        if (destTitle.includes('(20/12)')) {
-                            return it.title.includes('(20/12)');
-                        }
-                    } else { // This is the return leg (Porto Seguro -> Rio).
-                        // For the return leg, we must explicitly exclude the outbound flights which have dates in their titles.
-                        // This ensures we match the generic return flight.
-                        if (destTitle.includes('(18/12)') || destTitle.includes('(20/12)')) {
-                            return !it.title.includes('(18/12)') && !it.title.includes('(20/12)');
-                        }
-                    }
-                }
-            
-                return baseMatch;
-            });
+    if (matchingDepartures.length > 0) {
+        departureFlight = matchingDepartures[0];
+    }
 
-            if (matchingItineraries.length > 0) {
-                // Sort by price and pick the cheapest one
-                foundItinerary = matchingItineraries.sort((a, b) => a.totalPrice - b.totalPrice)[0];
-            }
-        }
+    // If no specific departure flight is found, we can't create options.
+    if (!departureFlight) {
+        return [];
+    }
+
+    // 2. Find all available return flights
+    const returnOrigin = normalizeStr(places[1]);
+    const returnDest = normalizeStr(places[2]); // The final destination in the array
+    const returnFlights = initialItineraries.filter(it => {
+        const title = normalizeStr(it.title);
+        return title.includes(returnOrigin) && title.includes(returnDest);
+    });
+
+    // 3. Create trip combinations
+    for (const returnFlight of returnFlights) {
+        const departureDateStr = departureFlight.events[0].startDate;
+        const returnDateStr = returnFlight.events[0].startDate;
         
-        if (foundItinerary) {
-             // Capture the start date of the first paid leg
-            if (!startDate) {
-                startDate = foundItinerary.events[0]?.startDate || null;
-            }
-            // Se o itinerário encontrado já foi usado pelo seu valor total (ou seja, é uma ida e volta)
-            if (usedItineraryIds.has(foundItinerary.id)) {
-                breakdown.push({ leg: legName, price: 0, note: 'Volta Inclusa' });
-            } else {
-                total += foundItinerary.totalPrice;
-                breakdown.push({ leg: legName, price: foundItinerary.totalPrice });
-                
-                // Se o itinerário cobre mais de um trecho (é uma ida e volta), marque-o como usado.
-                if (foundItinerary.events.length > 1 || foundItinerary.title.includes('↔')) {
-                    usedItineraryIds.add(foundItinerary.id);
-                }
-            }
-        } else {
-            breakdown.push({ leg: legName, price: null });
-        }
+        const [depDay, depMonth] = departureDateStr.split('/').map(Number);
+        const [retDay, retMonth] = returnDateStr.split('/').map(Number);
+
+        // Assume year 2025 as per itinerary data
+        const depDate = new Date(2025, depMonth - 1, depDay);
+        const retDate = new Date(2025, retMonth - 1, retDay);
+
+        if (retDate <= depDate) continue; // Skip if return is before or on the same day as departure
+
+        const diffTime = Math.abs(retDate.getTime() - depDate.getTime());
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) + 1; // +1 to make the day count inclusive
+
+        tripOptions.push({
+            returnDate: returnDateStr,
+            totalCost: departureFlight.totalPrice + returnFlight.totalPrice,
+            duration: `${diffDays} dias`,
+            departureFlight: departureFlight,
+            returnFlight: returnFlight,
+        });
     }
-    return { total, breakdown, startDate };
-};
-
-const calculateTotalDuration = (destination: Destination): string => {
-    const routeData = detailedRoutes[destination.id];
-    if (!routeData || !routeData.itinerary || routeData.itinerary.length === 0) {
-        return '';
-    }
-
-    const totalDays = routeData.itinerary.reduce((sum, cityPlan) => {
-        const daysMatch = cityPlan.duration.match(/(\d+)/);
-        if (daysMatch && daysMatch[1]) {
-            return sum + parseInt(daysMatch[1], 10);
-        }
-        return sum;
-    }, 0);
-
-    return totalDays > 0 ? `${totalDays} dias` : '';
+    
+    // Sort options by the lowest total cost
+    return tripOptions.sort((a, b) => a.totalCost - b.totalCost);
 };
 
 
@@ -143,7 +118,8 @@ const Destinations: React.FC = () => {
       nextDestination = categoryDestinations[prevIndex];
     }
     
-    const { startDate } = calculateRouteCosts(nextDestination);
+    const tripOptions = calculateTripOptions(nextDestination);
+    const startDate = tripOptions[0]?.departureFlight.events[0].startDate || null;
     setSelectedDestination({ id: nextDestination.id, startDate });
   }
 
@@ -160,16 +136,13 @@ const Destinations: React.FC = () => {
             <h3 className="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-red-400 pb-2">{category}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {dests.map(destination => {
-                const { total, breakdown, startDate } = calculateRouteCosts(destination);
-                const duration = calculateTotalDuration(destination);
+                const tripOptions = calculateTripOptions(destination);
                 return (
                   <DestinationCard 
                     key={destination.id} 
                     destination={destination}
-                    totalCost={total}
-                    costBreakdown={breakdown}
-                    duration={duration}
-                    onClick={() => handleSelectDestination(destination.id, startDate)}
+                    tripOptions={tripOptions}
+                    onClick={() => handleSelectDestination(destination.id, tripOptions[0]?.departureFlight.events[0].startDate || null)}
                   />
                 )
               })}

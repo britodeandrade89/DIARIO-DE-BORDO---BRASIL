@@ -55,7 +55,7 @@ export interface Airport {
   name: string;
 }
 
-export type TripEventType = 'flight' | 'bus' | 'car' | 'train' | 'accommodation';
+export type TripEventType = 'flight' | 'car' | 'train' | 'accommodation';
 
 export interface TripEvent {
   type: TripEventType;

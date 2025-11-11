@@ -1,24 +1,8 @@
-import type { DetailedRoute } from './types';
+import type { DetailedRoute, AccommodationOption } from './types';
 
-export const detailedRoutes: Record<number, DetailedRoute> = {
-    18: {
-        id: 18,
-        title: 'Natal em Porto Seguro',
-        itinerary: [
-            {
-                city: 'Porto Seguro',
-                duration: "6 Dias",
-                days: [
-                    { day: 1, title: "Chegada, Praia e Agito", activities: ["Chegada de madrugada, check-in e descanso.", "Manhã na Praia de Taperapuã, uma das mais famosas.", "Almoço e tarde nas barracas Axé Moi ou Tôa Tôa, com muita música e animação."]},
-                    { day: 2, title: "Charme de Trancoso", activities: ["Passeio de dia inteiro para Trancoso.", "Explorar o Quadrado, a igreja de São João Batista e as praias dos Coqueiros e Nativos."]},
-                    { day: 3, title: "Paraíso em Arraial d'Ajuda", activities: ["Passeio de dia inteiro para Arraial d'Ajuda.", "Caminhar pela charmosa Rua do Mucugê, relaxar na Praia do Mucugê ou Pitinga.", "Visitar o Eco Parque Arraial d'Ajuda (opcional)."]},
-                    { day: 4, title: "História e Cultura", activities: ["Visita à Coroa Vermelha, local da primeira missa no Brasil.", "Conhecer o artesanato da reserva indígena Pataxó.", "À noite, curtir a Passarela do Descobrimento."]},
-                    { day: 5, title: "Centro Histórico e Vistas", activities: ["Subir à Cidade Histórica para visitar o Marco do Descobrimento, o Farol e as igrejas.", "Aproveitar a vista panorâmica da orla.", "Última noite na Passarela do Descobrimento para comprar lembrancinhas."]},
-                    { day: 6, title: "Manhã Livre e Voo de Volta", activities: ["Manhã livre para um último mergulho ou compras.", "Check-out do hotel e deslocamento para o aeroporto para o voo da tarde."]}
-                ]
-            }
-        ],
-        accommodations: [
+// FIX: Extracted the accommodations array into a separate constant `portoSeguroAccommodations`.
+// This resolves a "used before declaration" error by preventing `detailedRoutes` from being referenced within its own initialization.
+const portoSeguroAccommodations: AccommodationOption[] = [
             {
                 name: "Pousada Costamar",
                 rating: 6.8,
@@ -176,11 +160,11 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 totalPrice: 926,
                 nights: 4,
                 images: [
-                    "https://images.trvl-media.com/lodging/101000000/100700000/100699912/100699912/28e3760a.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/100700000/100699912/100699912/2a36d2c1.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/100700000/100699912/100699912/e6f2129c.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/100700000/100699912/100699912/e6c98f98.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/100700000/100699912/100699912/e29a8a76.jpg"
+                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/28e3760a.jpg",
+                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/2a36d2c1.jpg",
+                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/e6f2129c.jpg",
+                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/e6c98f98.jpg",
+                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/e29a8a76.jpg"
                 ],
                 amenities: ["Piscina com bar", "Estacionamento", "Café da manhã incluído", "Wi-Fi Grátis"],
                 pros: ["Avaliação 'Muito boa' (8.4)", "Totalmente reembolsável", "Piscina com bar", "Excelente localização (2 min da Rua do Mucugê)"],
@@ -244,6 +228,61 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 distanceToCenter: "Localizado no centro, a 13 min de caminhada da Passarela do Descobrimento.",
                 bookingUrl: "https://www.hoteis.com/ho599588/marlim-porto-hotel-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
             }
-        ].sort((a, b) => a.pricePerNight - b.pricePerNight)
+        ].sort((a, b) => a.pricePerNight - b.pricePerNight);
+
+export const detailedRoutes: Record<number, DetailedRoute> = {
+    18: {
+        id: 18,
+        title: 'Natal em Porto Seguro',
+        itinerary: [
+            {
+                city: 'Porto Seguro',
+                duration: "6 Dias",
+                days: [
+                    { day: 1, title: "Chegada, Praia e Agito", activities: ["Chegada de madrugada, check-in e descanso.", "Manhã na Praia de Taperapuã, uma das mais famosas.", "Almoço e tarde nas barracas Axé Moi ou Tôa Tôa, com muita música e animação."]},
+                    { day: 2, title: "Charme de Trancoso", activities: ["Passeio de dia inteiro para Trancoso.", "Explorar o Quadrado, a igreja de São João Batista e as praias dos Coqueiros e Nativos."]},
+                    { day: 3, title: "Paraíso em Arraial d'Ajuda", activities: ["Passeio de dia inteiro para Arraial d'Ajuda.", "Caminhar pela charmosa Rua do Mucugê, relaxar na Praia do Mucugê ou Pitinga.", "Visitar o Eco Parque Arraial d'Ajuda (opcional)."]},
+                    { day: 4, title: "História e Cultura", activities: ["Visita à Coroa Vermelha, local da primeira missa no Brasil.", "Conhecer o artesanato da reserva indígena Pataxó.", "À noite, curtir a Passarela do Descobrimento."]},
+                    { day: 5, title: "Centro Histórico e Vistas", activities: ["Subir à Cidade Histórica para visitar o Marco do Descobrimento, o Farol e as igrejas.", "Aproveitar a vista panorâmica da orla.", "Última noite na Passarela do Descobrimento para comprar lembrancinhas."]},
+                    { day: 6, title: "Manhã Livre e Voo de Volta", activities: ["Manhã livre para um último mergulho ou compras.", "Check-out do hotel e deslocamento para o aeroporto para o voo da tarde."]}
+                ]
+            }
+        ],
+        accommodations: portoSeguroAccommodations,
+    },
+    19: {
+        id: 19,
+        title: 'Natal em Porto Seguro (4 Dias)',
+        itinerary: [
+            {
+                city: 'Porto Seguro',
+                duration: "4 Dias",
+                days: [
+                    { day: 1, title: "Chegada, Praia e Agito", activities: ["Chegada de madrugada, check-in e descanso.", "Manhã na Praia de Taperapuã, uma das mais famosas.", "Almoço e tarde nas barracas Axé Moi ou Tôa Tôa, com muita música e animação."]},
+                    { day: 2, title: "Charme de Trancoso", activities: ["Passeio de dia inteiro para Trancoso.", "Explorar o Quadrado, a igreja de São João Batista e as praias dos Coqueiros e Nativos."]},
+                    { day: 3, title: "Paraíso em Arraial d'Ajuda", activities: ["Passeio de dia inteiro para Arraial d'Ajuda.", "Caminhar pela charmosa Rua do Mucugê, relaxar na Praia do Mucugê ou Pitinga.", "Visitar o Eco Parque Arraial d'Ajuda (opcional)."]},
+                    { day: 4, title: "História e Voo de Volta", activities: ["Visita à Coroa Vermelha, local da primeira missa no Brasil.", "Conhecer o artesanato da reserva indígena Pataxó.", "À tarde, voo de volta para casa."]},
+                ]
+            }
+        ],
+        accommodations: portoSeguroAccommodations,
+    },
+    20: {
+        id: 20,
+        title: 'Natal em Porto Seguro (5 Dias)',
+        itinerary: [
+            {
+                city: 'Porto Seguro',
+                duration: "5 Dias",
+                days: [
+                    { day: 1, title: "Chegada, Praia e Agito", activities: ["Chegada de madrugada, check-in e descanso.", "Manhã na Praia de Taperapuã, uma das mais famosas.", "Almoço e tarde nas barracas Axé Moi ou Tôa Tôa, com muita música e animação."]},
+                    { day: 2, title: "Charme de Trancoso", activities: ["Passeio de dia inteiro para Trancoso.", "Explorar o Quadrado, a igreja de São João Batista e as praias dos Coqueiros e Nativos."]},
+                    { day: 3, title: "Paraíso em Arraial d'Ajuda", activities: ["Passeio de dia inteiro para Arraial d'Ajuda.", "Caminhar pela charmosa Rua do Mucugê, relaxar na Praia do Mucugê ou Pitinga.", "Visitar o Eco Parque Arraial d'Ajuda (opcional)."]},
+                    { day: 4, title: "História e Cultura", activities: ["Visita à Coroa Vermelha, local da primeira missa no Brasil.", "Conhecer o artesanato da reserva indígena Pataxó.", "À noite, curtir a Passarela do Descobrimento."]},
+                    { day: 5, title: "Centro Histórico e Voo de Volta", activities: ["Subir à Cidade Histórica para visitar o Marco do Descobrimento e o Farol.", "Aproveitar a vista panorâmica e voo de volta à tarde."]},
+                ]
+            }
+        ],
+        accommodations: portoSeguroAccommodations,
     }
   };

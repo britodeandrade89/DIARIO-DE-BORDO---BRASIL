@@ -1,9 +1,10 @@
+
 import React from 'react';
 import type { Itinerary, TripEvent, BookingOption } from '../types';
 import { CloseIcon, BaggageIcon, BackpackIcon, SuitcaseIcon } from './icons';
 
 const EventRow: React.FC<{ event: TripEvent }> = ({ event }) => (
-    <div className="bg-white p-4 rounded-lg border border-slate-200">
+    <div className="bg-white/80 p-4 rounded-xl border border-slate-200">
         <div className="flex items-center space-x-4">
             <div className="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-lg bg-slate-100">
                 {React.cloneElement(event.company.logo as React.ReactElement, { className: "h-8 w-auto" })}
@@ -38,7 +39,7 @@ const BaggageItem: React.FC<{ status: 'Inclusa' | 'Taxa Adicional' | 'Não dispo
 );
 
 const BookingRow: React.FC<{ option: BookingOption }> = ({ option }) => (
-    <div className="flex items-center justify-between p-4 bg-white rounded-lg border border-slate-200 hover:bg-slate-50/50 transition-colors">
+    <div className="flex items-center justify-between p-4 bg-white/80 rounded-xl border border-slate-200 hover:bg-white/90 transition-colors">
         <div className="flex items-center space-x-4">
             <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
                  {option.logo}
@@ -50,7 +51,7 @@ const BookingRow: React.FC<{ option: BookingOption }> = ({ option }) => (
         </div>
         <div className="flex items-center space-x-6">
             <p className="text-lg font-bold text-slate-800">R$ {option.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-            <a href={option.url} target="_blank" rel="noopener noreferrer" className="bg-slate-800 text-white font-semibold px-6 py-2 rounded-lg hover:bg-slate-700 transition-colors text-sm">
+            <a href={option.url} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-red-600 to-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:shadow-lg hover:scale-105 transition-all text-sm">
                 Continuar
             </a>
         </div>
@@ -64,8 +65,8 @@ const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: ()
     return (
         <>
             <div className="fixed inset-0 bg-black/60 z-40 transition-opacity" onClick={onClose} />
-            <div className="fixed top-0 right-0 h-full w-full max-w-3xl bg-slate-100 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col">
-                <header className="flex items-center justify-between p-4 bg-white border-b border-slate-200 flex-shrink-0">
+            <div className="fixed top-0 right-0 h-full w-full max-w-3xl bg-gradient-to-br from-slate-50 to-rose-50 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col">
+                <header className="flex items-center justify-between p-4 bg-white/80 backdrop-blur-sm border-b border-slate-200 flex-shrink-0 sticky top-0">
                     <div>
                         <h2 className="text-xl font-bold text-slate-800">{itinerary.title}</h2>
                         <p className="text-sm text-slate-500">{itinerary.subtitle}</p>
@@ -73,9 +74,9 @@ const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: ()
                     <div className="flex items-center space-x-4">
                         <div className="text-right">
                              <p className="text-xs text-slate-500">Menor preço total</p>
-                             <p className="text-2xl font-extrabold text-slate-800">R$ {itinerary.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+                             <p className="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-blue-600 bg-clip-text text-transparent">R$ {itinerary.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
                         </div>
-                        <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-100 text-slate-600 transition-colors">
+                        <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-200 text-slate-600 transition-colors">
                             <CloseIcon className="h-6 w-6" />
                         </button>
                     </div>
@@ -91,7 +92,7 @@ const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: ()
 
                     {itinerary.baggage && (
                         <section>
-                            <div className="bg-white p-4 rounded-lg border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div className="bg-white/80 p-4 rounded-xl border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4">
                                <BaggageItem status={itinerary.baggage.personal.status} details="Item pessoal" icon={<BackpackIcon className="h-5 w-5"/>} />
                                <BaggageItem status={itinerary.baggage.carryOn.status} details={itinerary.baggage.carryOn.details} icon={<BaggageIcon className="h-5 w-5"/>} />
                                <BaggageItem status={itinerary.baggage.checked.status} details={itinerary.baggage.checked.details} icon={<SuitcaseIcon className="h-5 w-5"/>} />

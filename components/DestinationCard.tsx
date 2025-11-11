@@ -1,3 +1,4 @@
+
 import React from 'react';
 import type { Destination } from '../types';
 import { MapPinIcon } from './icons';
@@ -16,7 +17,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, totalCos
   return (
     <div 
       onClick={onClick}
-      className="bg-white rounded-xl shadow-lg border border-slate-200 flex flex-col h-full overflow-hidden transition-all duration-300 cursor-pointer group hover:shadow-2xl hover:-translate-y-1"
+      className="bg-white/60 backdrop-blur-lg rounded-2xl shadow-lg border border-white/30 flex flex-col h-full overflow-hidden transition-all duration-300 cursor-pointer group hover:shadow-cyan-500/20 hover:shadow-2xl hover:-translate-y-2"
       style={{ '--theme-color': themeColor } as React.CSSProperties}
     >
       {/* Header with theme color and icon */}
@@ -27,21 +28,21 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, totalCos
         <div className="absolute top-2 right-2 text-white/20 transform-gpu group-hover:scale-110 transition-transform duration-300">
           {React.cloneElement(icon, { className: 'h-24 w-24' })}
         </div>
-        <h3 className="text-xl font-bold relative z-10 flex items-baseline">
+        <h3 className="text-xl font-bold relative z-10 drop-shadow-sm flex items-baseline">
           <span>{destination.title}</span>
           {duration && <span className="text-base font-normal text-white/80 ml-2 whitespace-nowrap">{duration}</span>}
         </h3>
-        <p className="text-sm text-white/90 relative z-10 mt-1 h-10">{destination.description}</p>
+        <p className="text-sm text-white/90 relative z-10 mt-1 h-10 drop-shadow-sm">{destination.description}</p>
       </div>
 
       {/* Body with cost breakdown */}
       <div className="p-5 flex-grow">
         <div className="space-y-2.5">
           {costBreakdown.map((item, index) => (
-            <div key={index} className="flex justify-between items-center text-sm text-slate-600">
+            <div key={index} className="flex justify-between items-center text-sm text-slate-700">
               <div className="flex items-center truncate pr-2">
                 <MapPinIcon 
-                    className={`h-4 w-4 mr-2 flex-shrink-0 ${item.price !== null ? 'text-[var(--theme-color)]' : 'text-slate-300'}`} 
+                    className={`h-4 w-4 mr-2 flex-shrink-0 ${item.price !== null ? 'text-[var(--theme-color)]' : 'text-slate-400'}`} 
                 />
                 <span className="truncate">{item.leg}</span>
               </div>
@@ -57,7 +58,7 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, totalCos
                   R$ {item.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                 </span>
               ) : (
-                <span className="text-xs text-slate-400 font-medium">A buscar</span>
+                <span className="text-xs text-slate-500 font-medium">A buscar</span>
               )}
             </div>
           ))}
@@ -66,11 +67,11 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, totalCos
 
       {/* Footer with total cost */}
       <div 
-        className="bg-slate-50 p-4 mt-auto border-t-4"
+        className="bg-white/40 p-4 mt-auto border-t-4"
         style={{ borderColor: themeColor }}
       >
          <div className="flex justify-between items-center">
-            <span className="text-sm font-semibold text-slate-600">Custo Estimado (Trechos)</span>
+            <span className="text-sm font-semibold text-slate-700">Custo Estimado (Trechos)</span>
             <span 
               className="text-xl font-bold"
               style={{ color: themeColor }}

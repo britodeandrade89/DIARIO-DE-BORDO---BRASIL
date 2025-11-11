@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { getAiTravelAssistantResponse } from '../services/geminiService';
 import { SparklesIcon, AlertTriangleIcon } from './icons';
@@ -40,14 +41,14 @@ const AiAssistant: React.FC = () => {
     return (
         <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-                <SparklesIcon className="h-12 w-12 mx-auto text-cyan-600" />
-                <h2 className="text-4xl font-extrabold text-slate-800 mt-4">Assistente de Viagem IA</h2>
-                <p className="text-slate-500 mt-2 text-lg">
+                <SparklesIcon className="h-12 w-12 mx-auto bg-gradient-to-r from-red-500 to-blue-600 bg-clip-text text-transparent" />
+                <h2 className="text-4xl font-extrabold mt-4 bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">Assistente de Viagem IA</h2>
+                <p className="text-slate-600 mt-2 text-lg">
                     Peça roteiros, dicas de preços, hotéis, distâncias e o que mais sua imaginação permitir.
                 </p>
             </div>
 
-            <div className="bg-white p-6 rounded-xl shadow-md border border-slate-200">
+            <div className="bg-white/60 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/30">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="ai-prompt" className="block text-sm font-medium text-slate-700 mb-2">
                         Sua pergunta:
@@ -59,13 +60,13 @@ const AiAssistant: React.FC = () => {
                             value={prompt}
                             onChange={(e) => setPrompt(e.target.value)}
                             placeholder="Ex: Crie um roteiro de 3 dias em Porto Seguro com foco em praias"
-                            className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition"
+                            className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 transition bg-white/70"
                             disabled={isLoading}
                          />
                          <button
                             type="submit"
                             disabled={isLoading || !prompt.trim()}
-                            className="bg-cyan-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-cyan-700 disabled:bg-slate-400 disabled:cursor-not-allowed transition-colors flex items-center"
+                            className="bg-gradient-to-r from-red-600 to-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all disabled:from-slate-400 disabled:to-slate-500 disabled:scale-100 disabled:shadow-none disabled:cursor-not-allowed flex items-center"
                          >
                             {isLoading ? (
                                 <>
@@ -84,7 +85,7 @@ const AiAssistant: React.FC = () => {
             </div>
             
             {(isLoading || response || error) && (
-                <div className="mt-8 bg-white p-6 rounded-xl shadow-md border border-slate-200">
+                <div className="mt-8 bg-white/60 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/30">
                     <h3 className="text-lg font-semibold text-slate-800 mb-4">Resposta do Assistente</h3>
                      {error && (
                         <div className="text-red-600 bg-red-50 p-4 rounded-lg flex items-center space-x-3">

@@ -44,8 +44,8 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
                 return (
                     <div>
                         <div className="text-center mb-12">
-                            <h2 className="text-4xl font-extrabold text-slate-800">Meus Itinerários</h2>
-                            <p className="text-slate-500 mt-2 text-lg">Aqui estão todas as suas passagens e planos de viagem salvos.</p>
+                            <h2 className="text-4xl font-extrabold bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">Meus Itinerários</h2>
+                            <p className="text-slate-600 mt-2 text-lg">Aqui estão todas as suas passagens e planos de viagem salvos.</p>
                         </div>
                         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                         {itineraries.map(itinerary => (
@@ -60,10 +60,10 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
     const TabButton: React.FC<{ tabName: 'itineraries' | 'destinations' | 'ai-assistant'; label: string; icon: React.ReactNode }> = ({ tabName, label, icon }) => (
         <button
             onClick={() => setActiveTab(tabName)}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-md font-semibold transition-colors text-sm ${
+            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
                 activeTab === tabName
-                    ? 'bg-cyan-600 text-white shadow'
-                    : 'text-slate-600 hover:bg-slate-200'
+                    ? 'bg-gradient-to-r from-red-600 to-blue-600 text-white shadow-lg'
+                    : 'text-slate-700 hover:bg-white/60'
             }`}
         >
             {icon}
@@ -72,14 +72,14 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
     );
 
     return (
-        <div className="bg-slate-50 min-h-screen">
-             <header className="bg-white shadow-sm sticky top-0 z-10">
+        <div className="bg-transparent min-h-screen">
+             <header className="bg-white/80 backdrop-blur-sm shadow-md sticky top-0 z-20">
                 <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-                    <h1 className="text-2xl font-bold text-slate-800">
+                    <h1 className="text-3xl font-bold bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">
                         Diário de Bordo
                     </h1>
                      <div className="flex items-center space-x-4">
-                        <div className="flex items-center space-x-2 bg-slate-100 p-1 rounded-lg">
+                        <div className="flex items-center space-x-1 bg-white/50 p-1 rounded-xl shadow-inner">
                             <TabButton tabName="destinations" label="Explorar Roteiros" icon={<CompassIcon className="h-5 w-5" />} />
                             <TabButton tabName="itineraries" label="Meus Itinerários" icon={<BookOpenIcon className="h-5 w-5" />} />
                             <TabButton tabName="ai-assistant" label="Assistente IA" icon={<SparklesIcon className="h-5 w-5" />} />
@@ -87,7 +87,7 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
                         {installPromptEvent && (
                             <button
                                 onClick={handleInstallClick}
-                                className="flex items-center space-x-2 px-3 py-2 rounded-lg font-semibold transition-colors text-sm bg-cyan-50 text-cyan-700 hover:bg-cyan-100 border border-cyan-200"
+                                className="flex items-center space-x-2 px-4 py-2 rounded-xl font-semibold transition-all text-sm bg-gradient-to-r from-sky-500 to-cyan-500 text-white hover:shadow-lg hover:scale-105"
                             >
                                 <DownloadIcon className="h-5 w-5" />
                                 <span>Instalar App</span>

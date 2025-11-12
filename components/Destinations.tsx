@@ -131,11 +131,6 @@ const Destinations: React.FC = () => {
   return (
     <>
       <div className="space-y-12">
-        <div className="text-center">
-          <h2 className="text-4xl font-extrabold bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">Explorar Roteiros</h2>
-          <p className="text-slate-600 mt-2 text-lg">Inspire-se com nossos roteiros e veja uma estimativa de custos com base nas suas passagens salvas.</p>
-        </div>
-
         {Object.entries(groupedDestinations).map(([category, dests]) => (
           <section key={category}>
             <h3 className="text-2xl font-bold text-slate-800 mb-6 border-b-2 border-red-400 pb-2">{category}</h3>

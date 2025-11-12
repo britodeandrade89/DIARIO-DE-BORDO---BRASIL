@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { getAiTravelAssistantResponse } from '../services/geminiService';
 import { SparklesIcon, AlertTriangleIcon } from './icons';
@@ -40,14 +39,6 @@ const AiAssistant: React.FC = () => {
 
     return (
         <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-                <SparklesIcon className="h-12 w-12 mx-auto bg-gradient-to-r from-red-500 to-blue-600 bg-clip-text text-transparent" />
-                <h2 className="text-4xl font-extrabold mt-4 bg-gradient-to-r from-red-600 to-blue-700 bg-clip-text text-transparent">Assistente de Viagem IA</h2>
-                <p className="text-slate-600 mt-2 text-lg">
-                    Peça roteiros, dicas de preços, hotéis, distâncias e o que mais sua imaginação permitir.
-                </p>
-            </div>
-
             <div className="bg-white/60 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/30">
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="ai-prompt" className="block text-sm font-medium text-slate-700 mb-2">

@@ -284,5 +284,42 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
             }
         ],
         accommodations: portoSeguroAccommodations,
+    },
+    23: {
+        id: 23,
+        title: 'Verão em Angra dos Reis',
+        itinerary: [
+            {
+                city: 'Angra dos Reis',
+                duration: "4 Dias",
+                days: [
+                    { day: 1, title: "Chegada e Praia de Garatucaia", activities: ["Check-in na acomodação.", "Tarde na Praia de Garatucaia para relaxar.", "Jantar em um restaurante local."]},
+                    { day: 2, title: "Passeio de Barco para Ilha Grande", activities: ["Passeio de barco de dia inteiro para a Ilha Grande.", "Visitar a Lagoa Azul para mergulho e a Praia de Lopes Mendes."]},
+                    { day: 3, title: "Centro Histórico e Ilhas Botinas", activities: ["Explorar o centro histórico de Angra dos Reis.", "Passeio de barco mais curto para as Ilhas Botinas, conhecidas como 'ilhas gêmeas'."]},
+                    { day: 4, title: "Manhã Livre e Despedida", activities: ["Aproveitar a manhã na piscina da pousada ou em uma praia próxima.", "Check-out e retorno."]},
+                ]
+            }
+        ],
+        accommodations: [
+            {
+                name: "Flats Catamarã",
+                rating: 10,
+                pricePerNight: 226,
+                totalPrice: 950,
+                nights: 4,
+                images: [
+                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/5e1a2f6b.jpg",
+                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/f3b8e2d4.jpg",
+                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/d6c8e3a2.jpg",
+                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/a7f5b4c1.jpg",
+                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/c9d0e1b3.jpg"
+                ],
+                amenities: ["Piscina externa", "Estacionamento grátis", "Wi-Fi Grátis", "Aceita animais de estimação"],
+                pros: ["Avaliação 'Extraordinária'", "Totalmente reembolsável", "Localização perto da praia", "Vista para o mar"],
+                cons: ["Taxas podem ser aplicadas para pets", "Pode precisar de carro para locomoção"],
+                distanceToCenter: "A 2 min de carro da Praia de Garatucaia.",
+                bookingUrl: "https://www.hoteis.com/ho3860840608/flats-catamara/?chkin=2025-12-20&chkout=2025-12-24"
+            }
+        ],
     }
   };

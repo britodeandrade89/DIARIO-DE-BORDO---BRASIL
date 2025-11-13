@@ -1,16 +1,17 @@
 import React from 'react';
-import type { Destination, Itinerary } from '../types';
-import { MapPinIcon } from './icons';
+import type { Destination, Itinerary, AccommodationOption } from '../types';
+import { MapPinIcon, StarIcon, CarIcon } from './icons';
 import { TripOption } from './Destinations';
 
 interface DestinationCardProps {
   destination: Destination;
   tripOptions: TripOption[];
+  accommodationPreview?: AccommodationOption;
   onClick: () => void;
 }
 
-const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOptions, onClick }) => {
-  const { themeColor, icon } = destination;
+const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOptions, accommodationPreview, onClick }) => {
+  const { themeColor, icon, carTrip } = destination;
   const departureFlight = tripOptions[0]?.departureFlight;
 
   return (
@@ -67,6 +68,56 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOpti
                 </div>
               </div>
             ))
+          ) : carTrip ? (
+            <div>
+              <div className="flex items-center text-sm text-slate-600 font-semibold mb-2">
+                <CarIcon className="h-4 w-4 mr-2 flex-shrink-0 text-[var(--theme-color)]" />
+                <span>Viagem de Carro (Ida e Volta)</span>
+              </div>
+              <div className="flex justify-between items-baseline">
+                  <span className="font-semibold text-slate-800 truncate pr-2">{carTrip.duration} (por trecho)</span>
+                  <span className="text-lg font-bold" style={{color: themeColor}}>
+                      R$ {(carTrip.totalCostOneWay * 2).toLocaleString('pt-BR')}
+                  </span>
+              </div>
+              <div className="text-xs text-slate-500 text-right -mt-1">
+                Total estimado
+              </div>
+               <div className="text-xs text-slate-500 text-right mt-1">
+                  (Comb. R$ {carTrip.fuelCostOneWay.toLocaleString('pt-BR', {minimumFractionDigits: 2})} + Ped. R$ {carTrip.tollCostOneWay.toLocaleString('pt-BR', {minimumFractionDigits: 2})} por trecho)
+              </div>
+              <div className="flex items-center text-xs text-slate-600 mt-2">
+                  <MapPinIcon className="h-4 w-4 text-slate-500 mr-1" />
+                  <span className="text-slate-500">{carTrip.distance} (por trecho) · {carTrip.details}</span>
+              </div>
+            </div>
+          ) : accommodationPreview ? (
+            <div>
+              <p className="text-sm text-slate-600 font-semibold mb-2">Hospedagem Sugerida:</p>
+              <div className="flex justify-between items-baseline">
+                  <span className="font-semibold text-slate-800 truncate pr-2">{accommodationPreview.name}</span>
+                  <span className="text-lg font-bold" style={{color: themeColor}}>
+                      R$ {accommodationPreview.pricePerNight.toLocaleString('pt-BR')}
+                  </span>
+              </div>
+              <div className="text-xs text-slate-500 text-right -mt-1">
+                / noite
+              </div>
+              
+              <div className="flex justify-between items-baseline mt-2 pt-2 border-t border-slate-200/60">
+                <span className="font-semibold text-slate-600">Valor total</span>
+                <span className="font-bold text-slate-800">R$ {accommodationPreview.totalPrice.toLocaleString('pt-BR')}</span>
+              </div>
+               <div className="text-xs text-slate-500 text-right">
+                para {accommodationPreview.nights} noites
+              </div>
+
+              <div className="flex items-center text-xs text-slate-600 mt-2">
+                  <StarIcon className="h-4 w-4 text-yellow-500 mr-1" />
+                  <span className="font-bold">{accommodationPreview.rating > 0 ? accommodationPreview.rating.toFixed(1) : 'Novo'}</span>
+                  <span className="ml-1 text-slate-500">({accommodationPreview.rating >= 9 ? 'Extraordinário' : 'Muito Bom'})</span>
+              </div>
+            </div>
           ) : (
             <div className="text-center text-sm text-slate-500 pt-4">
               <p>Nenhuma combinação de ida e volta encontrada com os voos salvos.</p>

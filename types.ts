@@ -122,6 +122,15 @@ export interface Itinerary {
   };
 }
 
+export interface CarTripInfo {
+  duration: string;
+  distance: string;
+  totalCostOneWay: number;
+  details: string;
+  fuelCostOneWay: number;
+  tollCostOneWay: number;
+}
+
 export interface Destination {
   id: number;
   title: string;
@@ -130,6 +139,7 @@ export interface Destination {
   description: string;
   themeColor: string;
   icon: React.ReactElement;
+  carTrip?: CarTripInfo;
 }
 
 // START: Added interfaces for detailed day-by-day itineraries

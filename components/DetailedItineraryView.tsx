@@ -1,12 +1,11 @@
 
-import React, { useState } from 'react';
-import type { Destination, AccommodationOption } from '../types';
+import React from 'react';
+import type { AccommodationOption } from '../types';
 import { detailedRoutes } from '../detailedRotes';
 import { 
     CloseIcon, 
     ChevronLeftIcon, 
     ChevronRightIcon, 
-    CalendarIcon, 
     MapPinIcon, 
     StarIcon,
     ThumbsUpIcon,
@@ -22,37 +21,31 @@ interface DetailedItineraryViewProps {
 }
 
 const AccommodationCard: React.FC<{ option: AccommodationOption }> = ({ option }) => {
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-    const nextImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % option.images.length);
-    };
-
-    const prevImage = () => {
-        setCurrentImageIndex((prevIndex) => (prevIndex - 1 + option.images.length) % option.images.length);
-    };
 
     return (
         <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg border border-slate-200 overflow-hidden">
-            <div className="relative">
-                <img 
-                    src={option.images[currentImageIndex]} 
-                    alt={option.name} 
-                    className="w-full h-56 object-cover" 
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+             <div className="relative">
+                <div className="grid grid-cols-3 grid-rows-2 gap-1 h-52">
+                    {option.images[0] && (
+                        <img src={option.images[0]} alt={option.name} className="col-span-2 row-span-2 w-full h-full object-cover rounded-tl-xl rounded-bl-xl" />
+                    )}
+                    {option.images[1] && (
+                        <img src={option.images[1]} alt={`${option.name} 2`} className="col-span-1 row-span-1 w-full h-full object-cover rounded-tr-xl" />
+                    )}
+                    {option.images[2] && (
+                        <div className="col-span-1 row-span-1 relative">
+                            <img src={option.images[2]} alt={`${option.name} 3`} className="w-full h-full object-cover rounded-br-xl" />
+                            {option.images.length > 3 && (
+                                <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold text-lg rounded-br-xl">
+                                    +{option.images.length - 3}
+                                </div>
+                            )}
+                        </div>
+                    )}
+                </div>
                 
-                {option.images.length > 1 && (
-                     <>
-                        <button onClick={prevImage} className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 p-1.5 rounded-full text-slate-800 hover:bg-white transition shadow-md">
-                            <ChevronLeftIcon className="h-5 w-5" />
-                        </button>
-                        <button onClick={nextImage} className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 p-1.5 rounded-full text-slate-800 hover:bg-white transition shadow-md">
-                            <ChevronRightIcon className="h-5 w-5" />
-                        </button>
-                    </>
-                )}
-               
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none rounded-t-xl" />
+                
                 <div className="absolute bottom-4 left-4 text-white">
                     <h4 className="text-xl font-bold drop-shadow-md">{option.name}</h4>
                     <div className="flex items-center space-x-1 mt-1">

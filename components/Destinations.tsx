@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { destinations } from '../destinations';
 import DestinationCard from './DestinationCard';
 import DetailedItineraryView from './DetailedItineraryView';
-import type { Destination, Itinerary } from '../types';
+import type { Destination, Itinerary, AccommodationOption } from '../types';
 import { initialItineraries } from '../itineraries';
 import { detailedRoutes } from '../detailedRotes';
 
@@ -137,11 +137,14 @@ const Destinations: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {dests.map(destination => {
                 const tripOptions = calculateTripOptions(destination);
+                const routeDetails = detailedRoutes[destination.id];
+                const accommodationPreview = routeDetails?.accommodations?.[0];
                 return (
                   <DestinationCard 
                     key={destination.id} 
                     destination={destination}
                     tripOptions={tripOptions}
+                    accommodationPreview={accommodationPreview}
                     onClick={() => handleSelectDestination(destination.id, tripOptions[0]?.departureFlight.events[0].startDate || null)}
                   />
                 )

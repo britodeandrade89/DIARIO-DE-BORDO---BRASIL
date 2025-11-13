@@ -230,6 +230,47 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             }
         ].sort((a, b) => a.pricePerNight - b.pricePerNight);
 
+const paratyAccommodations: AccommodationOption[] = [
+    {
+        name: "Pousada Entre Folhas",
+        rating: 9.0,
+        pricePerNight: 234,
+        totalPrice: 983,
+        nights: 4,
+        images: [
+            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/e8784a9e.jpg",
+            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/0e46a583.jpg",
+            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/6b95b8cf.jpg",
+            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/28491373.jpg",
+            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/22239f67.jpg"
+        ],
+        amenities: ["Estacionamento grátis", "Wi-Fi Grátis", "Jardim", "Ar-condicionado", "Serviço de traslado para a praia"],
+        pros: ["Avaliação 'Maravilhosa' (9.0)", "Totalmente reembolsável", "Ambiente tranquilo e cercado de natureza", "Ótimos serviços como traslado"],
+        cons: ["Fica um pouco fora do centro, ideal para quem está de carro e busca sossego."],
+        distanceToCenter: "A 9 min de carro do Centro Histórico.",
+        bookingUrl: "https://www.hoteis.com/ho3234158880/pousada-entre-folhas-paraty-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+    },
+    {
+        name: "Pousada Camila",
+        rating: 8.4,
+        pricePerNight: 287,
+        totalPrice: 1207,
+        nights: 4,
+        images: [
+            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/d217730e.jpg",
+            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/54f2c96c.jpg",
+            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/b042c1ef.jpg",
+            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/7eb7a030.jpg",
+            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/a4d5e219.jpg"
+        ],
+        amenities: ["Piscina externa", "Café da manhã incluído", "Wi-Fi Grátis", "Estacionamento", "Sala de jogos"],
+        pros: ["Avaliação 'Muito boa' (8.4)", "Café da manhã bem avaliado", "Piscina e área de lazer"],
+        cons: ["Preço um pouco mais elevado", "Pode exigir uma pequena caminhada para o centro histórico"],
+        distanceToCenter: "A 19 min de caminhada da Igreja Matriz.",
+        bookingUrl: "https://www.hoteis.com/ho514276/pousada-camila-paraty-brasil/?chkin=2025-12-19&chkout=2025-12-23"
+    }
+].sort((a, b) => a.pricePerNight - b.pricePerNight);
+
 export const detailedRoutes: Record<number, DetailedRoute> = {
     18: {
         id: 18,
@@ -321,5 +362,59 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 bookingUrl: "https://www.hoteis.com/ho3860840608/flats-catamara/?chkin=2025-12-20&chkout=2025-12-24"
             }
         ],
+    },
+    24: {
+        id: 24,
+        title: 'Charme Histórico de Paraty',
+        itinerary: [
+            {
+                city: 'Paraty',
+                duration: "4 Dias",
+                days: [
+                    { day: 1, title: "Chegada e Passeio no Centro Histórico", activities: ["Check-in na pousada.", "Caminhada pelas ruas de pedra do Centro Histórico, admirando as casinhas coloniais.", "Jantar em um dos restaurantes charmosos da cidade."]},
+                    { day: 2, title: "Passeio de Escuna pelas Ilhas", activities: ["Passeio de barco de dia inteiro.", "Paradas em ilhas e praias para mergulho, como Ilha Comprida e Praia da Lula."]},
+                    { day: 3, title: "Vila de Trindade e Cachoeiras", activities: ["Passeio até a vila de Trindade.", "Conhecer a Praia do Cepilho, Praia de Fora e a piscina natural do Caixa d'Aço."]},
+                    { day: 4, title: "Cultura Local e Despedida", activities: ["Visita a um alambique de cachaça artesanal.", "Manhã livre para últimas compras de artesanato.", "Check-out e retorno."]},
+                ]
+            }
+        ],
+        accommodations: paratyAccommodations,
+    },
+    25: {
+        id: 25,
+        title: 'Natureza e Arte em Cunha',
+        itinerary: [
+            {
+                city: 'Cunha',
+                duration: "4 Dias",
+                days: [
+                    { day: 1, title: "Chegada e Imersão na Cerâmica", activities: ["Check-in na pousada e almoço.", "Tarde visitando os ateliês de cerâmica no centro e na estrada para Paraty.", "Jantar com culinária local, como pratos com pinhão."]},
+                    { day: 2, title: "Campos de Lavanda e Cachoeiras", activities: ["Manhã no Lavandário, apreciando a vista e os produtos de lavanda.", "Tarde na Cachoeira do Pimenta ou do Desterro para um banho refrescante."]},
+                    { day: 3, title: "Parque Estadual da Serra do Mar", activities: ["Trilha no núcleo Cunha do Parque Estadual, explorando a Mata Atlântica.", "Piquenique no parque e observação de aves."]},
+                    { day: 4, title: "Contemplário e Despedida", activities: ["Visita ao Contemplário para mais uma vista incrível dos campos de lavanda.", "Manhã livre para compras de queijos e doces locais.", "Check-out e retorno."]},
+                ]
+            }
+        ],
+        accommodations: [
+            {
+                name: "Espaço Flor das Águas",
+                rating: 8.8,
+                pricePerNight: 181,
+                totalPrice: 1254,
+                nights: 4,
+                images: [
+                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/05030493.jpg",
+                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/3d68e278.jpg",
+                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/209c1181.jpg",
+                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/0e28f747.jpg",
+                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/5f1f9699.jpg"
+                ],
+                amenities: ["Spa de serviço completo", "Restaurante", "Buffet de café da manhã", "Wi-Fi Grátis", "Estacionamento"],
+                pros: ["Avaliação 'Excelente' (8.8)", "Ambiente focado em bem-estar com Spa", "Cercado por natureza", "Aceita cães e gatos"],
+                cons: ["Localização um pouco afastada, ideal para quem busca sossego", "O preço do quarto econômico pode não ter as melhores vistas"],
+                distanceToCenter: "Localizado nas montanhas de Cunha.",
+                bookingUrl: "https://www.hoteis.com/ho3827177120/espaco-flor-das-aguas/?chkin=2025-12-20&chkout=2025-12-24"
+            }
+        ]
     }
   };

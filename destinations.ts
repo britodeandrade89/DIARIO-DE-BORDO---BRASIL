@@ -3,20 +3,82 @@ import type { Destination } from './types';
 import { 
     SunIcon,
     ShipIcon,
+    ActivityIcon,
+    MountainPeakIcon,
+    RouteIcon,
+    ParkingIcon,
 } from './components/icons';
 
 export const destinations: Destination[] = [
     {
+        id: 26,
+        title: "Costa Verde: Ilha Grande, Paraty & Cunha",
+        category: "Roteiros Personalizados",
+        places: ['Maricá', 'Mangaratiba', 'Ilha Grande', 'Paraty', 'Cunha'],
+        description: 'Uma jornada pela serra e mar, combinando ilhas paradisíacas, charme colonial e a tranquilidade das montanhas.',
+        themeColor: '#0d9488', // teal-600
+        icon: React.createElement(RouteIcon),
+        carTrip: {
+            duration: "aprox. 2h 6min",
+            distance: "153,6 km",
+            totalCostOneWay: 82.77,
+            fuelCostOneWay: 77.97,
+            tollCostOneWay: 4.80,
+            details: "Via Rodovia Rio-Santos",
+            additionalCosts: [
+                {
+                    description: "Estacionamento em Mangaratiba (em frente ao cais)",
+                    dailyRate: 40.00,
+                    icon: React.createElement(ParkingIcon, {className: "h-5 w-5 text-slate-400"})
+                }
+            ]
+        }
+    },
+    {
+        id: 25,
+        title: "Natureza e Arte em Cunha",
+        category: "Destinos Próximos ao Rio",
+        places: ['Rio de Janeiro', 'Cunha', 'Rio de Janeiro'],
+        description: 'Explore os ateliês de cerâmica, cachoeiras e campos de lavanda desta cidade serrana em SP.',
+        themeColor: '#84cc16', // lime-500
+        icon: React.createElement(MountainPeakIcon),
+        carTrip: {
+            duration: "aprox. 4h 55min",
+            distance: "354,2 km",
+            totalCostOneWay: 213.72,
+            fuelCostOneWay: 179.72,
+            tollCostOneWay: 34.00,
+            details: "Via Rodovia Presidente Dutra, Rodovia Paulo Virgínio"
+        }
+    },
+    {
+        id: 24,
+        title: "Charme Histórico de Paraty",
+        category: "Destinos Próximos ao Rio",
+        places: ['Rio de Janeiro', 'Paraty', 'Rio de Janeiro'],
+        description: 'Explore o centro histórico colonial e as praias paradisíacas de Paraty. Uma viagem no tempo.',
+        themeColor: '#16a34a', // green-600
+        icon: React.createElement(ActivityIcon),
+        carTrip: {
+            duration: "aprox. 4h 52min",
+            distance: "296,4 km",
+            totalCostOneWay: 167.90,
+            fuelCostOneWay: 150.40,
+            tollCostOneWay: 17.50,
+            details: "Via Avenida Brasil, Rodovia Rio-Santos"
+        }
+    },
+    {
         id: 23,
         title: "Verão em Angra dos Reis",
-        category: "Férias no Rio de Janeiro",
+        category: "Destinos Próximos ao Rio",
         places: ['Rio de Janeiro', 'Angra dos Reis', 'Rio de Janeiro'],
         description: 'Descubra as ilhas paradisíacas e o mar cristalino de Angra. Veja opções de estadia e monte sua viagem.',
         themeColor: '#14b8a6', // teal-500
         icon: React.createElement(ShipIcon),
         carTrip: {
-            duration: "aprox. 2h 56min",
-            distance: "204,1 km",
+            duration: "aprox. 5h 51min",
+            distance: "408,1 km",
             totalCostOneWay: 232.50,
             fuelCostOneWay: 207.10,
             tollCostOneWay: 25.40,

@@ -1,11 +1,11 @@
 {
-  "name": "Diário de Bordo de Voos",
-  "short_name": "Diário Bordo",
-  "description": "Seu catálogo pessoal e inteligente para organizar e monitorar voos, ônibus e custos de viagem.",
+  "name": "Check-in, GO!",
+  "short_name": "Check-in, GO!",
+  "description": "Eu planejo, você clica, finaliza e viaja!",
   "start_url": ".",
   "display": "standalone",
   "background_color": "#f1f5f9",
-  "theme_color": "#0e7490",
+  "theme_color": "#1e293b",
   "icons": [
     {
       "src": "assets/icon.svg",

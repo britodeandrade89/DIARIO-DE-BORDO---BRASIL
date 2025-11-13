@@ -1,5 +1,34 @@
 import React from 'react';
 
+export const LogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <defs>
+            <linearGradient id="globe-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#22c55e" />
+                <stop offset="100%" stopColor="#3b82f6" />
+            </linearGradient>
+            <linearGradient id="swoosh-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                <stop offset="0%" stopColor="#60a5fa" />
+                <stop offset="100%" stopColor="#3b82f6" />
+            </linearGradient>
+             <linearGradient id="pin-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stopColor="#60a5fa" />
+                <stop offset="100%" stopColor="#1d4ed8" />
+            </linearGradient>
+        </defs>
+        <circle cx="56" cy="60" r="38" fill="url(#globe-gradient)" />
+        {/* Simplified continents */}
+        <path d="M45,45 C40,55 42,75 48,85 S 58,95 62,88 S 70,65 65,50 S 50,35 45,45 Z" fill="#16a34a" opacity="0.8"/>
+        <path d="M68,42 C72,48 70,60 72,70 S 78,78 80,72 S 80,50 75,45 Z" fill="#16a34a" opacity="0.8"/>
+        <path d="M20 80 C 40 120, 88 110, 100 65" stroke="url(#swoosh-gradient)" fill="none" strokeWidth="8" strokeLinecap="round"/>
+        <path d="M72 70 C 72 60, 80 52, 88 52 C 96 52, 104 60, 104 70 C 104 85, 88 100, 88 100 C 88 100, 72 85, 72 70 Z" fill="url(#pin-gradient)"/>
+        <circle cx="88" cy="70" r="10" fill="white"/>
+        <text x="88" y="73" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#1e40af">GPS</text>
+        <path d="M88 32 L 104 40 L 100 34 L 108 30 L 104 28 L 96 24 Z" fill="#1e40af" transform="rotate(20 98 32)"/>
+    </svg>
+);
+
+
 export const LatamLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
     <path d="M0 0H48V48H0V0Z" fill="white" fillOpacity="0.01"/>
@@ -69,6 +98,26 @@ export const BookingLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) 
     </svg>
 );
 
+export const ClickBusLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+      <rect width="48" height="48" rx="8" fill="#FF6600"/>
+      <path d="M16 24V18H32V24" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M16 30H18" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M30 30H32" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12 24H36" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+      <path d="M12 30H36V34H12V30Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+  </svg>
+);
+
+export const CCRBarcasLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="48" height="48" viewBox="0 0 100 50" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <rect width="100" height="50" fill="#00AEEF" rx="8"/>
+    <text x="50" y="35" fontFamily="Arial, sans-serif" fontSize="24" fill="white" textAnchor="middle" fontWeight="bold">
+      BARCAS
+    </text>
+  </svg>
+);
+
 export const DownloadIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
@@ -120,11 +169,33 @@ export const BaggageIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     </svg>
 );
 
+export const FuelIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 7.5h.375v.375H8.25V7.5Zm-1.5 1.5h.375v.375H6.75V9Zm1.5 1.5h.375v.375H8.25v-.375Zm-1.5 1.5h.375v.375H6.75v-.375Zm1.5 1.5h.375v.375H8.25V12Zm-1.5 1.5h.375v.375H6.75v-.375Zm1.5 1.5h.375v.375H8.25v-.375Zm1.5-1.5h.375v.375H9.75v-.375Zm1.5 1.5h.375v.375H11.25v-.375Zm1.5-1.5h.375v.375H12.75v-.375Zm1.5 1.5h.375v.375H14.25v-.375Zm1.5-1.5h.375v.375H15.75v-.375Zm-1.5-3h.375v.375H14.25V9Zm-1.5 0h.375v.375H12.75V9Zm-1.5 0h.375v.375H11.25V9Zm-1.5 0h.375v.375H9.75V9Zm-3 3.375c0-1.036.84-1.875 1.875-1.875h.375a1.875 1.875 0 0 1 1.875 1.875v7.5c0 1.036-.84 1.875-1.875 1.875h-.375a1.875 1.875 0 0 1-1.875-1.875v-7.5Zm12.375-1.875a1.875 1.875 0 0 0-1.875-1.875h-.375a1.875 1.875 0 0 0-1.875 1.875v7.5c0 1.036.84 1.875 1.875 1.875h.375a1.875 1.875 0 0 0 1.875-1.875v-7.5Z" />
+    </svg>
+);
+
+
+export const TollIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M14.25 7.756a4.5 4.5 0 1 0 0 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+    </svg>
+);
+
+
 export const CarIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V14.25m-17.25 4.5v-1.875a3.375 3.375 0 0 1 3.375-3.375h9.75a3.375 3.375 0 0 1 3.375 3.375v1.875m-1.5-9-3.75-3.75m0 0a3.75 3.75 0 1 0-5.303 0m5.303 0-3.75 3.75" />
     </svg>
 );
+
+export const BusIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+      <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.125-.504 1.125-1.125V14.25m-17.25 4.5v-1.875a3.375 3.375 0 0 1 3.375-3.375h9.75a3.375 3.375 0 0 1 3.375 3.375v1.875" />
+      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9.75V4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V9.75m-3.375 0h3.375M3.75 9.75h4.875M3.75 4.875h4.875c.621 0 1.125.504 1.125 1.125v4.875" />
+    </svg>
+);
+
 
 export const TrainIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
@@ -186,6 +257,18 @@ export const ShipIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 00-3.7-3.7 48.678 48.678 0 00-7.324 0 4.006 4.006 0 00-3.7 3.7c-.092 1.21-.138 2.43-.138 3.662m18 0c0 1.232-.046 2.453-.138 3.662a4.006 4.006 0 01-3.7 3.7 48.678 48.678 0 01-7.324 0 4.006 4.006 0 01-3.7-3.7c-.092 1.21-.138 2.43-.138 3.662m18 0h-18" />
     </svg>
+);
+
+export const RouteIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12.75 3.03v.568c0 .334.148.65.405.864l1.068.89c.442.369.535 1.01.216 1.49l-.51.766a2.25 2.25 0 0 1-1.161.886l-.143.048a1.125 1.125 0 0 0-.11 2.243l.218.065a2.25 2.25 0 0 0 1.161.886l.51.766c.319.48.126 1.121-.216 1.49l-1.068.89a1.125 1.125 0 0 0-.405.864v.568M12.75 3.03h-1.5M12.75 21h-1.5m.75-18v.568c0 .334-.148.65-.405.864l-1.068.89c-.442.369-.535 1.01-.216 1.49l.51.766a2.25 2.25 0 0 1 1.161.886l.143.048a1.125 1.125 0 0 0 .11 2.243l-.218.065a2.25 2.25 0 0 0-1.161.886l-.51.766c-.319.48-.126 1.121.216 1.49l1.068.89a1.125 1.125 0 0 0 .405.864v.568m0 0h1.5" />
+  </svg>
+);
+
+export const ParkingIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v6m3-6v6m-9-6h3.75a3.75 3.75 0 1 1 0 7.5H6.75" />
+  </svg>
 );
 
 export const TangoDancersIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (

@@ -55,7 +55,7 @@ export interface Airport {
   name: string;
 }
 
-export type TripEventType = 'flight' | 'car' | 'train' | 'accommodation';
+export type TripEventType = 'flight' | 'car' | 'train' | 'accommodation' | 'bus' | 'ship';
 
 export interface TripEvent {
   type: TripEventType;
@@ -129,6 +129,12 @@ export interface CarTripInfo {
   details: string;
   fuelCostOneWay: number;
   tollCostOneWay: number;
+  additionalCosts?: {
+    description: string;
+    dailyRate?: number;
+    total?: number;
+    icon: ReactNode;
+  }[];
 }
 
 export interface Destination {

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import type { AccommodationOption } from '../types';
 import { detailedRoutes } from '../detailedRotes';
@@ -25,23 +24,29 @@ const AccommodationCard: React.FC<{ option: AccommodationOption }> = ({ option }
     return (
         <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg border border-slate-200 overflow-hidden">
              <div className="relative">
-                <div className="grid grid-cols-3 grid-rows-2 gap-1 h-52">
-                    {option.images[0] && (
-                        <img src={option.images[0]} alt={option.name} className="col-span-2 row-span-2 w-full h-full object-cover rounded-tl-xl rounded-bl-xl" />
-                    )}
-                    {option.images[1] && (
-                        <img src={option.images[1]} alt={`${option.name} 2`} className="col-span-1 row-span-1 w-full h-full object-cover rounded-tr-xl" />
-                    )}
-                    {option.images[2] && (
-                        <div className="col-span-1 row-span-1 relative">
-                            <img src={option.images[2]} alt={`${option.name} 3`} className="w-full h-full object-cover rounded-br-xl" />
-                            {option.images.length > 3 && (
-                                <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold text-lg rounded-br-xl">
-                                    +{option.images.length - 3}
-                                </div>
-                            )}
-                        </div>
-                    )}
+                <div className="flex gap-1 h-64">
+                    {/* Main Image */}
+                    <div className="w-3/5 flex-shrink-0">
+                        {option.images[0] ? (
+                            <img src={option.images[0]} alt={option.name} className="w-full h-full object-cover rounded-l-xl" />
+                        ) : <div className="w-full h-full bg-slate-200 rounded-l-xl"></div>}
+                    </div>
+                    {/* Small Images Grid */}
+                    <div className="w-2/5 grid grid-cols-2 grid-rows-2 gap-1">
+                        {option.images[1] ? <img src={option.images[1]} alt={`${option.name} 2`} className="w-full h-full object-cover" /> : <div className="bg-slate-200"></div>}
+                        {option.images[2] ? <img src={option.images[2]} alt={`${option.name} 3`} className="w-full h-full object-cover rounded-tr-xl" /> : <div className="bg-slate-200 rounded-tr-xl"></div>}
+                        {option.images[3] ? <img src={option.images[3]} alt={`${option.name} 4`} className="w-full h-full object-cover" /> : <div className="bg-slate-200"></div>}
+                        {option.images[4] ? (
+                            <div className="relative">
+                                <img src={option.images[4]} alt={`${option.name} 5`} className="w-full h-full object-cover rounded-br-xl" />
+                                {option.images.length > 5 && (
+                                    <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold text-lg rounded-br-xl cursor-pointer">
+                                        +{option.images.length - 5}
+                                    </div>
+                                )}
+                            </div>
+                        ) : <div className="bg-slate-200 rounded-br-xl"></div> }
+                    </div>
                 </div>
                 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none rounded-t-xl" />

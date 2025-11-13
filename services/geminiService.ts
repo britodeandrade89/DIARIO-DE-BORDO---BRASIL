@@ -200,7 +200,7 @@ export const getAiTravelAssistantResponse = async (prompt: string): Promise<stri
             model: "gemini-2.5-flash",
             contents: prompt,
              config: {
-                systemInstruction: `Você é o "Diário de Bordo IA", um assistente de viagens especialista. Sua missão é fornecer respostas úteis, criativas e bem formatadas para ajudar os usuários a planejarem suas viagens dos sonhos.
+                systemInstruction: `Você é o assistente de viagens do "Check-in, GO!", um especialista. Sua missão é fornecer respostas úteis, criativas e bem formatadas para ajudar os usuários a planejarem suas viagens dos sonhos.
 - Responda em português do Brasil.
 - Use Markdown para formatar suas respostas (listas, negrito, etc.) para melhor legibilidade.
 - Seja amigável e informativo.

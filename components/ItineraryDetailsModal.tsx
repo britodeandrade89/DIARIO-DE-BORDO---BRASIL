@@ -51,7 +51,7 @@ const BookingRow: React.FC<{ option: BookingOption }> = ({ option }) => (
         </div>
         <div className="flex items-center space-x-6">
             <p className="text-lg font-bold text-slate-800">R$ {option.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-            <a href={option.url} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-red-600 to-blue-600 text-white font-semibold px-6 py-2 rounded-lg hover:shadow-lg hover:scale-105 transition-all text-sm">
+            <a href={option.url} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg hover:shadow-lg hover:scale-105 transition-all text-sm">
                 Continuar
             </a>
         </div>
@@ -74,7 +74,7 @@ const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: ()
                     <div className="flex items-center space-x-4">
                         <div className="text-right">
                              <p className="text-xs text-slate-500">Menor preço total</p>
-                             <p className="text-2xl font-extrabold bg-gradient-to-r from-red-500 to-blue-600 bg-clip-text text-transparent">R$ {itinerary.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+                             <p className="text-2xl font-extrabold text-blue-700">R$ {itinerary.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
                         </div>
                         <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-200 text-slate-600 transition-colors">
                             <CloseIcon className="h-6 w-6" />

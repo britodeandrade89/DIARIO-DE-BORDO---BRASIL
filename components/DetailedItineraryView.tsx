@@ -74,7 +74,7 @@ const AccommodationCard: React.FC<{ option: AccommodationOption }> = ({ option }
                             Total: <span className="font-semibold text-slate-700">R$ {option.totalPrice.toLocaleString('pt-BR')}</span> para {option.nights} noites
                         </p>
                     </div>
-                    <a href={option.bookingUrl} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-red-600 to-blue-600 text-white font-semibold px-5 py-2.5 rounded-lg hover:shadow-lg hover:scale-105 transition-all text-sm flex items-center space-x-2">
+                    <a href={option.bookingUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-lg hover:shadow-lg hover:scale-105 transition-all text-sm flex items-center space-x-2">
                         <span>Reservar</span>
                         <ExternalLinkIcon className="h-4 w-4" />
                     </a>
@@ -187,7 +187,7 @@ const DetailedItineraryView: React.FC<DetailedItineraryViewProps> = ({ selection
                 {routeData.accommodations && routeData.accommodations.length > 0 && (
                   <section>
                     <div className="flex items-baseline space-x-3 mb-4">
-                       <h3 className="text-2xl font-extrabold text-red-600">Opções de Hospedagem</h3>
+                       <h3 className="text-2xl font-extrabold text-slate-800">Opções de Hospedagem</h3>
                     </div>
                     <div className="space-y-6">
                         {routeData.accommodations.map((option, index) => (

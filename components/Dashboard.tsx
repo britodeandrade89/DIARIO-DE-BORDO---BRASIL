@@ -86,7 +86,7 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
 
     return (
         <div className="bg-slate-50 min-h-screen">
-             <div className="bg-gradient-to-r from-red-600 to-blue-700 pb-20">
+             <div className="bg-gradient-to-b from-sky-600 to-slate-50 pb-20">
                 <header className="bg-transparent sticky top-0 z-20">
                     <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
                         <h1 className="text-3xl font-bold text-white">
@@ -113,7 +113,12 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8 mt-8 text-center text-white">
                     {currentTitle.icon}
                     <h2 className="text-4xl font-extrabold mt-4">{currentTitle.title}</h2>
-                    <p className="max-w-2xl mx-auto mt-2 text-lg opacity-90">{currentTitle.subtitle}</p>
+                    <p 
+                        className="max-w-2xl mx-auto mt-2 text-lg font-medium" 
+                        style={{ textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)' }}
+                    >
+                        {currentTitle.subtitle}
+                    </p>
                 </div>
              </div>
             

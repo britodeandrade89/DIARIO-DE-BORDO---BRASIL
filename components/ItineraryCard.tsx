@@ -30,7 +30,7 @@ const ItineraryCard: React.FC<{ itinerary: Itinerary; onSelect: (itinerary: Itin
                         {itinerary.subtitle && <p className="text-xs text-slate-500 truncate">{itinerary.subtitle}</p>}
                     </div>
                     <div className="text-right flex-shrink-0 ml-2">
-                        <p className="text-xl font-bold bg-gradient-to-r from-red-500 to-blue-600 bg-clip-text text-transparent">
+                        <p className="text-xl font-bold text-blue-700">
                            R$ {itinerary.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                         </p>
                     </div>

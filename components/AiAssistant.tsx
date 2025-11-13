@@ -57,7 +57,7 @@ const AiAssistant: React.FC = () => {
                          <button
                             type="submit"
                             disabled={isLoading || !prompt.trim()}
-                            className="bg-gradient-to-r from-red-600 to-blue-600 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all disabled:from-slate-400 disabled:to-slate-500 disabled:scale-100 disabled:shadow-none disabled:cursor-not-allowed flex items-center"
+                            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-3 rounded-lg hover:shadow-lg hover:scale-105 transition-all disabled:bg-slate-400 disabled:scale-100 disabled:shadow-none disabled:cursor-not-allowed flex items-center"
                          >
                             {isLoading ? (
                                 <>
@@ -79,7 +79,7 @@ const AiAssistant: React.FC = () => {
                 <div className="mt-8 bg-white/60 backdrop-blur-lg p-6 rounded-2xl shadow-lg border border-white/30">
                     <h3 className="text-lg font-semibold text-slate-800 mb-4">Resposta do Assistente</h3>
                      {error && (
-                        <div className="text-red-600 bg-red-50 p-4 rounded-lg flex items-center space-x-3">
+                        <div className="text-red-50 p-4 rounded-lg flex items-center space-x-3">
                             <AlertTriangleIcon className="h-6 w-6" />
                             <div>
                                 <p className="font-semibold">Ocorreu um erro</p>

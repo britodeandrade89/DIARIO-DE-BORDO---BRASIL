@@ -3,6 +3,7 @@ import { initialItineraries } from '../itineraries';
 import { destinations } from '../destinations';
 import type { Itinerary, Destination } from '../types';
 import DestinationTripCard from './DestinationTripCard';
+import ImageUploader from './ImageUploader';
 
 interface MyTripsProps {
     onSelectItinerary: (itinerary: Itinerary) => void;
@@ -25,27 +26,38 @@ const parseItineraryDate = (itinerary: Itinerary): Date => {
 
 
 const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
-    // FIX: All trip cards now start collapsed for a cleaner initial view.
     const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+    const [itineraries, setItineraries] = useState(initialItineraries);
+
+    const handleItineraryCreated = (newItineraryData: Omit<Itinerary, 'id' | 'savedDate'>) => {
+        const newItinerary: Itinerary = {
+            ...newItineraryData,
+            id: Math.max(...itineraries.map(i => i.id), 0) + 1,
+            savedDate: new Date().toISOString(),
+        };
+        setItineraries(prev => [newItinerary, ...prev]);
+    };
+
+    const handleApiKeyError = () => {
+        alert("Erro com a Chave de API. Por favor, verifique se sua chave está configurada corretamente e atualize a página.");
+    };
 
     const groupedTrips: { [key: string]: GroupedTrip } = {};
 
     // 1. Initialize groups from all destinations.
-    // For destinations with dates in the title (like Porto Seguro), this creates a single
-    // group with a clean title, using the first destination found as a template.
     destinations.forEach(dest => {
         const key = dest.title.split(' (')[0]; 
         if (!groupedTrips[key]) {
             groupedTrips[key] = {
-                destination: { ...dest, title: key }, // Use the clean key as the new title
+                destination: { ...dest, title: key }, 
                 itineraries: [],
                 carTrips: dest.carTrips,
             };
         }
     });
     
-    // 2. Group itineraries from itineraries.ts into the prepared groups.
-    initialItineraries.forEach(itinerary => {
+    // 2. Group itineraries from state into the prepared groups.
+    itineraries.forEach(itinerary => {
         let key = "Outros"; // Default group
         if (itinerary.title.includes('Porto Seguro')) {
             key = 'Natal em Porto Seguro';
@@ -53,7 +65,6 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
             key = 'Costa Verde: Ilha Grande, Paraty & Cunha';
         }
         
-        // Find or create the group. This handles cases where an itinerary doesn't match a predefined destination.
         if (!groupedTrips[key]) {
             const firstEvent = itinerary.events[0];
             groupedTrips[key] = {
@@ -61,7 +72,6 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
                 itineraries: [],
             };
         }
-         // Avoid duplicating itineraries if multiple destination cards match (e.g., Porto Seguro 18/12, 19/12)
         if (!groupedTrips[key].itineraries.some(it => it.id === itinerary.id)) {
             groupedTrips[key].itineraries.push(itinerary);
         }
@@ -69,7 +79,6 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
 
     const finalTrips = Object.values(groupedTrips)
       .filter(trip => (trip.itineraries && trip.itineraries.length > 0) || (trip.carTrips && trip.carTrips.length > 0))
-      // FIX: Sort itineraries within each trip by departure date instead of price.
       .map(trip => ({
           ...trip, 
           itineraries: trip.itineraries.sort((a, b) => {
@@ -80,16 +89,22 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
       }));
 
     return (
-        <div className="space-y-4">
-            {finalTrips.map((trip, index) => (
-                <DestinationTripCard 
-                    key={index}
-                    trip={trip}
-                    onSelectItinerary={onSelectItinerary}
-                    isExpanded={expandedIndex === index}
-                    onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
-                />
-            ))}
+        <div className="space-y-8">
+            <ImageUploader 
+                onItineraryCreated={handleItineraryCreated}
+                onApiKeyError={handleApiKeyError}
+            />
+            <div className="space-y-4">
+                {finalTrips.map((trip, index) => (
+                    <DestinationTripCard 
+                        key={index}
+                        trip={trip}
+                        onSelectItinerary={onSelectItinerary}
+                        isExpanded={expandedIndex === index}
+                        onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
+                    />
+                ))}
+            </div>
         </div>
     );
 };

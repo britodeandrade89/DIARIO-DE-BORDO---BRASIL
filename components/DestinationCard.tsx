@@ -1,16 +1,55 @@
 import React from 'react';
 import type { Destination, Itinerary, AccommodationOption } from '../types';
-import { MapPinIcon, StarIcon, CarIcon } from './icons';
-import { TripOption } from './Destinations';
+import { MapPinIcon, StarIcon, CarIcon, HomeIcon, PlaneTakeoffIcon, PriceTagIcon, CheckShieldIcon } from './icons';
+import { TripOption, BestTripCombination } from './Destinations';
 
 interface DestinationCardProps {
   destination: Destination;
   tripOptions: TripOption[];
   accommodationPreview?: AccommodationOption;
+  bestCombinations?: BestTripCombination[];
   onClick: () => void;
 }
 
-const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOptions, accommodationPreview, onClick }) => {
+const BestCombinationDisplay: React.FC<{ combination: BestTripCombination }> = ({ combination }) => {
+    const Icon = combination.type === 'Menor Preço' ? PriceTagIcon : CheckShieldIcon;
+    const bgColor = combination.type === 'Menor Preço' ? 'bg-emerald-100' : 'bg-sky-100';
+    const textColor = combination.type === 'Menor Preço' ? 'text-emerald-700' : 'text-sky-700';
+
+    return (
+        <div className={`p-3 rounded-lg ${bgColor}`}>
+            <h4 className={`flex items-center text-sm font-bold ${textColor}`}>
+                <Icon className="h-5 w-5 mr-2" />
+                {combination.type}
+            </h4>
+            
+            <div className="mt-2 flex justify-between items-baseline">
+                <span className="text-xs font-semibold text-slate-600">Total Viagem</span>
+                <span className="text-lg font-extrabold text-slate-800">
+                    R$ {combination.totalCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                </span>
+            </div>
+            
+            <div className="mt-2 text-xs text-slate-600 space-y-1">
+                <div className="flex items-center justify-between">
+                    <span className="flex items-center"><PlaneTakeoffIcon className="h-4 w-4 mr-1"/> Ida</span>
+                    <span>R$ {combination.departureFlight.totalPrice.toFixed(2)}</span>
+                </div>
+                 <div className="flex items-center justify-between">
+                    <span className="flex items-center"><PlaneTakeoffIcon className="h-4 w-4 mr-1 rotate-180"/> Volta</span>
+                    <span>R$ {combination.returnFlight.totalPrice.toFixed(2)}</span>
+                </div>
+                 <div className="flex items-center justify-between">
+                    <span className="flex items-center"><HomeIcon className="h-4 w-4 mr-1"/> Estadia</span>
+                    <span>a partir de R$ {combination.accommodation.pricePerNight.toFixed(2)}</span>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+
+const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOptions, accommodationPreview, bestCombinations, onClick }) => {
   const { themeColor, icon, carTrips } = destination;
   const departureFlight = tripOptions[0]?.departureFlight;
   const totalCarTripCost = carTrips
@@ -43,35 +82,39 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOpti
 
       {/* Body with trip options */}
       <div className="p-5 flex-grow flex flex-col">
-        {departureFlight && (
+         {bestCombinations && bestCombinations.length > 0 ? (
+            <div className="space-y-3">
+              {bestCombinations.map(combo => <BestCombinationDisplay key={combo.type} combination={combo} />)}
+            </div>
+         ) : departureFlight ? (
             <div className="mb-4 text-sm">
                 <div className="flex justify-between items-center text-slate-700">
                     <div className="flex items-center truncate pr-2">
                         <MapPinIcon className="h-4 w-4 mr-2 flex-shrink-0 text-[var(--theme-color)]" />
-                        <span className="font-semibold">Voo de Ida</span>
+                        <span className="font-semibold">Voo de Ida ({departureFlight.events[0].startDate})</span>
                     </div>
                     <span 
                         className="font-semibold text-slate-800 px-2 py-0.5 rounded"
                         style={{ backgroundColor: `${themeColor}20`}}
                     >
-                        R$ {departureFlight.totalPrice.toLocaleString('pt-BR')}
+                        a partir de R$ {departureFlight.totalPrice.toLocaleString('pt-BR')}
                     </span>
                 </div>
             </div>
-        )}
+        ) : null}
         
         <div className="space-y-4 flex-grow">
           {tripOptions.length > 0 ? (
-            tripOptions.map((option, index) => (
+            tripOptions.slice(0, 2).map((option, index) => ( // Show max 2 options
               <div key={index}>
                 <div className="flex justify-between items-center text-sm font-semibold text-slate-800">
-                  <span>Volta em {option.returnDate} ({option.duration})</span>
+                  <span>Volta em {option.returnDate} ({option.duration.split('/')[1].trim()})</span>
                   <span className="text-lg font-bold" style={{color: themeColor}}>
                      R$ {option.totalCost.toLocaleString('pt-BR')}
                   </span>
                 </div>
                 <div className="text-xs text-slate-500 text-right">
-                  (ida R$ {option.departureFlight.totalPrice.toLocaleString('pt-BR')} + volta R$ {option.returnFlight.totalPrice.toLocaleString('pt-BR')})
+                  (ida + volta)
                 </div>
               </div>
             ))
@@ -127,11 +170,11 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOpti
                   <span className="ml-1 text-slate-500">({accommodationPreview.rating >= 9 ? 'Extraordinário' : 'Muito Bom'})</span>
               </div>
             </div>
-          ) : (
+          ) : !bestCombinations ? (
             <div className="text-center text-sm text-slate-500 pt-4">
               <p>Nenhuma combinação de ida e volta encontrada com os voos salvos.</p>
             </div>
-          )}
+          ) : null}
         </div>
       </div>
     </div>

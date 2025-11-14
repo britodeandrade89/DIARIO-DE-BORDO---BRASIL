@@ -7,9 +7,19 @@ import {
     MountainPeakIcon,
     RouteIcon,
     ParkingIcon,
+    SparklesIcon, // Added for the new card
 } from './components/icons';
 
 export const destinations: Destination[] = [
+    {
+        id: 100, // Unique ID for the smart suggestion card
+        title: "Melhor Opção: Final de ano em Porto Seguro",
+        category: "Sugestões Inteligentes",
+        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
+        description: 'Analisamos todos os voos e hotéis para trazer a melhor combinação de preço e custo-benefício para você.',
+        themeColor: '#7c3aed', // violet-600
+        icon: React.createElement(SparklesIcon),
+    },
     {
         id: 26,
         title: "Costa Verde: Ilha Grande, Paraty & Cunha",
@@ -69,42 +79,31 @@ export const destinations: Destination[] = [
         ]
     },
     {
-        id: 25,
-        title: "Natureza e Arte em Cunha",
-        category: "Destinos Próximos ao Rio",
-        places: ['Rio de Janeiro', 'Cunha', 'Rio de Janeiro'],
-        description: 'Explore os ateliês de cerâmica, cachoeiras e campos de lavanda desta cidade serrana em SP.',
-        themeColor: '#84cc16', // lime-500
-        icon: React.createElement(MountainPeakIcon),
-        carTrips: [{
-            title: "Rio de Janeiro ↔ Cunha",
-            duration: "aprox. 4h 55min",
-            distance: "354,2 km",
-            totalCostOneWay: 213.72,
-            fuelCostOneWay: 179.72,
-            tollCostOneWay: 34.00,
-            details: "Via Rodovia Presidente Dutra, Rodovia Paulo Virgínio",
-            mapUrl: './assets/angra-map.svg'
-        }]
+        id: 18,
+        title: "Natal em Porto Seguro (18/12)",
+        category: "Férias no Brasil",
+        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
+        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
+        themeColor: '#f97316', // orange-500
+        icon: React.createElement(SunIcon),
     },
     {
-        id: 24,
-        title: "Charme Histórico de Paraty",
-        category: "Destinos Próximos ao Rio",
-        places: ['Rio de Janeiro', 'Paraty', 'Rio de Janeiro'],
-        description: 'Explore o centro histórico colonial e as praias paradisíacas de Paraty. Uma viagem no tempo.',
-        themeColor: '#16a34a', // green-600
-        icon: React.createElement(ActivityIcon),
-        carTrips: [{
-            title: "Rio de Janeiro ↔ Paraty",
-            duration: "aprox. 4h 52min",
-            distance: "296,4 km",
-            totalCostOneWay: 167.90,
-            fuelCostOneWay: 150.40,
-            tollCostOneWay: 17.50,
-            details: "Via Avenida Brasil, Rodovia Rio-Santos",
-            mapUrl: './assets/angra-map.svg'
-        }]
+        id: 19,
+        title: "Natal em Porto Seguro (19/12)",
+        category: "Férias no Brasil",
+        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
+        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
+        themeColor: '#f59e0b', // amber-500
+        icon: React.createElement(SunIcon),
+    },
+    {
+        id: 20,
+        title: "Natal em Porto Seguro (20/12)",
+        category: "Férias no Brasil",
+        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
+        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
+        themeColor: '#ea580c', // orange-600
+        icon: React.createElement(SunIcon),
     },
     {
         id: 23,
@@ -125,31 +124,42 @@ export const destinations: Destination[] = [
             mapUrl: './assets/angra-map.svg'
         }]
     },
-    {
-        id: 18,
-        title: "Natal em Porto Seguro (18/12)",
-        category: "Férias no Brasil",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#f97316', // orange-500
-        icon: React.createElement(SunIcon),
+     {
+        id: 24,
+        title: "Charme Histórico de Paraty",
+        category: "Destinos Próximos ao Rio",
+        places: ['Rio de Janeiro', 'Paraty', 'Rio de Janeiro'],
+        description: 'Explore o centro histórico colonial e as praias paradisíacas de Paraty. Uma viagem no tempo.',
+        themeColor: '#16a34a', // green-600
+        icon: React.createElement(ActivityIcon),
+        carTrips: [{
+            title: "Rio de Janeiro ↔ Paraty",
+            duration: "aprox. 4h 52min",
+            distance: "296,4 km",
+            totalCostOneWay: 167.90,
+            fuelCostOneWay: 150.40,
+            tollCostOneWay: 17.50,
+            details: "Via Avenida Brasil, Rodovia Rio-Santos",
+            mapUrl: './assets/angra-map.svg'
+        }]
     },
     {
-        id: 20,
-        title: "Natal em Porto Seguro (19/12)",
-        category: "Férias no Brasil",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#f59e0b', // amber-500
-        icon: React.createElement(SunIcon),
-    },
-    {
-        id: 19,
-        title: "Natal em Porto Seguro (20/12)",
-        category: "Férias no Brasil",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#ea580c', // orange-600
-        icon: React.createElement(SunIcon),
+        id: 25,
+        title: "Natureza e Arte em Cunha",
+        category: "Destinos Próximos ao Rio",
+        places: ['Rio de Janeiro', 'Cunha', 'Rio de Janeiro'],
+        description: 'Explore os ateliês de cerâmica, cachoeiras e campos de lavanda desta cidade serrana em SP.',
+        themeColor: '#84cc16', // lime-500
+        icon: React.createElement(MountainPeakIcon),
+        carTrips: [{
+            title: "Rio de Janeiro ↔ Cunha",
+            duration: "aprox. 4h 55min",
+            distance: "354,2 km",
+            totalCostOneWay: 213.72,
+            fuelCostOneWay: 179.72,
+            tollCostOneWay: 34.00,
+            details: "Via Rodovia Presidente Dutra, Rodovia Paulo Virgínio",
+            mapUrl: './assets/angra-map.svg'
+        }]
     },
 ];

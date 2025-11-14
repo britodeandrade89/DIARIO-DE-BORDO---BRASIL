@@ -29,10 +29,11 @@ const App: React.FC = () => {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        // FIX: Using a root-relative path for both the service worker script and its scope.
-        // This is a more robust way to prevent the "origin of the provided scope does not match" error
-        // in sandboxed environments, as it avoids any potential misinterpretation of `window.location.origin`.
-        navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        // FIX: Explicitly construct the full URL for the service worker using window.location.origin.
+        // This is the most robust method to prevent "origin mismatch" errors in complex sandboxed
+        // environments where relative path resolution can be unpredictable.
+        const swUrl = `${window.location.origin}/sw.js`;
+        navigator.serviceWorker.register(swUrl, { scope: '/' })
           .then(registration => {
             console.log('Service Worker registrado com sucesso:', registration.scope);
           })

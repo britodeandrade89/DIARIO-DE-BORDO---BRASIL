@@ -14,7 +14,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Melhor preço encontrado", "Localização central (8 min da Passarela do Descobrimento)", "Piscina interna", "Reembolsável"],
                 cons: ["Avaliação 'Boa' (6.8), a mais baixa da lista", "Estrutura mais simples (2 estrelas)"],
                 distanceToCenter: "A 8 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.hoteis.com/ho1438235584/pousada-alua-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-costamar.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
              {
                 name: "Pousada Sonho Meu",
@@ -27,7 +27,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Opção mais barata disponível", "Avaliação 'Muito boa' (9.0)", "Totalmente reembolsável", "Flexibilidade de pagamento"],
                 cons: ["Estrutura simples (3 estrelas)", "Pode não incluir café da manhã na tarifa mais baixa"],
                 distanceToCenter: "A 13 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.hoteis.com/ho2671674400/pousada-sonho-meu-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-sonho-meu-porto-seguro.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
             {
                 name: "Pousada Vila Nativa",
@@ -40,7 +40,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Opção muito econômica", "Avaliação 'Muito boa' (8.0)", "Totalmente reembolsável", "Piscina e proximidade da praia"],
                 cons: ["Tarifa pode ser para quarto básico", "Estrutura mais simples (3 estrelas)"],
                 distanceToCenter: "A 3 min de carro da Praia do Mucugê.",
-                bookingUrl: "https://www.hoteis.com/ho3201038336/pousada-vila-nativa-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-vila-nativa-arraial-d-ajuda.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
             {
                 name: "Pousada O Cantinho",
@@ -53,7 +53,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Excelente localização (2 min da Rua do Mucugê)", "Ótimo custo-benefício", "Flexibilidade de pagamento ('Reserve agora, pague depois')"],
                 cons: ["Comodidades simples", "Pode não ter estacionamento", "Estrutura mais rústica"],
                 distanceToCenter: "Localizado em Arraial d'Ajuda, a 2 min de caminhada da Rua do Mucugê.",
-                bookingUrl: "https://www.hoteis.com/ho675643/pousada-o-cantinho-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24&x_pwa=1&rfrr=HSR&pwa_ts=1762872834060"
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-o-cantinho.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
             {
                 name: "Hotel Pousada Castanheiras do Village",
@@ -66,7 +66,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Avaliação 'Extraordinária' (9.0)", "Localização perto do Complexo Tôa Tôa", "Boa estrutura com piscina e restaurante"],
                 cons: ["Opção de tarifa não reembolsável", "Pode ser mais focado em famílias e agito"],
                 distanceToCenter: "A 4 min de carro do Complexo de Lazer Tôa Tôa.",
-                bookingUrl: "https://www.hoteis.com/ho439048/hotel-pousada-castanheiras-do-village-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/hotel-pousada-castanheiras-do-village.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
             {
                 name: "Ancoradouro Hotel",
@@ -79,20 +79,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Totalmente reembolsável", "Avaliação 'Boa' (8.2)", "Estrutura com 3 piscinas", "Permite animais de estimação grátis"],
                 cons: ["Preço um pouco mais alto que outras pousadas", "Localização pode ser movimentada"],
                 distanceToCenter: "A 18 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.hoteis.com/ho2689180800/ancoradouro-hotel-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
-            },
-            {
-                name: "Hospedaria Flor do Xandó",
-                city: "Porto Seguro",
-                rating: 0,
-                pricePerNight: 215,
-                totalPrice: 905,
-                nights: 4,
-                amenities: ["Piscina externa", "Estacionamento", "Wi-Fi Grátis", "Serviço de arrumação"],
-                pros: ["Preço muito competitivo com desconto", "Totalmente reembolsável", "Ambiente charmoso com redes", "Possui piscina"],
-                cons: ["Distante do centro (necessário carro)", "Sem avaliação numérica de hóspedes", "Estrutura mais rústica"],
-                distanceToCenter: "Distante do centro, a 144 min de carro do aeroporto.",
-                bookingUrl: "https://www.hoteis.com/ho3873466976/hospedaria-flor-do-xando/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/ancoradouro.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
              {
                 name: "Pousada Gira Mundo",
@@ -105,7 +92,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Preço competitivo", "Localização central (2 min da Rua do Mucugê)", "Totalmente reembolsável", "Permite animais de estimação grátis"],
                 cons: ["Estrutura simples (2 estrelas)", "Sem avaliação numérica visível", "Pode ser barulhento devido à localização"],
                 distanceToCenter: "Localizado em Arraial d'Ajuda, a 2 min de caminhada da Rua do Mucugê.",
-                bookingUrl: "https://www.hoteis.com/ho3346599808/pousada-gira-mundo/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/gira-mundo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
             {
                 name: "Pousada Alto da Praia",
@@ -118,7 +105,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Avaliação 'Muito boa' (8.4)", "Totalmente reembolsável", "Piscina com bar", "Excelente localização (2 min da Rua do Mucugê)"],
                 cons: ["Preço intermediário", "Pode ter bastante movimento devido à localização"],
                 distanceToCenter: "Localizado em Arraial d'Ajuda, a 2 min de caminhada da Rua do Mucugê.",
-                bookingUrl: "https://www.hoteis.com/ho3223397184/pousada-alto-da-praia-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-alto-da-praia.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
             {
                 name: "Pousada Brisa do Mar",
@@ -131,7 +118,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Totalmente reembolsável", "Avaliação 'Muito boa' (8.0)", "Excelente café da manhã", "Localização central, a 2 min da Passarela do Descobrimento"],
                 cons: ["Estrutura pode ser mais simples que as demais", "Taxas elevam o preço final"],
                 distanceToCenter: "Localizado no centro, a 2 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.hoteis.com/ho443721/pousada-brisa-do-mar-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-brisa-do-mar.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
             {
                 name: "Pousada Arraial Lua Crescente",
@@ -144,7 +131,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Avaliação 'Excelente' (8.8)", "Totalmente reembolsável", "Ótima localização (3 min da Rua do Mucugê)", "Permite animais de estimação grátis"],
                 cons: ["Preço intermediário", "Disponibilidade pode ser limitada"],
                 distanceToCenter: "Localizado em Arraial d'Ajuda, a 3 min de caminhada da Rua do Mucugê.",
-                bookingUrl: "https://www.hoteis.com/ho2653901312/pousada-arraial-lua-crescente-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-arraial-lua-crescente.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             },
             {
                 name: "Marlim Porto Hotel",
@@ -157,7 +144,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pros: ["Localização central, perto da Passarela do Descobrimento", "Boa estrutura com piscina e terraço", "Café da manhã bem avaliado"],
                 cons: ["Preço mais elevado (inclui taxas)", "Avaliação ligeiramente inferior às outras", "Pode ser mais movimentado por ser no centro"],
                 distanceToCenter: "Localizado no centro, a 13 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.hoteis.com/ho599588/marlim-porto-hotel-porto-seguro-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/marlim-porto.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
             }
         ].sort((a, b) => a.pricePerNight - b.pricePerNight);
 
@@ -173,7 +160,7 @@ const paratyAccommodationsFourNights: AccommodationOption[] = [
         pros: ["Avaliação 'Maravilhosa' (9.0)", "Totalmente reembolsável", "Ambiente tranquilo e cercado de natureza", "Ótimos serviços como traslado"],
         cons: ["Fica um pouco fora do centro, ideal para quem está de carro e busca sossego."],
         distanceToCenter: "A 9 min de carro do Centro Histórico.",
-        bookingUrl: "https://www.hoteis.com/ho3234158880/pousada-entre-folhas-paraty-brasil/?chkin=2025-12-20&chkout=2025-12-24"
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-entre-folhas.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
     },
     {
         name: "Pousada Camila",
@@ -186,7 +173,7 @@ const paratyAccommodationsFourNights: AccommodationOption[] = [
         pros: ["Avaliação 'Muito boa' (8.4)", "Café da manhã bem avaliado", "Piscina e área de lazer"],
         cons: ["Preço um pouco mais elevado", "Pode exigir uma pequena caminhada para o centro histórico"],
         distanceToCenter: "A 19 min de caminhada da Igreja Matriz.",
-        bookingUrl: "https://www.hoteis.com/ho514276/pousada-camila-paraty-brasil/?chkin=2025-12-19&chkout=2025-12-23"
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-camila.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
     }
 ].sort((a, b) => a.pricePerNight - b.pricePerNight);
 
@@ -203,7 +190,7 @@ const paratyAccommodationsTwoNights: AccommodationOption[] = [
         pros: ["Avaliação 'Maravilhosa' (9.0)", "Totalmente reembolsável", "Ambiente tranquilo e cercado de natureza", "Ótimos serviços como traslado"],
         cons: ["Fica um pouco fora do centro, ideal para quem está de carro e busca sossego."],
         distanceToCenter: "A 9 min de carro do Centro Histórico.",
-        bookingUrl: "https://www.hoteis.com/ho3234158880/pousada-entre-folhas-paraty-brasil/?chkin=2025-12-22&chkout=2025-12-24"
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-entre-folhas.pt-br.html?aid=340301&checkin=2025-12-22&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
     },
     {
         name: "Pousada Camila",
@@ -216,7 +203,7 @@ const paratyAccommodationsTwoNights: AccommodationOption[] = [
         pros: ["Avaliação 'Muito boa' (8.4)", "Café da manhã bem avaliado", "Piscina e área de lazer"],
         cons: ["Preço um pouco mais elevado", "Pode exigir uma pequena caminhada para o centro histórico"],
         distanceToCenter: "A 19 min de caminhada da Igreja Matriz.",
-        bookingUrl: "https://www.hoteis.com/ho514276/pousada-camila-paraty-brasil/?chkin=2025-12-22&chkout=2025-12-24"
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-camila.pt-br.html?aid=340301&checkin=2025-12-22&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
     }
 ].sort((a, b) => a.pricePerNight - b.pricePerNight);
 
@@ -233,7 +220,7 @@ const ilhaGrandeAccommodations: AccommodationOption[] = [
         pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda (geralmente esgotado)", "Comodidades modernas"],
         cons: ["Preço mais elevado em comparação a outras opções da região."],
         distanceToCenter: "Localização central em Abraão, próximo ao cais.",
-        bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1"
+        bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
     },
     {
         name: "Pousada Oásis",
@@ -246,7 +233,7 @@ const ilhaGrandeAccommodations: AccommodationOption[] = [
         pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada", "Equipe atenciosa"],
         cons: ["Pode ser barulhento por estar perto do centro", "Estrutura pode ser mais simples"],
         distanceToCenter: "A 100m da Praia do Abraão.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1"
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
     },
     {
         name: "Suítes Golfo",
@@ -259,7 +246,7 @@ const ilhaGrandeAccommodations: AccommodationOption[] = [
         pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista para o mar", "Preço competitivo"],
         cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
         distanceToCenter: "Em frente à Praia do Abraão.",
-        bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1"
+        bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
     }
 ];
 
@@ -345,7 +332,7 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda", "Comodidades modernas"],
                 cons: ["Preço mais elevado em comparação a outras opções da região."],
                 distanceToCenter: "Localização central em Abraão, próximo ao cais.",
-                bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1"
+                bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
             },
             {
                 name: "Pousada Oásis",
@@ -358,7 +345,7 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada"],
                 cons: ["Pode ser barulhento por estar perto do centro"],
                 distanceToCenter: "A 100m da Praia do Abraão.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1"
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
             },
             {
                 name: "Suítes Golfo",
@@ -371,7 +358,7 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista", "Preço competitivo"],
                 cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
                 distanceToCenter: "Em frente à Praia do Abraão.",
-                bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1"
+                bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
             },
             {
                 name: "Flats Catamarã",
@@ -384,7 +371,7 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pros: ["Avaliação 'Extraordinária'", "Totalmente reembolsável", "Localização perto da praia", "Vista para o mar"],
                 cons: ["Taxas podem ser aplicadas para pets", "Pode precisar de carro para locomoção"],
                 distanceToCenter: "A 2 min de carro da Praia de Garatucaia.",
-                bookingUrl: "https://www.hoteis.com/ho3860840608/flats-catamara/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/flats-catamara-angra-dos-reis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-623199&dest_type=city"
             }
         ].sort((a,b) => a.pricePerNight - b.pricePerNight),
     },
@@ -432,7 +419,7 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pros: ["Avaliação 'Excelente' (8.8)", "Ambiente focado em bem-estar com Spa", "Cercado por natureza", "Aceita cães e gatos"],
                 cons: ["Localização um pouco afastada, ideal para quem busca sossego", "O preço do quarto econômico pode não ter as melhores vistas"],
                 distanceToCenter: "Localizado nas montanhas de Cunha.",
-                bookingUrl: "https://www.hoteis.com/ho3827177120/espaco-flor-das-aguas/?chkin=2025-12-20&chkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/espaco-flor-das-aguas.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-638841&dest_type=city"
             }
         ]
     },

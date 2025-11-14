@@ -130,6 +130,49 @@ export const CCRBarcasLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props
   </svg>
 );
 
+export const GolLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <rect width="48" height="48" rx="24" fill="#FF6600"/>
+    <path d="M14 24C14 18.4772 18.4772 14 24 14C29.5228 14 34 18.4772 34 24C34 29.5228 29.5228 34 24 34C18.4772 34 14 29.5228 14 24Z" stroke="white" strokeWidth="4"/>
+  </svg>
+);
+
+export const TripLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <rect width="48" height="48" rx="8" fill="#1C75BC"/>
+        <text x="24" y="30" fontFamily="Arial, sans-serif" fontSize="16" fill="white" textAnchor="middle" fontWeight="bold">Trip</text>
+    </svg>
+);
+
+export const ExpediaLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <rect width="48" height="48" rx="24" fill="#FFD700"/>
+        <path d="M24 12L30 24L24 36L18 24L24 12Z" fill="#0033A0"/>
+    </svg>
+);
+
+export const ViajaNetLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <rect width="48" height="48" rx="8" fill="#00AEEF"/>
+        <path d="M12 24L24 12L36 24L24 36L12 24Z" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+);
+
+export const ZupperLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <rect width="48" height="48" rx="8" fill="#2E3192"/>
+        <text x="24" y="32" fontFamily="Arial, sans-serif" fontSize="14" fill="white" textAnchor="middle" fontWeight="bold">Zupper</text>
+    </svg>
+);
+
+export const KiwiLogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <rect width="48" height="48" rx="8" fill="#00A991"/>
+        <text x="24" y="32" fontFamily="Arial, sans-serif" fontSize="14" fill="white" textAnchor="middle" fontWeight="bold">Kiwi</text>
+    </svg>
+);
+
+
 export const DownloadIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />

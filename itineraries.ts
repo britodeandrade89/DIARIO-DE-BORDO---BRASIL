@@ -8,6 +8,12 @@ import {
     BookingLogoIcon,
     ClickBusLogoIcon,
     CCRBarcasLogoIcon,
+    GolLogoIcon,
+    TripLogoIcon,
+    ExpediaLogoIcon,
+    ViajaNetLogoIcon,
+    ZupperLogoIcon,
+    KiwiLogoIcon,
 } from './components/icons';
 
 export const initialItineraries: Itinerary[] = [
@@ -61,7 +67,7 @@ export const initialItineraries: Itinerary[] = [
     subtitle: 'Só Ida · Econômica · 1 passageiro',
     savedDate: '2024-07-26 17:51',
     totalPrice: 487.00, 
-    sourceUrl: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-18',
+    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
     events: [
       {
         type: 'flight',
@@ -86,33 +92,150 @@ export const initialItineraries: Itinerary[] = [
         {
             provider: 'Reserve com a Decolar',
             price: 487.00,
-            url: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-18',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" })
+        },
+        {
+            provider: 'Reserve com a ViajaNet',
+            price: 487.00,
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
+            logo: React.createElement(ViajaNetLogoIcon, { className: "h-10 w-10 p-1" })
         },
         {
             provider: 'Reserve com a Booking.com',
             price: 512.00,
-            url: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-18',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(BookingLogoIcon, { className: "h-10 w-10 p-1" })
         },
         {
+            provider: 'Reserve com a Trip.com',
+            price: 535.00,
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
+            logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" })
+        },
+        {
             provider: 'Reserve com a maxmilhas',
-            price: 653.00,
-            url: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-18',
+            price: 638.00,
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
         }
     ],
     monitoring: { enabled: true },
     priceHistory: [
-      { timestamp: new Date('2024-07-26T17:51:00'), price: 492.00 }, // Original LATAM
+      { timestamp: new Date('2024-07-26T17:51:00'), price: 492.00 },
       { timestamp: new Date('2024-07-27T09:00:00'), price: 499.00 },
-      { timestamp: new Date('2024-07-27T21:00:00'), price: 512.00 },
-      { timestamp: new Date('2024-07-28T09:00:00'), price: 530.00 },
       { timestamp: new Date('2024-07-28T21:00:00'), price: 580.00 },
-      { timestamp: new Date('2024-07-29T09:00:00'), price: 575.00 },
-      { timestamp: new Date('2024-07-29T21:00:00'), price: 455.00 }, // Previous best find
-      { timestamp: new Date('2024-07-30T09:00:00'), price: 487.00 }, // New price from screenshot
+      { timestamp: new Date('2024-07-29T21:00:00'), price: 455.00 },
+      { timestamp: new Date('2024-07-30T21:00:00'), price: 487.00 },
     ],
+  },
+  {
+    id: 29,
+    title: 'LATAM: Rio de Janeiro → Porto Seguro (18/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-30 21:00',
+    totalPrice: 537.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVFVoRU1Va3hObnBsUjBGQlFrRlpRa0ZDUnkwdExTMHRMUzB0TFdOblluUmxOMEZCUVVGQlIydFlUa0U0UVhSM1YwVkJFZ1pNUVRNd01UTWFDd2p6b2dNUUFob0RRbEpNT0J4d2dFOD0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
+      type: 'flight',
+      startTime: '23:40',
+      endTime: '01:15',
+      startDate: '18/12',
+      endDate: '19/12',
+      startLocation: 'GIG',
+      endLocation: 'BPS',
+      duration: '1h 35m',
+      details: 'Sem escalas',
+      company: { name: 'LATAM', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }) },
+      operator: 'Operado por Latam Airlines Brasil',
+    }],
+    baggage: {
+      personal: { status: 'Não disponível', details: 'Item pessoal (bolsa ou mochila)' },
+      carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
+      checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
+    },
+    bookingOptions: [
+      {
+        provider: 'Reserve com a maxmilhas',
+        price: 537.00,
+        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVFVoRU1Va3hObnBsUjBGQlFrRlpRa0ZDUnkwdExTMHRMUzB0TFdOblluUmxOMEZCUVVGQlIydFlUa0U0UVhSM1YwVkJFZ1pNUVRNd01UTWFDd2p6b2dNUUFob0RRbEpNT0J4d2dFOD0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
+      },
+      {
+        provider: 'Reserve com a LATAM',
+        price: 580.00,
+        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVFVoRU1Va3hObnBsUjBGQlFrRlpRa0ZDUnkwdExTMHRMUzB0TFdOblluUmxOMEZCUVVGQlIydFlUa0U0UVhSM1YwVkJFZ1pNUVRNd01UTWFDd2p6b2dNUUFob0RRbEpNT0J4d2dFOD0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
+        tag: 'Companhia aérea'
+      },
+      {
+        provider: 'Reserve com a Decolar',
+        price: 584.00,
+        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVFVoRU1Va3hObnBsUjBGQlFrRlpRa0ZDUnkwdExTMHRMUzB0TFdOblluUmxOMEZCUVVGQlIydFlUa0U0UVhSM1YwVkJFZ1pNUVRNd01UTWFDd2p6b2dNUUFob0RRbEpNT0J4d2dFOD0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" })
+      },
+    ],
+    monitoring: { enabled: true },
+    priceHistory: [
+      { timestamp: new Date('2024-07-30T21:00:00'), price: 537.00 },
+    ]
+  },
+   {
+    id: 30,
+    title: 'GOL: Rio de Janeiro → Porto Seguro (18/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-30 21:00',
+    totalPrice: 547.00,
+    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
+      type: 'flight',
+      startTime: '16:25',
+      endTime: '18:00',
+      startDate: '18/12',
+      endDate: '18/12',
+      startLocation: 'GIG',
+      endLocation: 'BPS',
+      duration: '1h 35m',
+      details: 'Sem escalas',
+      company: { name: 'GOL', logo: React.createElement(GolLogoIcon, { className: "h-10 w-10 p-1" }) },
+      operator: 'Operado por GOL Linhas Aéreas',
+    }],
+    baggage: {
+      personal: { status: 'Não disponível', details: 'Informação não disponível' },
+      carryOn: { status: 'Taxa Adicional', details: 'Bagagem de mão provavelmente cobrada' },
+      checked: { status: 'Taxa Adicional', details: 'Sem bagagem despachada' },
+    },
+    bookingOptions: [
+       {
+        provider: 'Reserve com a maxmilhas',
+        price: 547.00,
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
+      },
+      {
+        provider: 'Reserve com a Zupper',
+        price: 574.00,
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(ZupperLogoIcon, { className: "h-10 w-10 p-1" })
+      },
+      {
+        provider: 'Reserve com a Decolar',
+        price: 578.00,
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" })
+      },
+      {
+        provider: 'Reserve com a Gol',
+        price: 580.00,
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+        logo: React.createElement(GolLogoIcon, { className: "h-10 w-10 p-1" }),
+        tag: 'Companhia aérea'
+      },
+    ],
+    monitoring: { enabled: true },
+    priceHistory: [
+      { timestamp: new Date('2024-07-30T21:00:00'), price: 547.00 },
+    ]
   },
   {
     id: 16,
@@ -120,7 +243,7 @@ export const initialItineraries: Itinerary[] = [
     subtitle: 'Só Ida · Econômica · 1 passageiro',
     savedDate: '2024-07-26 17:48',
     totalPrice: 499.00,
-    sourceUrl: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-20',
+    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
     events: [
       {
         type: 'flight',
@@ -145,14 +268,14 @@ export const initialItineraries: Itinerary[] = [
         {
             provider: 'Reserve com a LATAM',
             price: 532.00,
-            url: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-20',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
             tag: 'Companhia aérea'
         },
         {
             provider: 'Reserve com a maxmilhas',
             price: 499.00,
-            url: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-20',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
         }
     ],
@@ -161,11 +284,10 @@ export const initialItineraries: Itinerary[] = [
     id: 17,
     title: 'LATAM: Rio de Janeiro → Porto Seguro (19/12)',
     subtitle: 'Só Ida · Econômica · 1 passageiro',
-    savedDate: '2024-07-26 17:50',
-    totalPrice: 509.00,
-    sourceUrl: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-19',
-    events: [
-      {
+    savedDate: '2024-07-31 09:00',
+    totalPrice: 556.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
         type: 'flight',
         startTime: '23:40',
         endTime: '01:15',
@@ -177,28 +299,90 @@ export const initialItineraries: Itinerary[] = [
         details: 'Sem escalas',
         company: { name: 'LATAM', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }) },
         operator: 'Operado por Latam Airlines Brasil',
-      }
-    ],
+    }],
     baggage: {
-      personal: { status: 'Não disponível', details: 'Item pessoal (bolsa ou mochila)' },
-      carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
-      checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
+        personal: { status: 'Inclusa', details: 'Item pessoal (bolsa ou mochila)' },
+        carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
+        checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
     },
     bookingOptions: [
-        {
-            provider: 'Reserve com a LATAM',
-            price: 532.00,
-            url: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-19',
-            logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
-            tag: 'Companhia aérea'
-        },
-        {
-            provider: 'Reserve com a maxmilhas',
-            price: 509.00,
-            url: 'https://www.google.com/flights#flt=GIG.BPS.2025-12-19',
-            logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
-        }
+        { provider: 'Reserve com a maxmilhas', price: 556.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } }) },
+        { provider: 'Reserve com a LATAM', price: 580.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }), tag: 'Companhia aérea' },
+        { provider: 'Reserve com a Decolar', price: 590.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Trip.com', price: 605.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Expedia', price: 663.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ExpediaLogoIcon, { className: "h-10 w-10 p-1" }) },
     ],
+    monitoring: { enabled: true },
+    priceHistory: [{ timestamp: new Date(), price: 556.00 }],
+  },
+  {
+    id: 31,
+    title: 'GOL: Rio de Janeiro → Porto Seguro (19/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-31 09:00',
+    totalPrice: 574.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
+        type: 'flight',
+        startTime: '15:55',
+        endTime: '17:30',
+        startDate: '19/12',
+        endDate: '19/12',
+        startLocation: 'GIG',
+        endLocation: 'BPS',
+        duration: '1h 35m',
+        details: 'Sem escalas',
+        company: { name: 'GOL', logo: React.createElement(GolLogoIcon, { className: "h-10 w-10 p-1" }) },
+        operator: 'Operado por GOL Linhas Aéreas',
+    }],
+    baggage: {
+        personal: { status: 'Não disponível', details: 'Informação não disponível' },
+        carryOn: { status: 'Taxa Adicional', details: 'Sem bagagem de mão' },
+        checked: { status: 'Taxa Adicional', details: 'Sem bagagem despachada' },
+    },
+    bookingOptions: [
+        { provider: 'Reserve com a Zupper', price: 574.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ZupperLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a ViajaNet', price: 578.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ViajaNetLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Decolar', price: 578.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Gol', price: 580.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(GolLogoIcon, { className: "h-10 w-10 p-1" }), tag: 'Companhia aérea' },
+    ],
+    monitoring: { enabled: true },
+    priceHistory: [{ timestamp: new Date(), price: 574.00 }],
+  },
+  {
+    id: 32,
+    title: 'LATAM: Rio de Janeiro (SDU) → Porto Seguro (19/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-31 09:00',
+    totalPrice: 620.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
+        type: 'flight',
+        startTime: '12:15',
+        endTime: '13:50',
+        startDate: '19/12',
+        endDate: '19/12',
+        startLocation: 'SDU',
+        endLocation: 'BPS',
+        duration: '1h 35m',
+        details: 'Sem escalas',
+        company: { name: 'LATAM', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }) },
+        operator: 'Operado por Latam Airlines Brasil',
+    }],
+    baggage: {
+        personal: { status: 'Inclusa', details: 'Item pessoal (bolsa ou mochila)' },
+        carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
+        checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
+    },
+    bookingOptions: [
+        { provider: 'Reserve com a LATAM', price: 620.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }), tag: 'Companhia aérea' },
+        { provider: 'Reserve com a Kiwi.com', price: 620.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(KiwiLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Decolar', price: 628.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Expedia', price: 691.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ExpediaLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Trip.com', price: 713.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
+    ],
+    monitoring: { enabled: true },
+    priceHistory: [{ timestamp: new Date(), price: 620.00 }],
   },
   {
     id: 21,
@@ -206,7 +390,7 @@ export const initialItineraries: Itinerary[] = [
     subtitle: 'Só Ida · Econômica · 1 passageiro',
     savedDate: '2024-07-26 17:54',
     totalPrice: 297.00,
-    sourceUrl: 'https://www.google.com/flights#flt=BPS.GIG.2025-12-23',
+    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
     events: [{
       type: 'flight',
       startTime: '03:35',
@@ -229,14 +413,14 @@ export const initialItineraries: Itinerary[] = [
       {
         provider: 'Reserve com a LATAM',
         price: 337.00,
-        url: 'https://www.google.com/flights#flt=BPS.GIG.2025-12-23',
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
         logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
         tag: 'Companhia aérea'
       },
       {
         provider: 'Reserve com a maxmilhas',
         price: 297.00,
-        url: 'https://www.google.com/flights#flt=BPS.GIG.2025-12-23',
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
         logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
       }
     ],
@@ -247,7 +431,7 @@ export const initialItineraries: Itinerary[] = [
     subtitle: 'Só Ida · Econômica · 1 passageiro',
     savedDate: '2024-07-26 17:55',
     totalPrice: 226.00,
-    sourceUrl: 'https://www.google.com/flights#flt=BPS.SDU.2025-12-24',
+    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTI0agoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
     events: [{
       type: 'flight',
       startTime: '14:35',
@@ -270,14 +454,14 @@ export const initialItineraries: Itinerary[] = [
       {
         provider: 'Reserve com a LATAM',
         price: 232.00,
-        url: 'https://www.google.com/flights#flt=BPS.SDU.2025-12-24',
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTI0agoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
         logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
         tag: 'Companhia aérea'
       },
       {
         provider: 'Reserve com a maxmilhas',
         price: 226.00,
-        url: 'https://www.google.com/flights#flt=BPS.SDU.2025-12-24',
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTI0agoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
         logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
       }
     ],

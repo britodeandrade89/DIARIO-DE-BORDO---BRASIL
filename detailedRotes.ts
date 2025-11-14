@@ -5,6 +5,7 @@ import type { DetailedRoute, AccommodationOption } from './types';
 const portoSeguroAccommodations: AccommodationOption[] = [
             {
                 name: "Pousada Costamar",
+                city: "Porto Seguro",
                 rating: 6.8,
                 pricePerNight: 158,
                 totalPrice: 664,
@@ -24,6 +25,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
              {
                 name: "Pousada Sonho Meu",
+                city: "Porto Seguro",
                 rating: 9.0,
                 pricePerNight: 174,
                 totalPrice: 953,
@@ -43,6 +45,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Pousada Vila Nativa",
+                city: "Porto Seguro",
                 rating: 8.0,
                 pricePerNight: 192,
                 totalPrice: 808,
@@ -62,6 +65,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Pousada O Cantinho",
+                city: "Porto Seguro",
                 rating: 8.0,
                 pricePerNight: 114,
                 totalPrice: 456,
@@ -80,6 +84,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Hotel Pousada Castanheiras do Village",
+                city: "Porto Seguro",
                 rating: 9.0,
                 pricePerNight: 209,
                 totalPrice: 879,
@@ -99,6 +104,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Ancoradouro Hotel",
+                city: "Porto Seguro",
                 rating: 8.2,
                 pricePerNight: 213,
                 totalPrice: 896,
@@ -118,6 +124,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Hospedaria Flor do Xandó",
+                city: "Porto Seguro",
                 rating: 0,
                 pricePerNight: 215,
                 totalPrice: 905,
@@ -137,6 +144,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
              {
                 name: "Pousada Gira Mundo",
+                city: "Porto Seguro",
                 rating: 0,
                 pricePerNight: 216,
                 totalPrice: 937,
@@ -155,6 +163,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Pousada Alto da Praia",
+                city: "Porto Seguro",
                 rating: 8.4,
                 pricePerNight: 220,
                 totalPrice: 926,
@@ -174,6 +183,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Pousada Brisa do Mar",
+                city: "Porto Seguro",
                 rating: 8.0,
                 pricePerNight: 224,
                 totalPrice: 1037,
@@ -193,6 +203,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Pousada Arraial Lua Crescente",
+                city: "Porto Seguro",
                 rating: 8.8,
                 pricePerNight: 228,
                 totalPrice: 956,
@@ -211,6 +222,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             },
             {
                 name: "Marlim Porto Hotel",
+                city: "Porto Seguro",
                 rating: 7.6,
                 pricePerNight: 247,
                 totalPrice: 1038,
@@ -233,6 +245,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
 const paratyAccommodations: AccommodationOption[] = [
     {
         name: "Pousada Entre Folhas",
+        city: "Paraty",
         rating: 9.0,
         pricePerNight: 234,
         totalPrice: 983,
@@ -252,6 +265,7 @@ const paratyAccommodations: AccommodationOption[] = [
     },
     {
         name: "Pousada Camila",
+        city: "Paraty",
         rating: 8.4,
         pricePerNight: 287,
         totalPrice: 1207,
@@ -270,6 +284,29 @@ const paratyAccommodations: AccommodationOption[] = [
         bookingUrl: "https://www.hoteis.com/ho514276/pousada-camila-paraty-brasil/?chkin=2025-12-19&chkout=2025-12-23"
     }
 ].sort((a, b) => a.pricePerNight - b.pricePerNight);
+
+const ilhaGrandeAccommodations: AccommodationOption[] = [
+    {
+        name: "Pousada Sakura Rio Mar",
+        city: "Ilha Grande",
+        rating: 9.3,
+        pricePerNight: 324,
+        totalPrice: 648,
+        nights: 2,
+        images: [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990499.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990524.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990531.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990515.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990520.jpg"
+        ],
+        amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Serviço de quarto", "Quartos para famílias"],
+        pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda (geralmente esgotado)", "Comodidades modernas"],
+        cons: ["Preço mais elevado em comparação a outras opções da região."],
+        distanceToCenter: "Localização central em Abraão, próximo ao cais.",
+        bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22"
+    }
+]
 
 export const detailedRoutes: Record<number, DetailedRoute> = {
     18: {
@@ -342,8 +379,29 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
             }
         ],
         accommodations: [
+             {
+                name: "Pousada Sakura Rio Mar",
+                city: "Ilha Grande",
+                rating: 9.3,
+                pricePerNight: 324,
+                totalPrice: 1296,
+                nights: 4,
+                images: [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990499.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990524.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990531.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990515.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990520.jpg"
+                ],
+                amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Serviço de quarto", "Quartos para famílias"],
+                pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda (geralmente esgotado)", "Comodidades modernas"],
+                cons: ["Preço mais elevado em comparação a outras opções da região."],
+                distanceToCenter: "Localização central em Abraão, próximo ao cais.",
+                bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24"
+            },
             {
                 name: "Flats Catamarã",
+                city: "Angra dos Reis",
                 rating: 10,
                 pricePerNight: 226,
                 totalPrice: 950,
@@ -361,7 +419,7 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 distanceToCenter: "A 2 min de carro da Praia de Garatucaia.",
                 bookingUrl: "https://www.hoteis.com/ho3860840608/flats-catamara/?chkin=2025-12-20&chkout=2025-12-24"
             }
-        ],
+        ].sort((a,b) => a.pricePerNight - b.pricePerNight),
     },
     24: {
         id: 24,
@@ -398,6 +456,7 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
         accommodations: [
             {
                 name: "Espaço Flor das Águas",
+                city: "Cunha",
                 rating: 8.8,
                 pricePerNight: 181,
                 totalPrice: 1254,
@@ -416,5 +475,28 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 bookingUrl: "https://www.hoteis.com/ho3827177120/espaco-flor-das-aguas/?chkin=2025-12-20&chkout=2025-12-24"
             }
         ]
+    },
+    26: {
+        id: 26,
+        title: 'Costa Verde: Ilha Grande, Paraty & Cunha',
+        itinerary: [
+             {
+                city: 'Ilha Grande',
+                duration: "2 Dias",
+                days: [
+                    { day: 1, title: "Chegada ao Paraíso", activities: ["Saída de Maricá, estacionar em Mangaratiba e pegar a barca das 8h.", "Chegada em Abraão, check-in na pousada.", "Tarde na Praia de Lopes Mendes (acesso por trilha + barco)."]},
+                    { day: 2, title: "Mergulho e Próximo Destino", activities: ["Passeio de barco para a Lagoa Azul para mergulho.", "Almoço em Abraão e retorno para Mangaratiba para pegar o carro e seguir para Paraty."]},
+                ]
+            },
+            {
+                city: 'Paraty',
+                duration: "2 Dias",
+                days: [
+                    { day: 3, title: "Chegada e Charme Colonial", activities: ["Chegada em Paraty no fim da tarde, check-in na pousada.", "Passeio noturno pelo Centro Histórico e jantar em um restaurante local."]},
+                    { day: 4, title: "Serra, Lavanda e Despedida", activities: ["Passeio de um dia para Cunha, visitando o Lavandário para fotos incríveis.", "Almoço com culinária da serra em Cunha.", "Retorno para Paraty no fim da tarde e início da viagem de volta para casa."]},
+                ]
+            }
+        ],
+        accommodations: [...ilhaGrandeAccommodations, ...paratyAccommodations].sort((a,b) => a.pricePerNight - b.pricePerNight),
     }
   };

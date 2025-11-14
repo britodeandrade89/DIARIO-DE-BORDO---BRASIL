@@ -11,7 +11,7 @@ interface MyTripsProps {
 interface GroupedTrip {
     destination: Destination | { title: string; themeColor?: string, icon?: React.ReactElement };
     itineraries: Itinerary[];
-    carTrip?: Destination['carTrip'];
+    carTrips?: Destination['carTrips'];
 }
 
 const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
@@ -24,7 +24,7 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
             groupedTrips[key] = {
                 destination: dest,
                 itineraries: [],
-                carTrip: dest.carTrip,
+                carTrips: dest.carTrips,
             };
         }
     });
@@ -34,9 +34,7 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
         let key = "Outros"; // Default group
         if (itinerary.title.includes('Porto Seguro')) {
             key = 'Natal em Porto Seguro';
-        } else if (itinerary.title.includes('Paraty')) {
-            key = 'Charme Histórico de Paraty';
-        } else if (itinerary.title.includes('Mangaratiba → Ilha Grande')) {
+        } else if (itinerary.title.includes('Paraty') || itinerary.title.includes('Mangaratiba') || itinerary.title.includes('Sakura Rio Mar')) {
             key = 'Costa Verde: Ilha Grande, Paraty & Cunha';
         }
         
@@ -72,7 +70,7 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
 
 
     const finalTrips = Object.values(groupedTrips).filter(
-        trip => trip.itineraries.length > 0 || trip.carTrip
+        trip => trip.itineraries.length > 0 || trip.carTrips
     );
 
     return (

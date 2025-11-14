@@ -12,6 +12,28 @@ import {
 
 export const initialItineraries: Itinerary[] = [
   {
+    id: 28,
+    title: 'Pousada Sakura Rio Mar',
+    subtitle: '2 diárias em Ilha Grande (Abraão)',
+    savedDate: '2024-07-29 21:00',
+    totalPrice: 648.00,
+    sourceUrl: 'https://www.booking.com/hotel/br/bella-tulip.pt-br.html',
+    events: [
+        {
+            type: 'accommodation',
+            startTime: '14:00',
+            endTime: '12:00',
+            startDate: '20/12/2025',
+            endDate: '22/12/2025',
+            startLocation: 'Ilha Grande',
+            endLocation: 'Pousada Sakura Rio Mar',
+            duration: '2 noites',
+            details: '2 adultos',
+            company: { name: 'Booking.com', logo: React.createElement(BookingLogoIcon) },
+        }
+    ]
+  },
+  {
     id: 27,
     title: 'CCR Barcas: Mangaratiba → Ilha Grande',
     subtitle: 'Passagem só de ida',

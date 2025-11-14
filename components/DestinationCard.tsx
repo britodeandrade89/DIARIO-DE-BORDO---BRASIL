@@ -11,8 +11,15 @@ interface DestinationCardProps {
 }
 
 const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOptions, accommodationPreview, onClick }) => {
-  const { themeColor, icon, carTrip } = destination;
+  const { themeColor, icon, carTrips } = destination;
   const departureFlight = tripOptions[0]?.departureFlight;
+  const totalCarTripCost = carTrips
+    ? carTrips.reduce((total, trip) => {
+        const isRoundTrip = trip.title.includes("↔");
+        return total + (isRoundTrip ? trip.totalCostOneWay * 2 : trip.totalCostOneWay);
+      }, 0)
+    : 0;
+
 
   return (
     <div 
@@ -68,27 +75,29 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ destination, tripOpti
                 </div>
               </div>
             ))
-          ) : carTrip ? (
+          ) : carTrips ? (
             <div>
               <div className="flex items-center text-sm text-slate-600 font-semibold mb-2">
                 <CarIcon className="h-4 w-4 mr-2 flex-shrink-0 text-[var(--theme-color)]" />
-                <span>Viagem de Carro (Ida e Volta)</span>
+                <span>Viagem de Carro ({carTrips.length > 1 ? 'Múltiplos Trechos' : 'Ida e Volta'})</span>
               </div>
               <div className="flex justify-between items-baseline">
-                  <span className="font-semibold text-slate-800 truncate pr-2">{carTrip.duration} (por trecho)</span>
+                  <span className="font-semibold text-slate-800 truncate pr-2">{carTrips.length > 1 ? "Custo total da rota" : `${carTrips[0].duration} (por trecho)`}</span>
                   <span className="text-lg font-bold" style={{color: themeColor}}>
-                      R$ {(carTrip.totalCostOneWay * 2).toLocaleString('pt-BR')}
+                      R$ {totalCarTripCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
                   </span>
               </div>
               <div className="text-xs text-slate-500 text-right -mt-1">
                 Total estimado
               </div>
-               <div className="text-xs text-slate-500 text-right mt-1">
-                  (Comb. R$ {carTrip.fuelCostOneWay.toLocaleString('pt-BR', {minimumFractionDigits: 2})} + Ped. R$ {carTrip.tollCostOneWay.toLocaleString('pt-BR', {minimumFractionDigits: 2})} por trecho)
-              </div>
-              <div className="flex items-center text-xs text-slate-600 mt-2">
+               <div className="flex items-center text-xs text-slate-600 mt-2">
                   <MapPinIcon className="h-4 w-4 text-slate-500 mr-1" />
-                  <span className="text-slate-500">{carTrip.distance} (por trecho) · {carTrip.details}</span>
+                  <span className="text-slate-500">
+                    {carTrips.length > 1 
+                      ? `${carTrips.length} trechos planejados`
+                      : `${carTrips[0].distance} (por trecho) · ${carTrips[0].details}`
+                    }
+                  </span>
               </div>
             </div>
           ) : accommodationPreview ? (

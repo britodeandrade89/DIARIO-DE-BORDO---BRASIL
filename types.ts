@@ -138,6 +138,11 @@ export interface CarTripInfo {
   }[];
 }
 
+export interface CarTripLeg extends CarTripInfo {
+  title: string;
+}
+
+
 export interface Destination {
   id: number;
   title: string;
@@ -146,7 +151,7 @@ export interface Destination {
   description: string;
   themeColor: string;
   icon: React.ReactElement;
-  carTrip?: CarTripInfo;
+  carTrips?: CarTripLeg[];
 }
 
 // START: Added interfaces for detailed day-by-day itineraries
@@ -165,6 +170,7 @@ export interface CityItinerary {
 
 export interface AccommodationOption {
     name: string;
+    city: string;
     rating: number;
     pricePerNight: number;
     totalPrice: number;

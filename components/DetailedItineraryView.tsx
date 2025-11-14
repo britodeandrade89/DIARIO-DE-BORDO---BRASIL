@@ -124,7 +124,7 @@ const DetailedItineraryView: React.FC<DetailedItineraryViewProps> = ({ selection
       <div className={`fixed top-0 right-0 h-full w-full max-w-2xl bg-gradient-to-br from-white via-white to-sky-100 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${destinationId !== null ? 'translate-x-0' : 'translate-x-full'}`}>
         <div className="flex flex-col h-full">
           {/* Header */}
-          <header className="flex items-center justify-between p-4 bg-white/80 backdrop-blur-sm border-b border-slate-200 flex-shrink-0 sticky top-0">
+          <header className="flex items-center justify-between p-4 bg-white/80 backdrop-blur-sm border-b border-slate-200 flex-shrink-0 sticky top-0 z-20">
             <h2 className="text-xl font-bold text-slate-800">{routeData?.title || 'Carregando...'}</h2>
             <div className="flex items-center space-x-2">
                <button onClick={() => onNavigate('prev')} className="p-2 rounded-full hover:bg-slate-200 text-slate-600 transition-colors">
@@ -180,8 +180,8 @@ const DetailedItineraryView: React.FC<DetailedItineraryViewProps> = ({ selection
 
                         return (
                           <div key={city}>
-                            <h4 className="text-2xl font-bold text-slate-800 mb-6 pb-2 bg-slate-100 -mx-6 px-6 py-3 border-b-2 border-slate-200">
-                                Hospedagem em <span className="text-cyan-700">{city}</span>
+                            <h4 className="text-xl font-bold text-white mb-6 -mx-6 px-6 py-3 bg-gradient-to-r from-slate-700 to-slate-800 shadow-md sticky top-[73px] z-10">
+                                Hospedagem em <span className="text-cyan-400">{city}</span>
                             </h4>
                             <div className="space-y-6">
                               {sortedAccommodations.map((option, index) => (

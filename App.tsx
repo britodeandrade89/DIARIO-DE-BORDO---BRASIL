@@ -29,10 +29,8 @@ const App: React.FC = () => {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        // FIX: Simplified the registration to use a root-relative path. This is the most
-        // robust way to register a service worker and avoids origin mismatch issues
-        // in complex sandboxed environments like this one.
-        navigator.serviceWorker.register('/sw.js')
+        // FIX: Changed path to be relative to the document's location to avoid cross-origin errors.
+        navigator.serviceWorker.register('./sw.js')
           .then(registration => {
             console.log('Service Worker registrado com sucesso:', registration.scope);
           })

@@ -153,6 +153,10 @@ export interface Destination {
   themeColor: string;
   icon: React.ReactElement;
   carTrips?: CarTripLeg[];
+  // START: Added properties to support detailed trip planning within MyTrips.
+  accommodations?: AccommodationOption[];
+  additionalCosts?: AdditionalCost[];
+  // END: Added properties.
 }
 
 // START: Added interfaces for detailed day-by-day itineraries

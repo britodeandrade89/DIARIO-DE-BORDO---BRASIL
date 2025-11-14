@@ -1,254 +1,7 @@
 import type { DetailedRoute, AccommodationOption } from './types';
 
-// FIX: Extracted the accommodations array into a separate constant `portoSeguroAccommodations`.
-// This resolves a "used before declaration" error by preventing `detailedRoutes` from being referenced within its own initialization.
-const portoSeguroAccommodations: AccommodationOption[] = [
-            {
-                name: "Pousada Costamar",
-                city: "Porto Seguro",
-                rating: 6.8,
-                pricePerNight: 158,
-                totalPrice: 664,
-                nights: 4,
-                amenities: ["Piscina", "Café da manhã incluído", "Wi-Fi Grátis", "Ar-condicionado"],
-                pros: ["Melhor preço encontrado", "Localização central (8 min da Passarela do Descobrimento)", "Piscina interna", "Reembolsável"],
-                cons: ["Avaliação 'Boa' (6.8), a mais baixa da lista", "Estrutura mais simples (2 estrelas)"],
-                distanceToCenter: "A 8 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-costamar.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-             {
-                name: "Pousada Sonho Meu",
-                city: "Porto Seguro",
-                rating: 9.0,
-                pricePerNight: 174,
-                totalPrice: 953,
-                nights: 4,
-                amenities: ["Estacionamento", "Restaurante", "Wi-Fi Grátis", "Jardim", "Churrasqueira"],
-                pros: ["Opção mais barata disponível", "Avaliação 'Muito boa' (9.0)", "Totalmente reembolsável", "Flexibilidade de pagamento"],
-                cons: ["Estrutura simples (3 estrelas)", "Pode não incluir café da manhã na tarifa mais baixa"],
-                distanceToCenter: "A 13 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-sonho-meu-porto-seguro.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-            {
-                name: "Pousada Vila Nativa",
-                city: "Porto Seguro",
-                rating: 8.0,
-                pricePerNight: 192,
-                totalPrice: 808,
-                nights: 4,
-                amenities: ["Piscina", "Café da manhã incluído", "Wi-Fi Grátis", "Praia de areia branca"],
-                pros: ["Opção muito econômica", "Avaliação 'Muito boa' (8.0)", "Totalmente reembolsável", "Piscina e proximidade da praia"],
-                cons: ["Tarifa pode ser para quarto básico", "Estrutura mais simples (3 estrelas)"],
-                distanceToCenter: "A 3 min de carro da Praia do Mucugê.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-vila-nativa-arraial-d-ajuda.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-            {
-                name: "Pousada O Cantinho",
-                city: "Porto Seguro",
-                rating: 8.0,
-                pricePerNight: 114,
-                totalPrice: 456,
-                nights: 4,
-                amenities: ["Wi-Fi Grátis", "Jardim", "Sala de Jogos", "Arrumação diária"],
-                pros: ["Excelente localização (2 min da Rua do Mucugê)", "Ótimo custo-benefício", "Flexibilidade de pagamento ('Reserve agora, pague depois')"],
-                cons: ["Comodidades simples", "Pode não ter estacionamento", "Estrutura mais rústica"],
-                distanceToCenter: "Localizado em Arraial d'Ajuda, a 2 min de caminhada da Rua do Mucugê.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-o-cantinho.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-            {
-                name: "Hotel Pousada Castanheiras do Village",
-                city: "Porto Seguro",
-                rating: 9.0,
-                pricePerNight: 209,
-                totalPrice: 879,
-                nights: 4,
-                amenities: ["Piscina", "Restaurante", "Estacionamento", "Wi-Fi Grátis", "Café da manhã"],
-                pros: ["Avaliação 'Extraordinária' (9.0)", "Localização perto do Complexo Tôa Tôa", "Boa estrutura com piscina e restaurante"],
-                cons: ["Opção de tarifa não reembolsável", "Pode ser mais focado em famílias e agito"],
-                distanceToCenter: "A 4 min de carro do Complexo de Lazer Tôa Tôa.",
-                bookingUrl: "https://www.booking.com/hotel/br/hotel-pousada-castanheiras-do-village.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-            {
-                name: "Ancoradouro Hotel",
-                city: "Porto Seguro",
-                rating: 8.2,
-                pricePerNight: 213,
-                totalPrice: 896,
-                nights: 4,
-                amenities: ["3 piscinas", "Café da manhã incluído", "Wi-Fi grátis", "Ar-condicionado", "Permite animais"],
-                pros: ["Totalmente reembolsável", "Avaliação 'Boa' (8.2)", "Estrutura com 3 piscinas", "Permite animais de estimação grátis"],
-                cons: ["Preço um pouco mais alto que outras pousadas", "Localização pode ser movimentada"],
-                distanceToCenter: "A 18 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.booking.com/hotel/br/ancoradouro.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-             {
-                name: "Pousada Gira Mundo",
-                city: "Porto Seguro",
-                rating: 0,
-                pricePerNight: 216,
-                totalPrice: 937,
-                nights: 4,
-                amenities: ["Wi-Fi Grátis", "Permite animais", "Serviço de arrumação", "Não fumante"],
-                pros: ["Preço competitivo", "Localização central (2 min da Rua do Mucugê)", "Totalmente reembolsável", "Permite animais de estimação grátis"],
-                cons: ["Estrutura simples (2 estrelas)", "Sem avaliação numérica visível", "Pode ser barulhento devido à localização"],
-                distanceToCenter: "Localizado em Arraial d'Ajuda, a 2 min de caminhada da Rua do Mucugê.",
-                bookingUrl: "https://www.booking.com/hotel/br/gira-mundo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-            {
-                name: "Pousada Alto da Praia",
-                city: "Porto Seguro",
-                rating: 8.4,
-                pricePerNight: 220,
-                totalPrice: 926,
-                nights: 4,
-                amenities: ["Piscina com bar", "Estacionamento", "Café da manhã incluído", "Wi-Fi Grátis"],
-                pros: ["Avaliação 'Muito boa' (8.4)", "Totalmente reembolsável", "Piscina com bar", "Excelente localização (2 min da Rua do Mucugê)"],
-                cons: ["Preço intermediário", "Pode ter bastante movimento devido à localização"],
-                distanceToCenter: "Localizado em Arraial d'Ajuda, a 2 min de caminhada da Rua do Mucugê.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-alto-da-praia.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-            {
-                name: "Pousada Brisa do Mar",
-                city: "Porto Seguro",
-                rating: 8.0,
-                pricePerNight: 224,
-                totalPrice: 1037,
-                nights: 4,
-                amenities: ["Acesso à praia", "Café da manhã incluído", "Wi-Fi Grátis", "Ar-condicionado"],
-                pros: ["Totalmente reembolsável", "Avaliação 'Muito boa' (8.0)", "Excelente café da manhã", "Localização central, a 2 min da Passarela do Descobrimento"],
-                cons: ["Estrutura pode ser mais simples que as demais", "Taxas elevam o preço final"],
-                distanceToCenter: "Localizado no centro, a 2 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-brisa-do-mar.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-            {
-                name: "Pousada Arraial Lua Crescente",
-                city: "Porto Seguro",
-                rating: 8.8,
-                pricePerNight: 228,
-                totalPrice: 956,
-                nights: 4,
-                amenities: ["Piscina", "Café da manhã incluído", "Wi-Fi Grátis", "Ar-condicionado", "Permite animais"],
-                pros: ["Avaliação 'Excelente' (8.8)", "Totalmente reembolsável", "Ótima localização (3 min da Rua do Mucugê)", "Permite animais de estimação grátis"],
-                cons: ["Preço intermediário", "Disponibilidade pode ser limitada"],
-                distanceToCenter: "Localizado em Arraial d'Ajuda, a 3 min de caminhada da Rua do Mucugê.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-arraial-lua-crescente.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            },
-            {
-                name: "Marlim Porto Hotel",
-                city: "Porto Seguro",
-                rating: 7.6,
-                pricePerNight: 247,
-                totalPrice: 1038,
-                nights: 4,
-                amenities: ["Piscina", "Café da manhã incluído", "Wi-Fi Grátis", "Ar-condicionado"],
-                pros: ["Localização central, perto da Passarela do Descobrimento", "Boa estrutura com piscina e terraço", "Café da manhã bem avaliado"],
-                cons: ["Preço mais elevado (inclui taxas)", "Avaliação ligeiramente inferior às outras", "Pode ser mais movimentado por ser no centro"],
-                distanceToCenter: "Localizado no centro, a 13 min de caminhada da Passarela do Descobrimento.",
-                bookingUrl: "https://www.booking.com/hotel/br/marlim-porto.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-665248&dest_type=city"
-            }
-        ].sort((a, b) => a.pricePerNight - b.pricePerNight);
-
-const paratyAccommodationsFourNights: AccommodationOption[] = [
-    {
-        name: "Pousada Entre Folhas",
-        city: "Paraty",
-        rating: 9.0,
-        pricePerNight: 234,
-        totalPrice: 983,
-        nights: 4,
-        amenities: ["Estacionamento grátis", "Wi-Fi Grátis", "Jardim", "Ar-condicionado", "Serviço de traslado para a praia"],
-        pros: ["Avaliação 'Maravilhosa' (9.0)", "Totalmente reembolsável", "Ambiente tranquilo e cercado de natureza", "Ótimos serviços como traslado"],
-        cons: ["Fica um pouco fora do centro, ideal para quem está de carro e busca sossego."],
-        distanceToCenter: "A 9 min de carro do Centro Histórico.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-entre-folhas.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
-    },
-    {
-        name: "Pousada Camila",
-        city: "Paraty",
-        rating: 8.4,
-        pricePerNight: 287,
-        totalPrice: 1207,
-        nights: 4,
-        amenities: ["Piscina externa", "Café da manhã incluído", "Wi-Fi Grátis", "Estacionamento", "Sala de jogos"],
-        pros: ["Avaliação 'Muito boa' (8.4)", "Café da manhã bem avaliado", "Piscina e área de lazer"],
-        cons: ["Preço um pouco mais elevado", "Pode exigir uma pequena caminhada para o centro histórico"],
-        distanceToCenter: "A 19 min de caminhada da Igreja Matriz.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-camila.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
-    }
-].sort((a, b) => a.pricePerNight - b.pricePerNight);
-
-// FIX: Added a new accommodations list for Paraty with a 2-night duration and recalculated prices for the Costa Verde itinerary.
-const paratyAccommodationsTwoNights: AccommodationOption[] = [
-    {
-        name: "Pousada Entre Folhas",
-        city: "Paraty",
-        rating: 9.0,
-        pricePerNight: 234,
-        totalPrice: 492, // Recalculated for 2 nights
-        nights: 2,
-        amenities: ["Estacionamento grátis", "Wi-Fi Grátis", "Jardim", "Ar-condicionado", "Serviço de traslado para a praia"],
-        pros: ["Avaliação 'Maravilhosa' (9.0)", "Totalmente reembolsável", "Ambiente tranquilo e cercado de natureza", "Ótimos serviços como traslado"],
-        cons: ["Fica um pouco fora do centro, ideal para quem está de carro e busca sossego."],
-        distanceToCenter: "A 9 min de carro do Centro Histórico.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-entre-folhas.pt-br.html?aid=340301&checkin=2025-12-22&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
-    },
-    {
-        name: "Pousada Camila",
-        city: "Paraty",
-        rating: 8.4,
-        pricePerNight: 287,
-        totalPrice: 604, // Recalculated for 2 nights
-        nights: 2,
-        amenities: ["Piscina externa", "Café da manhã incluído", "Wi-Fi Grátis", "Estacionamento", "Sala de jogos"],
-        pros: ["Avaliação 'Muito boa' (8.4)", "Café da manhã bem avaliado", "Piscina e área de lazer"],
-        cons: ["Preço um pouco mais elevado", "Pode exigir uma pequena caminhada para o centro histórico"],
-        distanceToCenter: "A 19 min de caminhada da Igreja Matriz.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-camila.pt-br.html?aid=340301&checkin=2025-12-22&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
-    }
-].sort((a, b) => a.pricePerNight - b.pricePerNight);
-
-
-const ilhaGrandeAccommodations: AccommodationOption[] = [
-    {
-        name: "Pousada Sakura Rio Mar",
-        city: "Ilha Grande",
-        rating: 9.3,
-        pricePerNight: 324,
-        totalPrice: 648,
-        nights: 2,
-        amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Serviço de quarto", "Quartos para famílias"],
-        pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda (geralmente esgotado)", "Comodidades modernas"],
-        cons: ["Preço mais elevado em comparação a outras opções da região."],
-        distanceToCenter: "Localização central em Abraão, próximo ao cais.",
-        bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
-    },
-    {
-        name: "Pousada Oásis",
-        city: "Ilha Grande",
-        rating: 9.3,
-        pricePerNight: 350,
-        totalPrice: 700,
-        nights: 2,
-        amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Ar-condicionado", "Café da manhã"],
-        pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada", "Equipe atenciosa"],
-        cons: ["Pode ser barulhento por estar perto do centro", "Estrutura pode ser mais simples"],
-        distanceToCenter: "A 100m da Praia do Abraão.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
-    },
-    {
-        name: "Suítes Golfo",
-        city: "Ilha Grande",
-        rating: 8.6,
-        pricePerNight: 245,
-        totalPrice: 490,
-        nights: 2,
-        amenities: ["Beira-mar", "Wi-Fi gratuito", "Varanda", "Ar-condicionado", "Quartos para famílias"],
-        pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista para o mar", "Preço competitivo"],
-        cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
-        distanceToCenter: "Em frente à Praia do Abraão.",
-        bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
-    }
-];
+// FIX: Accommodation data has been moved to destinations.ts to consolidate trip planning data.
+// The detailed day-by-day itineraries remain here.
 
 export const detailedRoutes: Record<number, DetailedRoute> = {
     18: {
@@ -268,7 +21,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: portoSeguroAccommodations,
     },
     19: {
         id: 19,
@@ -285,7 +37,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: portoSeguroAccommodations,
     },
     20: {
         id: 20,
@@ -303,7 +54,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: portoSeguroAccommodations,
     },
     23: {
         id: 23,
@@ -320,60 +70,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: [
-             {
-                name: "Pousada Sakura Rio Mar",
-                city: "Ilha Grande",
-                rating: 9.3,
-                pricePerNight: 324,
-                totalPrice: 1296,
-                nights: 4,
-                amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Serviço de quarto", "Quartos para famílias"],
-                pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda", "Comodidades modernas"],
-                cons: ["Preço mais elevado em comparação a outras opções da região."],
-                distanceToCenter: "Localização central em Abraão, próximo ao cais.",
-                bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
-            },
-            {
-                name: "Pousada Oásis",
-                city: "Ilha Grande",
-                rating: 9.3,
-                pricePerNight: 350,
-                totalPrice: 1400,
-                nights: 4,
-                amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Ar-condicionado", "Café da manhã"],
-                pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada"],
-                cons: ["Pode ser barulhento por estar perto do centro"],
-                distanceToCenter: "A 100m da Praia do Abraão.",
-                bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
-            },
-            {
-                name: "Suítes Golfo",
-                city: "Ilha Grande",
-                rating: 8.6,
-                pricePerNight: 245,
-                totalPrice: 980,
-                nights: 4,
-                amenities: ["Beira-mar", "Wi-Fi gratuito", "Varanda", "Ar-condicionado", "Quartos para famílias"],
-                pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista", "Preço competitivo"],
-                cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
-                distanceToCenter: "Em frente à Praia do Abraão.",
-                bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
-            },
-            {
-                name: "Flats Catamarã",
-                city: "Angra dos Reis",
-                rating: 10,
-                pricePerNight: 226,
-                totalPrice: 950,
-                nights: 4,
-                amenities: ["Piscina externa", "Estacionamento grátis", "Wi-Fi Grátis", "Aceita animais de estimação"],
-                pros: ["Avaliação 'Extraordinária'", "Totalmente reembolsável", "Localização perto da praia", "Vista para o mar"],
-                cons: ["Taxas podem ser aplicadas para pets", "Pode precisar de carro para locomoção"],
-                distanceToCenter: "A 2 min de carro da Praia de Garatucaia.",
-                bookingUrl: "https://www.booking.com/hotel/br/flats-catamara-angra-dos-reis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-623199&dest_type=city"
-            }
-        ].sort((a,b) => a.pricePerNight - b.pricePerNight),
     },
     24: {
         id: 24,
@@ -390,7 +86,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: paratyAccommodationsFourNights,
     },
     25: {
         id: 25,
@@ -407,21 +102,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: [
-            {
-                name: "Espaço Flor das Águas",
-                city: "Cunha",
-                rating: 8.8,
-                pricePerNight: 181,
-                totalPrice: 1254,
-                nights: 4,
-                amenities: ["Spa de serviço completo", "Restaurante", "Buffet de café da manhã", "Wi-Fi Grátis", "Estacionamento"],
-                pros: ["Avaliação 'Excelente' (8.8)", "Ambiente focado em bem-estar com Spa", "Cercado por natureza", "Aceita cães e gatos"],
-                cons: ["Localização um pouco afastada, ideal para quem busca sossego", "O preço do quarto econômico pode não ter as melhores vistas"],
-                distanceToCenter: "Localizado nas montanhas de Cunha.",
-                bookingUrl: "https://www.booking.com/hotel/br/espaco-flor-das-aguas.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-638841&dest_type=city"
-            }
-        ]
     },
     26: {
         id: 26,
@@ -444,6 +124,5 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: [...ilhaGrandeAccommodations, ...paratyAccommodationsTwoNights],
     }
   };

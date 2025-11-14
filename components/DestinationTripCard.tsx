@@ -1,5 +1,5 @@
 import React from 'react';
-import type { Itinerary, Destination, TripEventType, CarTripLeg } from '../types';
+import type { Itinerary, Destination, TripEventType, CarTripLeg, AccommodationOption, AdditionalCost } from '../types';
 import { 
     PlaneTakeoffIcon, 
     BusIcon, 
@@ -12,6 +12,12 @@ import {
     ParkingIcon,
     ChevronDownIcon,
     BellIcon,
+    StarIcon,
+    ThumbsUpIcon,
+    ThumbsDownIcon,
+    WifiIcon,
+    ExternalLinkIcon,
+    HomeIcon,
 } from './icons';
 
 interface GroupedTrip {
@@ -27,26 +33,15 @@ interface DestinationTripCardProps {
     onSelectItinerary: (itinerary: Itinerary) => void;
 }
 
-const getIconForType = (type: TripEventType) => {
-    switch(type) {
-        case 'flight': return <PlaneTakeoffIcon className="h-5 w-5 text-slate-500" />;
-        case 'bus': return <BusIcon className="h-5 w-5 text-slate-500" />;
-        case 'ship': return <ShipIcon className="h-5 w-5 text-slate-500" />;
-        default: return <MapPinIcon className="h-5 w-5 text-slate-500" />;
-    }
-}
-
 const ItineraryRow: React.FC<{ itinerary: Itinerary, onClick: () => void }> = ({ itinerary, onClick }) => {
     const firstEvent = itinerary.events[0];
     
     const isMonitored = itinerary.monitoring?.enabled && itinerary.priceHistory && itinerary.priceHistory.length > 0;
     const displayPrice = isMonitored ? itinerary.priceHistory![itinerary.priceHistory!.length - 1].price : itinerary.totalPrice;
 
-    // FIX: Remove date from title for a cleaner display, e.g., "LATAM: ... (18/12)" -> "LATAM: ..."
     const displayTitle = itinerary.title.replace(/ \(\d{1,2}\/\d{1,2}\)$/, '');
 
     return (
-        // FIX: Reworked flexbox layout to prevent content overlap and ensure truncation works correctly.
         <div onClick={onClick} className="p-3 -mx-3 rounded-lg flex items-center justify-between hover:bg-slate-100 transition-colors duration-200 cursor-pointer">
             <div className="flex items-center space-x-3 flex-1 min-w-0">
                 <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-white border">
@@ -69,7 +64,6 @@ const ItineraryRow: React.FC<{ itinerary: Itinerary, onClick: () => void }> = ({
 };
 
 const CarTripLegCard: React.FC<{ leg: CarTripLeg }> = ({ leg }) => {
-    // Heuristic: one toll booth for every ~R$5. Max of 4 for visual simplicity.
     const tollCount = leg.tollCostOneWay > 0 ? Math.min(Math.round(leg.tollCostOneWay / 5), 4) : 0;
 
     return (
@@ -77,8 +71,6 @@ const CarTripLegCard: React.FC<{ leg: CarTripLeg }> = ({ leg }) => {
             <h4 className="font-bold text-lg text-slate-800 text-center">
                 {leg.title}
             </h4>
-
-            {/* Schematic Route */}
             <div className="py-8 px-4 flex items-center">
                 <LocationMarkerAIcon className="h-10 w-10 flex-shrink-0" />
                 <div className="flex-grow flex items-center justify-center relative h-10 px-2">
@@ -93,15 +85,11 @@ const CarTripLegCard: React.FC<{ leg: CarTripLeg }> = ({ leg }) => {
                 </div>
                 <LocationMarkerBIcon className="h-10 w-10 flex-shrink-0" />
             </div>
-
-            {/* Total Distance */}
             <div className="text-center -mt-8">
                 <p className="text-2xl font-bold text-slate-800">
                     Total: {leg.distance}
                 </p>
             </div>
-            
-            {/* Costs Breakdown */}
             <div className="pt-4 border-t border-slate-200/80 space-y-3">
                 <div className="flex justify-between items-center text-sm">
                     <span className="flex items-center text-slate-600">
@@ -124,7 +112,6 @@ const CarTripLegCard: React.FC<{ leg: CarTripLeg }> = ({ leg }) => {
                         </span>
                     </div>
                 )}
-
                 {leg.additionalCosts && leg.additionalCosts.map((cost, index) => (
                     <div key={index} className="flex justify-between items-center text-sm">
                         <span className="flex items-center text-slate-600">
@@ -142,19 +129,81 @@ const CarTripLegCard: React.FC<{ leg: CarTripLeg }> = ({ leg }) => {
     );
 };
 
+const AccommodationOptionCard: React.FC<{ option: AccommodationOption }> = ({ option }) => (
+    <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg border border-slate-200 overflow-hidden">
+        <div className="p-5">
+            <div className="flex justify-between items-start mb-4">
+                <div>
+                    <h4 className="text-lg font-bold text-slate-800">{option.name}</h4>
+                    <div className="flex items-center space-x-1 mt-1 text-slate-600">
+                        <StarIcon className="h-5 w-5 text-yellow-500" />
+                        <span className="font-semibold">{option.rating > 0 ? option.rating.toFixed(1) : 'Novo'}</span>
+                        {option.rating > 0 && <span className="text-sm">({option.rating >= 9 ? 'Fantástico' : 'Muito bom'})</span>}
+                    </div>
+                </div>
+            </div>
+            <div className="flex justify-between items-center mb-4 pb-4 border-b border-slate-200">
+                <div>
+                    <p className="text-xl font-bold text-slate-800">
+                        R$ {option.pricePerNight.toLocaleString('pt-BR')}
+                        <span className="text-sm font-normal text-slate-500"> / noite</span>
+                    </p>
+                     <p className="text-sm text-slate-500">
+                        Total: <span className="font-semibold text-slate-700">R$ {option.totalPrice.toLocaleString('pt-BR')}</span> para {option.nights} noites
+                    </p>
+                </div>
+                <a href={option.bookingUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-4 py-2 rounded-lg hover:shadow-lg hover:scale-105 transition-all text-sm flex items-center space-x-2">
+                    <span>Reservar</span>
+                    <ExternalLinkIcon className="h-4 w-4" />
+                </a>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+                <div>
+                    <h5 className="font-semibold text-slate-800 mb-2 flex items-center"><ThumbsUpIcon className="h-5 w-5 mr-2 text-green-500"/> Prós</h5>
+                    <ul className="space-y-1.5 list-disc list-inside text-sm text-slate-600">
+                        {option.pros.map((pro, i) => <li key={i}>{pro}</li>)}
+                    </ul>
+                </div>
+                <div>
+                    <h5 className="font-semibold text-slate-800 mb-2 flex items-center"><ThumbsDownIcon className="h-5 w-5 mr-2 text-red-500"/> Contras</h5>
+                     <ul className="space-y-1.5 list-disc list-inside text-sm text-slate-600">
+                        {option.cons.map((con, i) => <li key={i}>{con}</li>)}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+);
 
 const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, isExpanded, onToggle, onSelectItinerary }) => {
     const { destination, carTrips, itineraries } = trip;
     const themeColor = 'themeColor' in destination ? destination.themeColor : '#64748b';
+    // FIX: Safely access optional array properties from the union-typed 'destination' object.
+    // By checking for property existence and using `Array.isArray` as a type guard, TypeScript correctly infers
+    // 'accommodations' and 'additionalCosts' as arrays, resolving 'unknown' type errors for array methods.
+    const accommodations = 'accommodations' in destination && Array.isArray(destination.accommodations) ? destination.accommodations : [];
+    const additionalCosts = 'additionalCosts' in destination && Array.isArray(destination.additionalCosts) ? destination.additionalCosts : [];
     
     const summaryParts = [];
-    if (carTrips && carTrips.length > 0) {
-        summaryParts.push(`${carTrips.length} trecho${carTrips.length > 1 ? 's' : ''} de carro`);
-    }
-    if (itineraries && itineraries.length > 0) {
-        summaryParts.push(`${itineraries.length} iten${itineraries.length > 1 ? 's' : ''} salvo${itineraries.length > 1 ? 's' : ''}`);
-    }
+    if (carTrips && carTrips.length > 0) summaryParts.push(`${carTrips.length} trecho${carTrips.length > 1 ? 's' : ''} de carro`);
+    if (itineraries && itineraries.length > 0) summaryParts.push(`${itineraries.length} iten${itineraries.length > 1 ? 's' : ''} salvo${itineraries.length > 1 ? 's' : ''}`);
     const summary = summaryParts.join(' · ');
+
+    const groupedAccommodations = accommodations.reduce((acc, option) => {
+      (acc[option.city] = acc[option.city] || []).push(option);
+      return acc;
+    }, {} as Record<string, AccommodationOption[]>);
+
+    const carCost = carTrips?.reduce((total, leg) => total + leg.totalCostOneWay, 0) ?? 0;
+    const additionalCost = additionalCosts.reduce((total, cost) => total + cost.amount, 0);
+
+    const cheapestAccommodationsCost = Object.values(groupedAccommodations).reduce((total, cityAccoms) => {
+        if (cityAccoms.length === 0) return total;
+        const cheapest = cityAccoms.reduce((prev, curr) => (prev.totalPrice < curr.totalPrice ? prev : curr));
+        return total + cheapest.totalPrice;
+    }, 0);
+
+    const totalCost = carCost + additionalCost + cheapestAccommodationsCost;
 
     return (
         <div className="bg-white rounded-2xl shadow-lg border border-slate-200 flex flex-col overflow-hidden transition-shadow hover:shadow-xl">
@@ -174,15 +223,63 @@ const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, isExpan
 
             </div>
             
-            <div className={`transition-[max-height,opacity] duration-700 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}>
-                <div className="p-4 flex-grow flex flex-col space-y-4 border-t" style={{ borderColor: themeColor + '40' }}>
-                    {carTrips && carTrips.map((leg, index) => (
-                       <CarTripLegCard key={index} leg={leg} />
-                    ))}
+            <div className={`transition-[max-height,opacity] duration-700 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[5000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="p-4 flex-grow flex flex-col space-y-6 border-t bg-slate-50/50" style={{ borderColor: themeColor + '40' }}>
+                    {carTrips && carTrips.length > 0 && (
+                        <div className="space-y-4">
+                            {carTrips.map((leg, index) => <CarTripLegCard key={index} leg={leg} />)}
+                        </div>
+                    )}
+
+                    {additionalCosts && additionalCosts.length > 0 && (
+                        <div>
+                            <h4 className="font-bold text-slate-700 mb-2">Custos Adicionais</h4>
+                            <div className="bg-white p-4 rounded-xl shadow-md border border-slate-200 space-y-3">
+                                {additionalCosts.map((cost, index) => (
+                                    <div key={index} className="flex justify-between items-center text-sm">
+                                        <span className="flex items-center text-slate-600">
+                                            {cost.icon}
+                                            <span className="ml-2">{cost.description}</span>
+                                            {cost.details && <span className="text-xs text-slate-400 ml-1">({cost.details})</span>}
+                                        </span>
+                                        <span className="font-semibold text-slate-800">
+                                            R$ {cost.amount.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                                        </span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                    
+                    {accommodations && accommodations.length > 0 && (
+                        <div>
+                            <h4 className="font-bold text-slate-700 mb-2">Opções de Hospedagem</h4>
+                            <div className="space-y-6">
+                                {Object.entries(groupedAccommodations).map(([city, cityAccoms]) => (
+                                    <div key={city}>
+                                        <h5 className="font-semibold text-slate-600 mb-2 pl-1">Em {city}:</h5>
+                                        <div className="space-y-4">
+                                            {cityAccoms.map(option => <AccommodationOptionCard key={option.name} option={option} />)}
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                    {totalCost > 0 && (
+                        <div className="mt-4 p-5 rounded-xl bg-gradient-to-tr from-blue-600 to-cyan-500 text-white text-center shadow-lg">
+                            <p className="font-semibold uppercase text-sm tracking-wider opacity-80">Custo Total Estimado da Viagem</p>
+                            <p className="text-4xl font-extrabold my-1">
+                                R$ {totalCost.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                            </p>
+                            <p className="text-xs opacity-70">Soma de transporte + hospedagem mais econômica</p>
+                        </div>
+                    )}
 
                     {itineraries.length > 0 && (
                         <div className="flex-grow">
-                            <h4 className="font-bold text-sm text-slate-700 mb-1">
+                            <h4 className="font-bold text-slate-700 mb-1">
                                {itineraries.length} {itineraries.length > 1 ? 'itens salvos' : 'item salvo'}
                             </h4>
                             <div className="flex flex-col">

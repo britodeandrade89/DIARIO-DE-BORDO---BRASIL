@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import type { Itinerary, TripEvent, BookingOption, PriceHistoryItem } from '../types';
 import { 
     CloseIcon, 
@@ -183,8 +183,15 @@ const PriceHistorySection: React.FC<{itinerary: Itinerary, onToggleMonitoring: (
 }
 
 const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: () => void; }> = ({ itinerary, onClose }) => {
-    // A simple state for toggling monitoring in the UI. In a real app, this would trigger a data update.
     const [localItinerary, setLocalItinerary] = useState(itinerary);
+
+    // FIX: Synchronize the internal state (`localItinerary`) with the `itinerary` prop.
+    // This is crucial because `useState` only initializes the state on the first render.
+    // Without this effect, when a new itinerary is selected, the prop changes, but the
+    // modal's internal state doesn't update, causing it to either not appear or show stale data.
+    useEffect(() => {
+        setLocalItinerary(itinerary);
+    }, [itinerary]);
 
     if (!localItinerary) return null;
     

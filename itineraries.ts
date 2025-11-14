@@ -57,54 +57,61 @@ export const initialItineraries: Itinerary[] = [
   },
   {
     id: 14,
-    title: 'LATAM: Rio de Janeiro → Porto Seguro (18/12)',
+    title: 'Azul: Rio de Janeiro → Porto Seguro (18/12)',
     subtitle: 'Só Ida · Econômica · 1 passageiro',
     savedDate: '2024-07-26 17:51',
-    totalPrice: 492.00,
-    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJU1dFMVIwdGpXRlUwWWxsQlFVODFjMUZDUnkwdExTMHRMUzB0TFMwdFkyZDJOMEZCUVVGQlIydFViMkk0U0ZOU2NrMUJFZ1pNUVRNd01UTWFDd2o3L3dJUUFob0RRbEpNT0J4dzZVZz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
+    totalPrice: 492.00, 
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpFEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJBRDIEMjcwM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI',
     events: [
       {
         type: 'flight',
-        startTime: '23:40',
-        endTime: '01:15',
+        startTime: '06:10',
+        endTime: '16:00',
         startDate: '18/12',
-        endDate: '19/12',
+        endDate: '18/12',
         startLocation: 'GIG',
         endLocation: 'BPS',
-        duration: '1h 35m',
-        details: 'Sem escalas',
-        company: { name: 'LATAM', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }) },
-        operator: 'Operado por Latam Airlines Brasil',
+        duration: '9h 50m',
+        details: '1 parada (7h 25m em CNF)',
+        company: { name: 'Azul', logo: React.createElement(AzulLogoIcon, { className: "h-10 w-10" }) },
+        operator: 'Operado por Azul Linhas Aéreas',
       }
     ],
     baggage: {
-      personal: { status: 'Não disponível', details: 'Item pessoal (bolsa ou mochila)' },
+      personal: { status: 'Inclusa', details: 'Item pessoal (bolsa ou mochila)' },
       carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
-      checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
+      checked: { status: 'Taxa Adicional', details: 'Bagagem despachada cobrada à parte' },
     },
     bookingOptions: [
         {
-            provider: 'Reserve com a LATAM',
-            price: 532.00,
-            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJU1dFMVIwdGpXRlUwWWxsQlFVODFjMUZDUnkwdExTMHRMUzB0TFMwdFkyZDJOMEZCUVVGQlIydFViMkk0U0ZOU2NrMUJFZ1pNUVRNd01UTWFDd2o3L3dJUUFob0RRbEpNT0J4dzZVZz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
-            logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
-            tag: 'Companhia aérea'
+            provider: 'Reserve com a Decolar',
+            price: 487.00,
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpFEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJBRDIEMjcwM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI',
+            logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" })
+        },
+        {
+            provider: 'Reserve com a Booking.com',
+            price: 512.00,
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpFEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJBRDIEMjcwM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI',
+            logo: React.createElement(BookingLogoIcon, { className: "h-10 w-10 p-1" })
         },
         {
             provider: 'Reserve com a maxmilhas',
-            price: 492.00,
-            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJU1dFMVIwdGpXRlUwWWxsQlFVODFjMUZDUnkwdExTMHRMUzB0TFMwdFkyZDJOMEZCUVVGQlIydFViMkk0U0ZOU2NrMUJFZ1pNUVRNd01UTWFDd2o3L3dJUUFob0RRbEpNT0J4dzZVZz0SBggAIAIoAiIA&hl=pt-BR&gl=br&curr=BRL',
+            price: 653.00,
+            url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpFEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJBRDIEMjcwM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI',
             logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
         }
     ],
     monitoring: { enabled: true },
     priceHistory: [
-      { timestamp: new Date('2024-07-26T17:51:00'), price: 492.00 },
+      { timestamp: new Date('2024-07-26T17:51:00'), price: 492.00 }, // Original LATAM
       { timestamp: new Date('2024-07-27T09:00:00'), price: 499.00 },
       { timestamp: new Date('2024-07-27T21:00:00'), price: 512.00 },
       { timestamp: new Date('2024-07-28T09:00:00'), price: 530.00 },
       { timestamp: new Date('2024-07-28T21:00:00'), price: 580.00 },
       { timestamp: new Date('2024-07-29T09:00:00'), price: 575.00 },
+      { timestamp: new Date('2024-07-29T21:00:00'), price: 455.00 }, // Previous best find
+      { timestamp: new Date('2024-07-30T09:00:00'), price: 487.00 }, // New price from screenshot
     ],
   },
   {

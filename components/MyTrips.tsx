@@ -14,9 +14,19 @@ interface GroupedTrip {
     carTrips?: Destination['carTrips'];
 }
 
+// Helper function to parse date strings like "DD/MM" for sorting
+const parseItineraryDate = (itinerary: Itinerary): Date => {
+    const dateStr = itinerary.events[0].startDate;
+    const [day, month] = dateStr.split('/').map(Number);
+    // Assuming the year is 2025 based on the travel period in the data
+    const year = 2025; 
+    return new Date(year, month - 1, day);
+};
+
+
 const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
-    // FIX: Expanded the first trip card by default for better user experience.
-    const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+    // FIX: All trip cards now start collapsed for a cleaner initial view.
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
     const groupedTrips: { [key: string]: GroupedTrip } = {};
 
@@ -59,8 +69,15 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
 
     const finalTrips = Object.values(groupedTrips)
       .filter(trip => (trip.itineraries && trip.itineraries.length > 0) || (trip.carTrips && trip.carTrips.length > 0))
-      // Sort itineraries within each trip by price
-      .map(trip => ({...trip, itineraries: trip.itineraries.sort((a, b) => a.totalPrice - b.totalPrice)}));
+      // FIX: Sort itineraries within each trip by departure date instead of price.
+      .map(trip => ({
+          ...trip, 
+          itineraries: trip.itineraries.sort((a, b) => {
+              const dateA = parseItineraryDate(a);
+              const dateB = parseItineraryDate(b);
+              return dateA.getTime() - dateB.getTime();
+          })
+      }));
 
     return (
         <div className="space-y-4">

@@ -161,7 +161,7 @@ const portoSeguroAccommodations: AccommodationOption[] = [
             }
         ].sort((a, b) => a.pricePerNight - b.pricePerNight);
 
-const paratyAccommodations: AccommodationOption[] = [
+const paratyAccommodationsFourNights: AccommodationOption[] = [
     {
         name: "Pousada Entre Folhas",
         city: "Paraty",
@@ -189,6 +189,37 @@ const paratyAccommodations: AccommodationOption[] = [
         bookingUrl: "https://www.hoteis.com/ho514276/pousada-camila-paraty-brasil/?chkin=2025-12-19&chkout=2025-12-23"
     }
 ].sort((a, b) => a.pricePerNight - b.pricePerNight);
+
+// FIX: Added a new accommodations list for Paraty with a 2-night duration and recalculated prices for the Costa Verde itinerary.
+const paratyAccommodationsTwoNights: AccommodationOption[] = [
+    {
+        name: "Pousada Entre Folhas",
+        city: "Paraty",
+        rating: 9.0,
+        pricePerNight: 234,
+        totalPrice: 492, // Recalculated for 2 nights
+        nights: 2,
+        amenities: ["Estacionamento grátis", "Wi-Fi Grátis", "Jardim", "Ar-condicionado", "Serviço de traslado para a praia"],
+        pros: ["Avaliação 'Maravilhosa' (9.0)", "Totalmente reembolsável", "Ambiente tranquilo e cercado de natureza", "Ótimos serviços como traslado"],
+        cons: ["Fica um pouco fora do centro, ideal para quem está de carro e busca sossego."],
+        distanceToCenter: "A 9 min de carro do Centro Histórico.",
+        bookingUrl: "https://www.hoteis.com/ho3234158880/pousada-entre-folhas-paraty-brasil/?chkin=2025-12-22&chkout=2025-12-24"
+    },
+    {
+        name: "Pousada Camila",
+        city: "Paraty",
+        rating: 8.4,
+        pricePerNight: 287,
+        totalPrice: 604, // Recalculated for 2 nights
+        nights: 2,
+        amenities: ["Piscina externa", "Café da manhã incluído", "Wi-Fi Grátis", "Estacionamento", "Sala de jogos"],
+        pros: ["Avaliação 'Muito boa' (8.4)", "Café da manhã bem avaliado", "Piscina e área de lazer"],
+        cons: ["Preço um pouco mais elevado", "Pode exigir uma pequena caminhada para o centro histórico"],
+        distanceToCenter: "A 19 min de caminhada da Igreja Matriz.",
+        bookingUrl: "https://www.hoteis.com/ho514276/pousada-camila-paraty-brasil/?chkin=2025-12-22&chkout=2025-12-24"
+    }
+].sort((a, b) => a.pricePerNight - b.pricePerNight);
+
 
 const ilhaGrandeAccommodations: AccommodationOption[] = [
     {
@@ -372,7 +403,7 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: paratyAccommodations,
+        accommodations: paratyAccommodationsFourNights,
     },
     25: {
         id: 25,
@@ -426,6 +457,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: [...ilhaGrandeAccommodations, ...paratyAccommodations],
+        accommodations: [...ilhaGrandeAccommodations, ...paratyAccommodationsTwoNights],
     }
   };

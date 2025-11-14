@@ -180,8 +180,8 @@ const DetailedItineraryView: React.FC<DetailedItineraryViewProps> = ({ selection
 
                         return (
                           <div key={city}>
-                            <h4 className="text-xl font-bold text-slate-700 mb-4 pb-2 border-b-2 border-slate-200">
-                                Em <span className="text-cyan-700">{city}</span>
+                            <h4 className="text-2xl font-bold text-slate-800 mb-6 pb-2 bg-slate-100 -mx-6 px-6 py-3 border-b-2 border-slate-200">
+                                Hospedagem em <span className="text-cyan-700">{city}</span>
                             </h4>
                             <div className="space-y-6">
                               {sortedAccommodations.map((option, index) => (

@@ -20,11 +20,23 @@ export const LogoIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
         {/* Simplified continents */}
         <path d="M45,45 C40,55 42,75 48,85 S 58,95 62,88 S 70,65 65,50 S 50,35 45,45 Z" fill="#16a34a" opacity="0.8"/>
         <path d="M68,42 C72,48 70,60 72,70 S 78,78 80,72 S 80,50 75,45 Z" fill="#16a34a" opacity="0.8"/>
-        <path d="M20 80 C 40 120, 88 110, 100 65" stroke="url(#swoosh-gradient)" fill="none" strokeWidth="8" strokeLinecap="round"/>
+        
+        {/* The swoosh path for the airplane */}
+        <path id="swoosh-path" d="M20 80 C 40 120, 88 110, 100 65" stroke="url(#swoosh-gradient)" fill="none" strokeWidth="8" strokeLinecap="round"/>
+        
+        {/* The animated airplane */}
+        <g>
+            <path d="M-2,-4 L10,0 L-2,4 L0,0 Z" fill="white" transform="scale(1.5)">
+                <animateMotion dur="4s" repeatCount="indefinite" rotate="auto" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.42 0 0.58 1">
+                    <mpath href="#swoosh-path" />
+                </animateMotion>
+            </path>
+        </g>
+        
+        {/* The location pin */}
         <path d="M72 70 C 72 60, 80 52, 88 52 C 96 52, 104 60, 104 70 C 104 85, 88 100, 88 100 C 88 100, 72 85, 72 70 Z" fill="url(#pin-gradient)"/>
         <circle cx="88" cy="70" r="10" fill="white"/>
         <text x="88" y="73" textAnchor="middle" fontSize="8" fontWeight="bold" fill="#1e40af">GPS</text>
-        <path d="M88 32 L 104 40 L 100 34 L 108 30 L 104 28 L 96 24 Z" fill="#1e40af" transform="rotate(20 98 32)"/>
     </svg>
 );
 

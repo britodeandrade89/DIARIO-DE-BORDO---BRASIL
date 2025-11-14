@@ -45,57 +45,86 @@ const ItineraryRow: React.FC<{ itinerary: Itinerary, onClick: () => void }> = ({
     );
 };
 
-const CarTripLegCard: React.FC<{ leg: CarTripLeg; destinationTitle: string }> = ({ leg, destinationTitle }) => (
-    <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-        <h4 className="font-bold text-sm text-slate-700 mb-3 flex items-center">
-            <CarIcon className="h-5 w-5 mr-2 text-slate-500"/>
-            {leg.title}
-        </h4>
-        
-        {leg.mapUrl && <img src={leg.mapUrl} alt={`Mapa da rota para ${destinationTitle}`} className="rounded-md mb-3" />}
+const generateGoogleMapsEmbedUrl = (title: string): string => {
+    const apiKey = process.env.API_KEY;
+    const cleanedTitle = title.replace(/Trecho \d+: /, '').split(' (')[0];
+    const locations = cleanedTitle.split(/ → | ↔ /);
+    if (locations.length < 2 || !apiKey) return '';
+    
+    const origin = locations[0].trim();
+    const destination = locations[1].trim();
+    const baseUrl = 'https://www.google.com/maps/embed/v1/directions';
+    return `${baseUrl}?key=${apiKey}&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
+};
 
-        
-        <div className="text-center text-slate-800">
-             <p className="text-2xl font-bold">
-                R$ {(leg.totalCostOneWay).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-             </p>
-             <p className="text-xs text-slate-500 -mt-1">Custo estimado do trecho</p>
-        </div>
+const CarTripLegCard: React.FC<{ leg: CarTripLeg; destinationTitle: string }> = ({ leg, destinationTitle }) => {
+    const embedUrl = generateGoogleMapsEmbedUrl(leg.title);
 
-        <div className="grid grid-cols-2 gap-3 mt-3 text-sm">
-            <div className="flex items-center space-x-2">
-                <FuelIcon className="h-5 w-5 text-slate-400"/>
-                <div>
-                    <p className="font-semibold text-slate-700">R$ {leg.fuelCostOneWay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-                    <p className="text-xs text-slate-500">Combustível</p>
+    return (
+        <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
+            <h4 className="font-bold text-sm text-slate-700 mb-3 flex items-center">
+                <CarIcon className="h-5 w-5 mr-2 text-slate-500"/>
+                {leg.title}
+            </h4>
+            
+            {embedUrl && (
+                 <div className="rounded-md mb-3 overflow-hidden border border-slate-200 shadow-inner aspect-video">
+                    <iframe
+                        src={embedUrl}
+                        width="100%"
+                        height="100%"
+                        style={{ border: 0 }}
+                        allowFullScreen={false}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        title={`Mapa da rota para ${leg.title}`}
+                    ></iframe>
                 </div>
+            )}
+            
+            <div className="text-center text-slate-800">
+                 <p className="text-2xl font-bold">
+                    R$ {(leg.totalCostOneWay).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                 </p>
+                 <p className="text-xs text-slate-500 -mt-1">Custo estimado do trecho</p>
             </div>
-             <div className="flex items-center space-x-2">
-                <TollIcon className="h-5 w-5 text-slate-400"/>
-                <div>
-                    <p className="font-semibold text-slate-700">R$ {leg.tollCostOneWay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-                    <p className="text-xs text-slate-500">Pedágios</p>
-                </div>
-            </div>
-        </div>
 
-        {leg.additionalCosts && leg.additionalCosts.length > 0 && (
-            <div className="mt-4 pt-3 border-t border-slate-200">
-                {leg.additionalCosts.map((cost, index) => (
-                    <div key={index} className="flex items-center space-x-2 text-sm">
-                        {cost.icon}
-                        <div>
-                            <p className="font-semibold text-slate-700">
-                                {cost.dailyRate ? `R$ ${cost.dailyRate.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} (diária)` : ''}
-                            </p>
-                            <p className="text-xs text-slate-500">{cost.description}</p>
-                        </div>
+            <div className="grid grid-cols-2 gap-3 mt-3 text-sm">
+                <div className="flex items-center space-x-2">
+                    <FuelIcon className="h-5 w-5 text-slate-400"/>
+                    <div>
+                        <p className="font-semibold text-slate-700">R$ {leg.fuelCostOneWay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+                        <p className="text-xs text-slate-500">Combustível</p>
                     </div>
-                ))}
+                </div>
+                 <div className="flex items-center space-x-2">
+                    <TollIcon className="h-5 w-5 text-slate-400"/>
+                    <div>
+                        <p className="font-semibold text-slate-700">R$ {leg.tollCostOneWay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+                        <p className="text-xs text-slate-500">Pedágios</p>
+                    </div>
+                </div>
             </div>
-        )}
-    </div>
-);
+
+            {leg.additionalCosts && leg.additionalCosts.length > 0 && (
+                <div className="mt-4 pt-3 border-t border-slate-200">
+                    {leg.additionalCosts.map((cost, index) => (
+                        <div key={index} className="flex items-center space-x-2 text-sm">
+                            {cost.icon}
+                            <div>
+                                <p className="font-semibold text-slate-700">
+                                    {cost.dailyRate ? `R$ ${cost.dailyRate.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} (diária)` : ''}
+                                </p>
+                                <p className="text-xs text-slate-500">{cost.description}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+};
+
 
 const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, onSelectItinerary }) => {
     const { destination, carTrips, itineraries } = trip;

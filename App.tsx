@@ -32,7 +32,9 @@ const App: React.FC = () => {
         // FIX: Construct an absolute URL for the service worker to match the document's origin.
         // This prevents a cross-origin registration error in certain hosting environments.
         const swUrl = `${window.location.origin}/sw.js`;
-        navigator.serviceWorker.register(swUrl, { scope: './' })
+        // FIX: Changed scope from './' to '/' to ensure it matches the origin in sandboxed environments,
+        // resolving the "origin of the provided scope does not match" error.
+        navigator.serviceWorker.register(swUrl, { scope: '/' })
           .then(registration => {
             console.log('Service Worker registrado com sucesso:', registration.scope);
           })

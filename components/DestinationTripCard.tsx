@@ -1,6 +1,16 @@
 import React from 'react';
 import type { Itinerary, Destination, TripEventType, CarTripLeg } from '../types';
-import { PlaneTakeoffIcon, BusIcon, FuelIcon, TollIcon, CarIcon, ShipIcon, MapPinIcon } from './icons';
+import { 
+    PlaneTakeoffIcon, 
+    BusIcon, 
+    FuelIcon, 
+    ShipIcon, 
+    MapPinIcon,
+    LocationMarkerAIcon,
+    LocationMarkerBIcon,
+    TollBoothIcon,
+    ParkingIcon
+} from './icons';
 
 interface GroupedTrip {
     destination: Destination | { title: string; themeColor?: string, icon?: React.ReactElement };
@@ -45,82 +55,76 @@ const ItineraryRow: React.FC<{ itinerary: Itinerary, onClick: () => void }> = ({
     );
 };
 
-const generateGoogleMapsEmbedUrl = (title: string): string => {
-    const apiKey = process.env.API_KEY;
-    const cleanedTitle = title.replace(/Trecho \d+: /, '').split(' (')[0];
-    const locations = cleanedTitle.split(/ → | ↔ /);
-    if (locations.length < 2 || !apiKey) return '';
-    
-    const origin = locations[0].trim();
-    const destination = locations[1].trim();
-    const baseUrl = 'https://www.google.com/maps/embed/v1/directions';
-    return `${baseUrl}?key=${apiKey}&origin=${encodeURIComponent(origin)}&destination=${encodeURIComponent(destination)}`;
-};
-
-const CarTripLegCard: React.FC<{ leg: CarTripLeg; destinationTitle: string }> = ({ leg, destinationTitle }) => {
-    const embedUrl = generateGoogleMapsEmbedUrl(leg.title);
+const CarTripLegCard: React.FC<{ leg: CarTripLeg }> = ({ leg }) => {
+    // Heuristic: one toll booth for every ~R$5. Max of 4 for visual simplicity.
+    const tollCount = leg.tollCostOneWay > 0 ? Math.min(Math.round(leg.tollCostOneWay / 5), 4) : 0;
 
     return (
-        <div className="bg-slate-50 p-3 rounded-lg border border-slate-200">
-            <h4 className="font-bold text-sm text-slate-700 mb-3 flex items-center">
-                <CarIcon className="h-5 w-5 mr-2 text-slate-500"/>
+        <div className="bg-white p-4 rounded-xl shadow-md border border-slate-200 flex flex-col space-y-4">
+            <h4 className="font-bold text-lg text-slate-800 text-center">
                 {leg.title}
             </h4>
-            
-            {embedUrl && (
-                 <div className="rounded-md mb-3 overflow-hidden border border-slate-200 shadow-inner aspect-video">
-                    <iframe
-                        src={embedUrl}
-                        width="100%"
-                        height="100%"
-                        style={{ border: 0 }}
-                        allowFullScreen={false}
-                        loading="lazy"
-                        referrerPolicy="no-referrer-when-downgrade"
-                        title={`Mapa da rota para ${leg.title}`}
-                    ></iframe>
-                </div>
-            )}
-            
-            <div className="text-center text-slate-800">
-                 <p className="text-2xl font-bold">
-                    R$ {(leg.totalCostOneWay).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
-                 </p>
-                 <p className="text-xs text-slate-500 -mt-1">Custo estimado do trecho</p>
-            </div>
 
-            <div className="grid grid-cols-2 gap-3 mt-3 text-sm">
-                <div className="flex items-center space-x-2">
-                    <FuelIcon className="h-5 w-5 text-slate-400"/>
-                    <div>
-                        <p className="font-semibold text-slate-700">R$ {leg.fuelCostOneWay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-                        <p className="text-xs text-slate-500">Combustível</p>
-                    </div>
-                </div>
-                 <div className="flex items-center space-x-2">
-                    <TollIcon className="h-5 w-5 text-slate-400"/>
-                    <div>
-                        <p className="font-semibold text-slate-700">R$ {leg.tollCostOneWay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-                        <p className="text-xs text-slate-500">Pedágios</p>
-                    </div>
-                </div>
-            </div>
-
-            {leg.additionalCosts && leg.additionalCosts.length > 0 && (
-                <div className="mt-4 pt-3 border-t border-slate-200">
-                    {leg.additionalCosts.map((cost, index) => (
-                        <div key={index} className="flex items-center space-x-2 text-sm">
-                            {cost.icon}
-                            <div>
-                                <p className="font-semibold text-slate-700">
-                                    {cost.dailyRate ? `R$ ${cost.dailyRate.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} (diária)` : ''}
-                                </p>
-                                <p className="text-xs text-slate-500">{cost.description}</p>
+            {/* Schematic Route */}
+            <div className="py-8 px-4 flex items-center">
+                <LocationMarkerAIcon className="h-10 w-10 flex-shrink-0" />
+                <div className="flex-grow flex items-center justify-center relative h-10 px-2">
+                    <div className="w-full border-t-2 border-dashed border-slate-300"></div>
+                    <div className="absolute inset-0 flex items-center justify-around px-4">
+                        {Array.from({ length: tollCount }).map((_, i) => (
+                            <div key={i} className="bg-white px-1">
+                                <TollBoothIcon className="h-8 w-8 text-slate-500" />
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
-            )}
+                <LocationMarkerBIcon className="h-10 w-10 flex-shrink-0" />
+            </div>
+
+            {/* Total Distance */}
+            <div className="text-center -mt-8">
+                <p className="text-2xl font-bold text-slate-800">
+                    Total: {leg.distance}
+                </p>
+            </div>
+            
+            {/* Costs Breakdown */}
+            <div className="pt-4 border-t border-slate-200/80 space-y-3">
+                <div className="flex justify-between items-center text-sm">
+                    <span className="flex items-center text-slate-600">
+                        <FuelIcon className="h-5 w-5 mr-2 text-slate-400" />
+                        Combustível
+                    </span>
+                    <span className="font-semibold text-slate-800">
+                        R$ {leg.fuelCostOneWay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                    </span>
+                </div>
+                
+                {leg.tollCostOneWay > 0 && (
+                    <div className="flex justify-between items-center text-sm">
+                        <span className="flex items-center text-slate-600">
+                            <ParkingIcon className="h-5 w-5 mr-2 text-slate-400" />
+                            Pedágios
+                        </span>
+                        <span className="font-semibold text-slate-800">
+                            R$ {leg.tollCostOneWay.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}
+                        </span>
+                    </div>
+                )}
+
+                {leg.additionalCosts && leg.additionalCosts.map((cost, index) => (
+                    <div key={index} className="flex justify-between items-center text-sm">
+                        <span className="flex items-center text-slate-600">
+                           {React.cloneElement(cost.icon as React.ReactElement, { className: "h-5 w-5 mr-2 text-slate-400" })}
+                           {cost.description.includes('Estacionamento') ? 'Estacionamento' : cost.description}
+                        </span>
+                        <span className="font-semibold text-slate-800 text-right">
+                            {cost.dailyRate ? `R$ ${cost.dailyRate.toLocaleString('pt-BR', { minimumFractionDigits: 2 })} / dia` : ''}
+                            {cost.total ? `R$ ${cost.total.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}` : ''}
+                        </span>
+                    </div>
+                ))}
+            </div>
         </div>
     );
 };
@@ -144,7 +148,7 @@ const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, onSelec
 
             <div className="p-4 flex-grow flex flex-col space-y-4">
                 {carTrips && carTrips.map((leg, index) => (
-                   <CarTripLegCard key={index} leg={leg} destinationTitle={destination.title} />
+                   <CarTripLegCard key={index} leg={leg} />
                 ))}
 
                 {itineraries.length > 0 && (

@@ -283,6 +283,32 @@ export const ParkingIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   </svg>
 );
 
+export const LocationMarkerAIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#3b82f6"/>
+        <text x="12" y="10.5" textAnchor="middle" alignmentBaseline="middle" fontSize="6" fontWeight="bold" fill="white">A</text>
+    </svg>
+);
+
+export const LocationMarkerBIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" fill="#ef4444"/>
+        <text x="12" y="10.5" textAnchor="middle" alignmentBaseline="middle" fontSize="6" fontWeight="bold" fill="white">B</text>
+    </svg>
+);
+
+export const TollBoothIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
+  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
+    <g stroke="#94a3b8" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 21h16" />
+      <path d="M4 11h16v10H4z" fill="#f1f5f9"/>
+      <path d="M2 11l10-7 10 7" fill="#fafafa" />
+    </g>
+    <path d="M10 16h4a1 1 0 001-1v-2a1 1 0 00-1-1h-4v4z" fill="#e2e8f0"/>
+    <text x="12" y="17" textAnchor="middle" alignmentBaseline="middle" fontSize="4.5" fontWeight="bold" fill="#475569">P</text>
+  </svg>
+);
+
 export const TangoDancersIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
         <path strokeLinecap="round" strokeLinejoin="round" d="M12 18.75a6 6 0 0 0 6-6h-6v6ZM12 5.25a6 6 0 0 1 6 6h-6v-6Z" />

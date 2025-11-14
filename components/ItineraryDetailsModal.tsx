@@ -183,23 +183,28 @@ const PriceHistorySection: React.FC<{itinerary: Itinerary, onToggleMonitoring: (
 }
 
 const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: () => void; }> = ({ itinerary, onClose }) => {
-    const [localItinerary, setLocalItinerary] = useState(itinerary);
+    const [localItinerary, setLocalItinerary] = useState<Itinerary | null>(itinerary);
+    const [isVisible, setIsVisible] = useState(!!itinerary);
 
-    // FIX: Synchronize the internal state (`localItinerary`) with the `itinerary` prop.
-    // This is crucial because `useState` only initializes the state on the first render.
-    // Without this effect, when a new itinerary is selected, the prop changes, but the
-    // modal's internal state doesn't update, causing it to either not appear or show stale data.
     useEffect(() => {
-        setLocalItinerary(itinerary);
+        if (itinerary) {
+            setLocalItinerary(itinerary);
+            setIsVisible(true);
+        } else {
+            setIsVisible(false);
+        }
     }, [itinerary]);
 
-    if (!localItinerary) return null;
+    const handleClose = () => {
+        setIsVisible(false);
+        // Delay the actual closing to allow for the exit animation
+        setTimeout(onClose, 300);
+    };
     
     const handleToggleMonitoring = () => {
         setLocalItinerary(prev => {
             if (!prev) return null;
             const isEnabled = !(prev.monitoring?.enabled ?? false);
-            // Simulate adding a first history point if enabling for the first time
             let newHistory = prev.priceHistory ?? [];
             if (isEnabled && newHistory.length === 0) {
                 newHistory = [{ timestamp: new Date(), price: prev.totalPrice }];
@@ -213,61 +218,68 @@ const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: ()
         });
     };
 
-    const latestPrice = localItinerary.monitoring?.enabled && localItinerary.priceHistory && localItinerary.priceHistory.length > 0
+    const latestPrice = localItinerary?.monitoring?.enabled && localItinerary.priceHistory && localItinerary.priceHistory.length > 0
         ? localItinerary.priceHistory[localItinerary.priceHistory.length - 1].price
-        : localItinerary.totalPrice;
+        : localItinerary?.totalPrice;
 
     return (
         <>
-            <div className="fixed inset-0 bg-black/60 z-40 transition-opacity" onClick={onClose} />
-            <div className="fixed top-0 right-0 h-full w-full max-w-3xl bg-gradient-to-br from-slate-50 to-rose-50 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col">
-                <header className="flex items-center justify-between p-4 bg-white/80 backdrop-blur-sm border-b border-slate-200 flex-shrink-0 sticky top-0">
-                    <div>
-                        <h2 className="text-xl font-bold text-slate-800">{localItinerary.title}</h2>
-                        <p className="text-sm text-slate-500">{localItinerary.subtitle}</p>
-                    </div>
-                    <div className="flex items-center space-x-4">
-                        <div className="text-right">
-                             <p className="text-xs text-slate-500">Preço atual</p>
-                             <p className="text-2xl font-extrabold text-blue-700">R$ {latestPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-                        </div>
-                        <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-200 text-slate-600 transition-colors">
-                            <CloseIcon className="h-6 w-6" />
-                        </button>
-                    </div>
-                </header>
-                
-                <main className="flex-grow overflow-y-auto p-6 space-y-6">
-                    <section>
-                        <h3 className="text-lg font-semibold text-slate-700 mb-3">Voo selecionado</h3>
-                        <div className="space-y-4">
-                            {localItinerary.events.map((event, index) => <EventRow key={index} event={event} />)}
-                        </div>
-                    </section>
-
-                    {localItinerary.monitoring?.enabled && <PriceHistorySection itinerary={localItinerary} onToggleMonitoring={handleToggleMonitoring} />}
-
-
-                    {localItinerary.baggage && (
-                        <section>
-                            <div className="bg-white/80 p-4 rounded-xl border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4">
-                               <BaggageItem status={localItinerary.baggage.personal.status} details="Item pessoal" icon={<BackpackIcon className="h-5 w-5"/>} />
-                               <BaggageItem status={localItinerary.baggage.carryOn.status} details={localItinerary.baggage.carryOn.details} icon={<BaggageIcon className="h-5 w-5"/>} />
-                               <BaggageItem status={localItinerary.baggage.checked.status} details={localItinerary.baggage.checked.details} icon={<SuitcaseIcon className="h-5 w-5"/>} />
+            <div 
+                className={`fixed inset-0 bg-black/60 z-40 transition-opacity duration-300 ${isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} 
+                onClick={handleClose} 
+            />
+            <div 
+                className={`fixed top-0 right-0 h-full w-full max-w-3xl bg-gradient-to-br from-slate-50 to-rose-50 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col ${isVisible ? 'translate-x-0' : 'translate-x-full'}`}
+            >
+                {localItinerary && (
+                    <>
+                        <header className="flex items-center justify-between p-4 bg-white/80 backdrop-blur-sm border-b border-slate-200 flex-shrink-0 sticky top-0">
+                            <div>
+                                <h2 className="text-xl font-bold text-slate-800">{localItinerary.title}</h2>
+                                <p className="text-sm text-slate-500">{localItinerary.subtitle}</p>
                             </div>
-                        </section>
-                    )}
-                    
-                    {localItinerary.bookingOptions && localItinerary.bookingOptions.length > 0 && (
-                        <section>
-                            <h3 className="text-lg font-semibold text-slate-700 mb-3">Opções de reserva</h3>
-                            <div className="space-y-3">
-                                {localItinerary.bookingOptions.map((opt, index) => <BookingRow key={index} option={opt} latestPrice={index === 1 ? latestPrice : undefined} />)}
+                            <div className="flex items-center space-x-4">
+                                <div className="text-right">
+                                     <p className="text-xs text-slate-500">Preço atual</p>
+                                     <p className="text-2xl font-extrabold text-blue-700">R$ {(latestPrice ?? 0).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+                                </div>
+                                <button onClick={handleClose} className="p-2 rounded-full hover:bg-slate-200 text-slate-600 transition-colors">
+                                    <CloseIcon className="h-6 w-6" />
+                                </button>
                             </div>
-                        </section>
-                    )}
+                        </header>
+                        
+                        <main className="flex-grow overflow-y-auto p-6 space-y-6">
+                            <section>
+                                <h3 className="text-lg font-semibold text-slate-700 mb-3">Voo selecionado</h3>
+                                <div className="space-y-4">
+                                    {localItinerary.events.map((event, index) => <EventRow key={index} event={event} />)}
+                                </div>
+                            </section>
 
-                </main>
+                            {(localItinerary.monitoring || localItinerary.priceHistory) && <PriceHistorySection itinerary={localItinerary} onToggleMonitoring={handleToggleMonitoring} />}
+
+                            {localItinerary.baggage && (
+                                <section>
+                                    <div className="bg-white/80 p-4 rounded-xl border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4">
+                                       <BaggageItem status={localItinerary.baggage.personal.status} details="Item pessoal" icon={<BackpackIcon className="h-5 w-5"/>} />
+                                       <BaggageItem status={localItinerary.baggage.carryOn.status} details={localItinerary.baggage.carryOn.details} icon={<BaggageIcon className="h-5 w-5"/>} />
+                                       <BaggageItem status={localItinerary.baggage.checked.status} details={localItinerary.baggage.checked.details} icon={<SuitcaseIcon className="h-5 w-5"/>} />
+                                    </div>
+                                </section>
+                            )}
+                            
+                            {localItinerary.bookingOptions && localItinerary.bookingOptions.length > 0 && (
+                                <section>
+                                    <h3 className="text-lg font-semibold text-slate-700 mb-3">Opções de reserva</h3>
+                                    <div className="space-y-3">
+                                        {localItinerary.bookingOptions.map((opt, index) => <BookingRow key={index} option={opt} latestPrice={latestPrice} />)}
+                                    </div>
+                                </section>
+                            )}
+                        </main>
+                    </>
+                )}
             </div>
         </>
     );

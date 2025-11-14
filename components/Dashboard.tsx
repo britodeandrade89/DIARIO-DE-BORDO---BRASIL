@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import type { Itinerary } from '../types';
 import Destinations from './Destinations';
@@ -65,7 +66,7 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
     const TabButton: React.FC<{ tabName: 'itineraries' | 'destinations' | 'ai-assistant'; label: string; icon: React.ReactNode }> = ({ tabName, label, icon }) => (
         <button
             onClick={() => setActiveTab(tabName)}
-            className={`flex items-center space-x-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
+            className={`flex-1 lg:flex-initial flex justify-center items-center space-x-2 px-4 py-2 rounded-lg font-semibold transition-all duration-300 text-sm ${
                 activeTab === tabName
                     ? 'bg-white text-blue-800 shadow-lg'
                     : 'text-white hover:bg-white/30'
@@ -81,18 +82,21 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
             <div className="flex-grow">
                 <div className="bg-gradient-to-b from-blue-700 to-slate-50 pb-20">
                     <header className="bg-transparent sticky top-0 z-20">
-                        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-                            <div className="flex items-center space-x-3">
-                                <LogoIcon className="h-12 w-auto" />
-                                <div>
+                        <nav className="container mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col lg:flex-row lg:justify-between lg:items-center">
+                            {/* Branding Area */}
+                            <div className="flex flex-col lg:flex-row items-center lg:space-x-3">
+                                <LogoIcon className="h-16 w-auto lg:h-12" />
+                                <div className="text-center lg:text-left mt-2 lg:mt-0">
                                     <h1 className="text-3xl font-bold text-white">
                                         Check-in,<span className="text-lime-400">GO!</span>
                                     </h1>
                                     <p className="text-sm text-white/80 mt-1">Eu planejo, você clica, finaliza e viaja!</p>
                                 </div>
                             </div>
-                            <div className="flex items-center space-x-4">
-                                <div className="flex items-center space-x-1 bg-black/10 p-1 rounded-xl shadow-inner backdrop-blur-sm">
+                            
+                            {/* Controls Area */}
+                            <div className="w-full lg:w-auto flex flex-col lg:flex-row items-center mt-6 lg:mt-0 lg:space-x-4">
+                                <div className="w-full lg:w-auto flex items-stretch lg:items-center space-x-1 bg-black/10 p-1 rounded-xl shadow-inner backdrop-blur-sm">
                                     <TabButton tabName="destinations" label="Explorar Roteiros" icon={<CompassIcon className="h-5 w-5" />} />
                                     <TabButton tabName="itineraries" label="Minhas Viagens" icon={<BookOpenIcon className="h-5 w-5" />} />
                                     <TabButton tabName="ai-assistant" label="Assistente IA" icon={<SparklesIcon className="h-5 w-5" />} />
@@ -100,7 +104,7 @@ const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSucc
                                 {installPromptEvent && (
                                     <button
                                         onClick={handleInstallClick}
-                                        className="flex items-center space-x-2 px-4 py-2 rounded-xl font-semibold transition-all text-sm bg-white/90 text-slate-800 hover:bg-white hover:shadow-lg hover:scale-105"
+                                        className="w-full lg:w-auto mt-4 lg:mt-0 flex items-center justify-center space-x-2 px-4 py-2 rounded-xl font-semibold transition-all text-sm bg-white/90 text-slate-800 hover:bg-white hover:shadow-lg hover:scale-105"
                                     >
                                         <DownloadIcon className="h-5 w-5" />
                                         <span>Instalar App</span>

@@ -304,9 +304,49 @@ const ilhaGrandeAccommodations: AccommodationOption[] = [
         pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda (geralmente esgotado)", "Comodidades modernas"],
         cons: ["Preço mais elevado em comparação a outras opções da região."],
         distanceToCenter: "Localização central em Abraão, próximo ao cais.",
-        bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22"
+        bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1"
+    },
+    {
+        name: "Pousada Oásis",
+        city: "Ilha Grande",
+        rating: 9.3,
+        pricePerNight: 350,
+        totalPrice: 700,
+        nights: 2,
+        images: [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425482.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425487.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425492.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425497.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425500.jpg"
+        ],
+        amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Ar-condicionado", "Café da manhã"],
+        pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada", "Equipe atenciosa"],
+        cons: ["Pode ser barulhento por estar perto do centro", "Estrutura pode ser mais simples"],
+        distanceToCenter: "A 100m da Praia do Abraão.",
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1"
+    },
+    {
+        name: "Suítes Golfo",
+        city: "Ilha Grande",
+        rating: 8.6,
+        pricePerNight: 245,
+        totalPrice: 490,
+        nights: 2,
+        images: [
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039801.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039810.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039824.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039832.jpg",
+            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039841.jpg"
+        ],
+        amenities: ["Beira-mar", "Wi-Fi gratuito", "Varanda", "Ar-condicionado", "Quartos para famílias"],
+        pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista para o mar", "Preço competitivo"],
+        cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
+        distanceToCenter: "Em frente à Praia do Abraão.",
+        bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1"
     }
-]
+];
 
 export const detailedRoutes: Record<number, DetailedRoute> = {
     18: {
@@ -394,10 +434,50 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                     "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990520.jpg"
                 ],
                 amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Serviço de quarto", "Quartos para famílias"],
-                pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda (geralmente esgotado)", "Comodidades modernas"],
+                pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda", "Comodidades modernas"],
                 cons: ["Preço mais elevado em comparação a outras opções da região."],
                 distanceToCenter: "Localização central em Abraão, próximo ao cais.",
-                bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24"
+                bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1"
+            },
+            {
+                name: "Pousada Oásis",
+                city: "Ilha Grande",
+                rating: 9.3,
+                pricePerNight: 350,
+                totalPrice: 1400,
+                nights: 4,
+                images: [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425482.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425487.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425492.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425497.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425500.jpg"
+                ],
+                amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Ar-condicionado", "Café da manhã"],
+                pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada"],
+                cons: ["Pode ser barulhento por estar perto do centro"],
+                distanceToCenter: "A 100m da Praia do Abraão.",
+                bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1"
+            },
+            {
+                name: "Suítes Golfo",
+                city: "Ilha Grande",
+                rating: 8.6,
+                pricePerNight: 245,
+                totalPrice: 980,
+                nights: 4,
+                images: [
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039801.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039810.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039824.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039832.jpg",
+                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039841.jpg"
+                ],
+                amenities: ["Beira-mar", "Wi-Fi gratuito", "Varanda", "Ar-condicionado", "Quartos para famílias"],
+                pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista", "Preço competitivo"],
+                cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
+                distanceToCenter: "Em frente à Praia do Abraão.",
+                bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-24&group_adults=2&no_rooms=1"
             },
             {
                 name: "Flats Catamarã",
@@ -497,6 +577,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 ]
             }
         ],
-        accommodations: [...ilhaGrandeAccommodations, ...paratyAccommodations].sort((a,b) => a.pricePerNight - b.pricePerNight),
+        accommodations: [...ilhaGrandeAccommodations, ...paratyAccommodations],
     }
   };

@@ -115,6 +115,15 @@ const DetailedItineraryView: React.FC<DetailedItineraryViewProps> = ({ selection
 
   const { id: destinationId, startDate } = selection;
   const routeData = detailedRoutes[destinationId];
+
+  // Group accommodations by city
+  const groupedAccommodations = routeData.accommodations?.reduce((acc, option) => {
+    (acc[option.city] = acc[option.city] || []).push(option);
+    return acc;
+  }, {} as Record<string, AccommodationOption[]>) || {};
+
+  // Get chronological city order from itinerary
+  const cityOrder = routeData.itinerary?.map(plan => plan.city) || [];
   
   const getTripDate = (baseDateStr: string | null, dayOffset: number): string => {
     if (!baseDateStr) return 'Data a definir';
@@ -187,10 +196,27 @@ const DetailedItineraryView: React.FC<DetailedItineraryViewProps> = ({ selection
                     <div className="flex items-baseline space-x-3 mb-4">
                        <h3 className="text-2xl font-extrabold text-slate-800">Opções de Hospedagem</h3>
                     </div>
-                    <div className="space-y-6">
-                        {routeData.accommodations.map((option, index) => (
-                            <AccommodationCard key={index} option={option} />
-                        ))}
+                    <div className="space-y-8">
+                      {cityOrder.map(city => {
+                        const cityAccommodations = groupedAccommodations[city];
+                        if (!cityAccommodations || cityAccommodations.length === 0) return null;
+
+                        // Sort by price ascending
+                        const sortedAccommodations = [...cityAccommodations].sort((a, b) => a.pricePerNight - b.pricePerNight);
+
+                        return (
+                          <div key={city}>
+                            <h4 className="text-xl font-bold text-slate-700 mb-4 pb-2 border-b-2 border-slate-200">
+                                Em <span className="text-cyan-700">{city}</span>
+                            </h4>
+                            <div className="space-y-6">
+                              {sortedAccommodations.map((option, index) => (
+                                <AccommodationCard key={`${city}-${index}`} option={option} />
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })}
                     </div>
                   </section>
                 )}

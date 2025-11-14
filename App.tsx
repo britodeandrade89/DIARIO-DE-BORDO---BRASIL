@@ -29,7 +29,10 @@ const App: React.FC = () => {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js', { scope: './' })
+        // FIX: Construct an absolute URL for the service worker to match the document's origin.
+        // This prevents a cross-origin registration error in certain hosting environments.
+        const swUrl = `${window.location.origin}/sw.js`;
+        navigator.serviceWorker.register(swUrl, { scope: './' })
           .then(registration => {
             console.log('Service Worker registrado com sucesso:', registration.scope);
           })

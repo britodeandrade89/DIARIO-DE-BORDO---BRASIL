@@ -120,6 +120,7 @@ export interface Itinerary {
   monitoring?: {
     enabled: boolean;
   };
+  priceHistory?: PriceHistoryItem[];
 }
 
 export interface CarTripInfo {

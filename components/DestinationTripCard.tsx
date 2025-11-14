@@ -9,7 +9,9 @@ import {
     LocationMarkerAIcon,
     LocationMarkerBIcon,
     TollBoothIcon,
-    ParkingIcon
+    ParkingIcon,
+    ChevronDownIcon,
+    BellIcon,
 } from './icons';
 
 interface GroupedTrip {
@@ -20,6 +22,8 @@ interface GroupedTrip {
 
 interface DestinationTripCardProps {
     trip: GroupedTrip;
+    isExpanded: boolean;
+    onToggle: () => void;
     onSelectItinerary: (itinerary: Itinerary) => void;
 }
 
@@ -34,7 +38,9 @@ const getIconForType = (type: TripEventType) => {
 
 const ItineraryRow: React.FC<{ itinerary: Itinerary, onClick: () => void }> = ({ itinerary, onClick }) => {
     const firstEvent = itinerary.events[0];
-    const eventIcon = getIconForType(firstEvent.type);
+    
+    const isMonitored = itinerary.monitoring?.enabled && itinerary.priceHistory && itinerary.priceHistory.length > 0;
+    const displayPrice = isMonitored ? itinerary.priceHistory![itinerary.priceHistory!.length - 1].price : itinerary.totalPrice;
 
     return (
         <div onClick={onClick} className="p-3 -mx-3 rounded-lg flex items-center justify-between hover:bg-slate-100 transition-colors duration-200 cursor-pointer">
@@ -47,9 +53,12 @@ const ItineraryRow: React.FC<{ itinerary: Itinerary, onClick: () => void }> = ({
                     <p className="text-xs text-slate-500">{firstEvent.startDate}, {firstEvent.startTime}</p>
                 </div>
             </div>
-            <div className="text-right">
-                <p className="font-bold text-sm text-blue-700">R$ {itinerary.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
-                 <p className="text-xs text-slate-500 -mt-1">por pessoa</p>
+            <div className="text-right flex items-center space-x-2">
+                {isMonitored && <BellIcon className="h-4 w-4 text-blue-500" title="Monitoramento de preço ativo" />}
+                <div>
+                    <p className="font-bold text-sm text-blue-700">R$ {displayPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+                    <p className="text-xs text-slate-500 -mt-1">por pessoa</p>
+                </div>
             </div>
         </div>
     );
@@ -130,43 +139,60 @@ const CarTripLegCard: React.FC<{ leg: CarTripLeg }> = ({ leg }) => {
 };
 
 
-const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, onSelectItinerary }) => {
+const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, isExpanded, onToggle, onSelectItinerary }) => {
     const { destination, carTrips, itineraries } = trip;
     const themeColor = 'themeColor' in destination ? destination.themeColor : '#64748b';
+    
+    const summaryParts = [];
+    if (carTrips && carTrips.length > 0) {
+        summaryParts.push(`${carTrips.length} trecho${carTrips.length > 1 ? 's' : ''} de carro`);
+    }
+    if (itineraries && itineraries.length > 0) {
+        summaryParts.push(`${itineraries.length} iten${itineraries.length > 1 ? 's' : ''} salvo${itineraries.length > 1 ? 's' : ''}`);
+    }
+    const summary = summaryParts.join(' · ');
 
     return (
-        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 flex flex-col overflow-hidden">
+        <div className="bg-white rounded-2xl shadow-lg border border-slate-200 flex flex-col overflow-hidden transition-shadow hover:shadow-xl">
             <div 
-                className="p-4 text-white relative"
+                onClick={onToggle}
+                className="p-4 text-white relative flex justify-between items-center cursor-pointer"
                 style={{ backgroundColor: themeColor }}
             >
                  <div className="absolute top-2 right-2 text-white/10">
                     {destination.icon && React.cloneElement(destination.icon, { className: 'h-20 w-20' })}
                 </div>
-                <h3 className="text-lg font-bold relative z-10 drop-shadow-sm">{destination.title}</h3>
+                <div className="relative z-10">
+                    <h3 className="text-lg font-bold drop-shadow-sm">{destination.title}</h3>
+                    {summary && <p className="text-sm text-white/80 mt-1">{summary}</p>}
+                </div>
+                <ChevronDownIcon className={`h-6 w-6 text-white/90 relative z-10 transform transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`} />
+
             </div>
+            
+            <div className={`transition-[max-height,opacity] duration-700 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[3000px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                <div className="p-4 flex-grow flex flex-col space-y-4 border-t" style={{ borderColor: themeColor + '40' }}>
+                    {carTrips && carTrips.map((leg, index) => (
+                       <CarTripLegCard key={index} leg={leg} />
+                    ))}
 
-            <div className="p-4 flex-grow flex flex-col space-y-4">
-                {carTrips && carTrips.map((leg, index) => (
-                   <CarTripLegCard key={index} leg={leg} />
-                ))}
-
-                {itineraries.length > 0 && (
-                    <div className="flex-grow">
-                        <h4 className="font-bold text-sm text-slate-700 mb-1">
-                           {itineraries.length} {itineraries.length > 1 ? 'itens salvos' : 'item salvo'}
-                        </h4>
-                        <div className="flex flex-col">
-                            {itineraries.map(itinerary => (
-                                <ItineraryRow 
-                                    key={itinerary.id} 
-                                    itinerary={itinerary} 
-                                    onClick={() => onSelectItinerary(itinerary)}
-                                />
-                            ))}
+                    {itineraries.length > 0 && (
+                        <div className="flex-grow">
+                            <h4 className="font-bold text-sm text-slate-700 mb-1">
+                               {itineraries.length} {itineraries.length > 1 ? 'itens salvos' : 'item salvo'}
+                            </h4>
+                            <div className="flex flex-col">
+                                {itineraries.map(itinerary => (
+                                    <ItineraryRow 
+                                        key={itinerary.id} 
+                                        itinerary={itinerary} 
+                                        onClick={() => onSelectItinerary(itinerary)}
+                                    />
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                )}
+                    )}
+                </div>
             </div>
         </div>
     );

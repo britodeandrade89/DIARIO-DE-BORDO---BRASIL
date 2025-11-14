@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { initialItineraries } from '../itineraries';
 import { destinations } from '../destinations';
 import type { Itinerary, Destination } from '../types';
@@ -15,6 +15,8 @@ interface GroupedTrip {
 }
 
 const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
     const groupedTrips: { [key: string]: GroupedTrip } = {};
 
     // 1. Initialize with all destinations from the "Explore" tab, especially for car trips
@@ -74,12 +76,14 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
     );
 
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="space-y-4">
             {finalTrips.map((trip, index) => (
                 <DestinationTripCard 
                     key={index}
                     trip={trip}
                     onSelectItinerary={onSelectItinerary}
+                    isExpanded={expandedIndex === index}
+                    onToggle={() => setExpandedIndex(expandedIndex === index ? null : index)}
                 />
             ))}
         </div>

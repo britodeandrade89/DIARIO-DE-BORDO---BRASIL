@@ -1,7 +1,15 @@
-
-import React from 'react';
-import type { Itinerary, TripEvent, BookingOption } from '../types';
-import { CloseIcon, BaggageIcon, BackpackIcon, SuitcaseIcon } from './icons';
+import React, { useState } from 'react';
+import type { Itinerary, TripEvent, BookingOption, PriceHistoryItem } from '../types';
+import { 
+    CloseIcon, 
+    BaggageIcon, 
+    BackpackIcon, 
+    SuitcaseIcon,
+    BellIcon,
+    TrendingUpIcon,
+    TrendingDownIcon,
+    InfoIcon
+} from './icons';
 
 const EventRow: React.FC<{ event: TripEvent }> = ({ event }) => (
     <div className="bg-white/80 p-4 rounded-xl border border-slate-200">
@@ -38,7 +46,7 @@ const BaggageItem: React.FC<{ status: 'Inclusa' | 'Taxa Adicional' | 'Não dispo
     </div>
 );
 
-const BookingRow: React.FC<{ option: BookingOption }> = ({ option }) => (
+const BookingRow: React.FC<{ option: BookingOption, latestPrice?: number }> = ({ option, latestPrice }) => (
     <div className="flex items-center justify-between p-4 bg-white/80 rounded-xl border border-slate-200 hover:bg-white/90 transition-colors">
         <div className="flex items-center space-x-4">
             <div className="flex-shrink-0 w-10 h-10 flex items-center justify-center">
@@ -50,7 +58,7 @@ const BookingRow: React.FC<{ option: BookingOption }> = ({ option }) => (
             </div>
         </div>
         <div className="flex items-center space-x-6">
-            <p className="text-lg font-bold text-slate-800">R$ {option.price.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+            <p className="text-lg font-bold text-slate-800">R$ {(latestPrice || option.price).toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
             <a href={option.url} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-6 py-2 rounded-lg hover:shadow-lg hover:scale-105 transition-all text-sm">
                 Continuar
             </a>
@@ -58,9 +66,149 @@ const BookingRow: React.FC<{ option: BookingOption }> = ({ option }) => (
     </div>
 );
 
+const PriceHistoryChart: React.FC<{ history: PriceHistoryItem[] }> = ({ history }) => {
+    if (history.length < 2) return <div className="text-center text-sm text-slate-500 py-8">Dados insuficientes para exibir o gráfico.</div>;
+
+    const prices = history.map(h => h.price);
+    const minPrice = Math.min(...prices);
+    const maxPrice = Math.max(...prices);
+    const priceRange = maxPrice - minPrice;
+
+    const width = 300;
+    const height = 100;
+
+    const points = history.map((item, index) => {
+        const x = (index / (history.length - 1)) * width;
+        const y = height - ((item.price - minPrice) / (priceRange || 1)) * height;
+        return { x, y, price: item.price };
+    });
+
+    const pathData = points.map((p, i) => (i === 0 ? 'M' : 'L') + `${p.x} ${p.y}`).join(' ');
+
+    return (
+        <svg viewBox={`-10 -10 ${width + 20} ${height + 20}`} className="w-full h-auto">
+            {/* Gradient under the line */}
+            <defs>
+                <linearGradient id="price-gradient" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stopColor="#0ea5e9" stopOpacity="0.3" />
+                    <stop offset="100%" stopColor="#0ea5e9" stopOpacity="0" />
+                </linearGradient>
+            </defs>
+            <path d={`${pathData} L ${width} ${height} L 0 ${height} Z`} fill="url(#price-gradient)" />
+
+            {/* Price line */}
+            <path d={pathData} stroke="#0ea5e9" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+            
+            {/* Points on the line */}
+            {points.map((p, i) => (
+                <g key={i}>
+                    <circle cx={p.x} cy={p.y} r="3" fill="#0ea5e9" stroke="white" strokeWidth="1.5" />
+                    <title>{`R$ ${p.price.toFixed(2)} em ${history[i].timestamp.toLocaleDateString()}`}</title>
+                </g>
+            ))}
+        </svg>
+    );
+};
+
+const PriceHistorySection: React.FC<{itinerary: Itinerary, onToggleMonitoring: () => void}> = ({ itinerary, onToggleMonitoring }) => {
+    const isMonitoringEnabled = itinerary.monitoring?.enabled ?? false;
+    const history = itinerary.priceHistory ?? [];
+
+    if (history.length === 0) {
+        return (
+             <div className="bg-white/80 p-4 rounded-xl border border-slate-200 text-center">
+                 <p className="text-slate-600 mb-3">Ative o monitoramento para acompanhar a variação de preço deste voo.</p>
+                 <button onClick={onToggleMonitoring} className="bg-blue-100 text-blue-700 font-semibold px-4 py-2 rounded-lg text-sm hover:bg-blue-200 transition">
+                     Ativar Monitoramento
+                 </button>
+             </div>
+        )
+    }
+
+    const latestPrice = history[history.length - 1].price;
+    const lowestPrice = Math.min(...history.map(h => h.price));
+    const priceChange = latestPrice - history[history.length - 2]?.price;
+    const isPriceUp = priceChange > 0;
+    const isPriceDown = priceChange < 0;
+
+    return (
+        <section>
+            <h3 className="text-lg font-semibold text-slate-700 mb-3 flex items-center">
+                <BellIcon className="h-5 w-5 mr-2" /> Histórico de Preços
+            </h3>
+            <div className="bg-white/80 p-4 rounded-xl border border-slate-200 space-y-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-center">
+                    <div className="p-3 bg-slate-100 rounded-lg">
+                        <p className="text-xs text-slate-500">Preço Atual</p>
+                        <p className="text-xl font-bold text-slate-800">R$ {latestPrice.toLocaleString('pt-BR')}</p>
+                         {priceChange !== 0 && !isNaN(priceChange) && (
+                            <span className={`text-xs font-semibold flex items-center justify-center ${isPriceUp ? 'text-red-500' : 'text-green-600'}`}>
+                                {isPriceUp ? <TrendingUpIcon className="h-4 w-4 mr-1"/> : <TrendingDownIcon className="h-4 w-4 mr-1"/>}
+                                {isPriceUp ? '+' : ''}R$ {priceChange.toFixed(2)}
+                            </span>
+                        )}
+                    </div>
+                     <div className="p-3 bg-slate-100 rounded-lg">
+                        <p className="text-xs text-slate-500">Menor Valor Visto</p>
+                        <p className="text-xl font-bold text-green-600">R$ {lowestPrice.toLocaleString('pt-BR')}</p>
+                    </div>
+                     <div className="p-3 bg-slate-100 rounded-lg">
+                        <p className="text-xs text-slate-500">Última Verificação</p>
+                        <p className="text-lg font-bold text-slate-800">{history[history.length - 1].timestamp.toLocaleDateString('pt-BR')}</p>
+                         <p className="text-xs text-slate-500">{history[history.length - 1].timestamp.toLocaleTimeString('pt-BR', {hour: '2-digit', minute:'2-digit'})}</p>
+                    </div>
+                </div>
+
+                <PriceHistoryChart history={history} />
+
+                <div className="flex justify-between items-center pt-4 border-t border-slate-200/80">
+                    <div className="flex items-center text-xs text-slate-500">
+                        <InfoIcon className="h-4 w-4 mr-2" />
+                        <p>Os preços são verificados periodicamente. Podem haver divergências com o site da companhia.</p>
+                    </div>
+                    <button 
+                        onClick={onToggleMonitoring} 
+                        className={`font-semibold px-4 py-2 rounded-lg text-sm transition-colors ${
+                            isMonitoringEnabled 
+                                ? 'bg-red-100 text-red-700 hover:bg-red-200' 
+                                : 'bg-blue-100 text-blue-700 hover:bg-blue-200'
+                        }`}
+                    >
+                        {isMonitoringEnabled ? 'Parar de Monitorar' : 'Ativar Monitoramento'}
+                    </button>
+                </div>
+            </div>
+        </section>
+    )
+}
 
 const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: () => void; }> = ({ itinerary, onClose }) => {
-    if (!itinerary) return null;
+    // A simple state for toggling monitoring in the UI. In a real app, this would trigger a data update.
+    const [localItinerary, setLocalItinerary] = useState(itinerary);
+
+    if (!localItinerary) return null;
+    
+    const handleToggleMonitoring = () => {
+        setLocalItinerary(prev => {
+            if (!prev) return null;
+            const isEnabled = !(prev.monitoring?.enabled ?? false);
+            // Simulate adding a first history point if enabling for the first time
+            let newHistory = prev.priceHistory ?? [];
+            if (isEnabled && newHistory.length === 0) {
+                newHistory = [{ timestamp: new Date(), price: prev.totalPrice }];
+            }
+
+            return {
+                ...prev,
+                monitoring: { enabled: isEnabled },
+                priceHistory: newHistory
+            };
+        });
+    };
+
+    const latestPrice = localItinerary.monitoring?.enabled && localItinerary.priceHistory && localItinerary.priceHistory.length > 0
+        ? localItinerary.priceHistory[localItinerary.priceHistory.length - 1].price
+        : localItinerary.totalPrice;
 
     return (
         <>
@@ -68,13 +216,13 @@ const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: ()
             <div className="fixed top-0 right-0 h-full w-full max-w-3xl bg-gradient-to-br from-slate-50 to-rose-50 shadow-2xl z-50 transform transition-transform duration-300 ease-in-out flex flex-col">
                 <header className="flex items-center justify-between p-4 bg-white/80 backdrop-blur-sm border-b border-slate-200 flex-shrink-0 sticky top-0">
                     <div>
-                        <h2 className="text-xl font-bold text-slate-800">{itinerary.title}</h2>
-                        <p className="text-sm text-slate-500">{itinerary.subtitle}</p>
+                        <h2 className="text-xl font-bold text-slate-800">{localItinerary.title}</h2>
+                        <p className="text-sm text-slate-500">{localItinerary.subtitle}</p>
                     </div>
                     <div className="flex items-center space-x-4">
                         <div className="text-right">
-                             <p className="text-xs text-slate-500">Menor preço total</p>
-                             <p className="text-2xl font-extrabold text-blue-700">R$ {itinerary.totalPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
+                             <p className="text-xs text-slate-500">Preço atual</p>
+                             <p className="text-2xl font-extrabold text-blue-700">R$ {latestPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>
                         </div>
                         <button onClick={onClose} className="p-2 rounded-full hover:bg-slate-200 text-slate-600 transition-colors">
                             <CloseIcon className="h-6 w-6" />
@@ -86,25 +234,28 @@ const ItineraryDetailsModal: React.FC<{ itinerary: Itinerary | null; onClose: ()
                     <section>
                         <h3 className="text-lg font-semibold text-slate-700 mb-3">Voo selecionado</h3>
                         <div className="space-y-4">
-                            {itinerary.events.map((event, index) => <EventRow key={index} event={event} />)}
+                            {localItinerary.events.map((event, index) => <EventRow key={index} event={event} />)}
                         </div>
                     </section>
 
-                    {itinerary.baggage && (
+                    {localItinerary.monitoring?.enabled && <PriceHistorySection itinerary={localItinerary} onToggleMonitoring={handleToggleMonitoring} />}
+
+
+                    {localItinerary.baggage && (
                         <section>
                             <div className="bg-white/80 p-4 rounded-xl border border-slate-200 grid grid-cols-1 md:grid-cols-3 gap-4">
-                               <BaggageItem status={itinerary.baggage.personal.status} details="Item pessoal" icon={<BackpackIcon className="h-5 w-5"/>} />
-                               <BaggageItem status={itinerary.baggage.carryOn.status} details={itinerary.baggage.carryOn.details} icon={<BaggageIcon className="h-5 w-5"/>} />
-                               <BaggageItem status={itinerary.baggage.checked.status} details={itinerary.baggage.checked.details} icon={<SuitcaseIcon className="h-5 w-5"/>} />
+                               <BaggageItem status={localItinerary.baggage.personal.status} details="Item pessoal" icon={<BackpackIcon className="h-5 w-5"/>} />
+                               <BaggageItem status={localItinerary.baggage.carryOn.status} details={localItinerary.baggage.carryOn.details} icon={<BaggageIcon className="h-5 w-5"/>} />
+                               <BaggageItem status={localItinerary.baggage.checked.status} details={localItinerary.baggage.checked.details} icon={<SuitcaseIcon className="h-5 w-5"/>} />
                             </div>
                         </section>
                     )}
                     
-                    {itinerary.bookingOptions && itinerary.bookingOptions.length > 0 && (
+                    {localItinerary.bookingOptions && localItinerary.bookingOptions.length > 0 && (
                         <section>
                             <h3 className="text-lg font-semibold text-slate-700 mb-3">Opções de reserva</h3>
                             <div className="space-y-3">
-                                {itinerary.bookingOptions.map((opt, index) => <BookingRow key={index} option={opt} />)}
+                                {localItinerary.bookingOptions.map((opt, index) => <BookingRow key={index} option={opt} latestPrice={index === 1 ? latestPrice : undefined} />)}
                             </div>
                         </section>
                     )}

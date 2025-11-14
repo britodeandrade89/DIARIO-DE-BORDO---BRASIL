@@ -97,6 +97,15 @@ export const initialItineraries: Itinerary[] = [
             logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
         }
     ],
+    monitoring: { enabled: true },
+    priceHistory: [
+      { timestamp: new Date('2024-07-26T17:51:00'), price: 492.00 },
+      { timestamp: new Date('2024-07-27T09:00:00'), price: 499.00 },
+      { timestamp: new Date('2024-07-27T21:00:00'), price: 512.00 },
+      { timestamp: new Date('2024-07-28T09:00:00'), price: 530.00 },
+      { timestamp: new Date('2024-07-28T21:00:00'), price: 580.00 },
+      { timestamp: new Date('2024-07-29T09:00:00'), price: 575.00 },
+    ],
   },
   {
     id: 16,

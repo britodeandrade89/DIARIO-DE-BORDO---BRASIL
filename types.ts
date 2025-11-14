@@ -175,7 +175,6 @@ export interface AccommodationOption {
     pricePerNight: number;
     totalPrice: number;
     nights: number;
-    images: string[];
     amenities: string[];
     pros: string[];
     cons: string[];

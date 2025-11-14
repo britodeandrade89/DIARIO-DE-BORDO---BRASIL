@@ -23,45 +23,19 @@ const AccommodationCard: React.FC<{ option: AccommodationOption }> = ({ option }
 
     return (
         <div className="bg-white/90 backdrop-blur-md rounded-xl shadow-lg border border-slate-200 overflow-hidden">
-             <div className="relative">
-                <div className="flex gap-1 h-64">
-                    {/* Main Image */}
-                    <div className="w-3/5 flex-shrink-0">
-                        {option.images[0] ? (
-                            <img src={option.images[0]} alt={option.name} className="w-full h-full object-cover rounded-l-xl" />
-                        ) : <div className="w-full h-full bg-slate-200 rounded-l-xl"></div>}
-                    </div>
-                    {/* Small Images Grid */}
-                    <div className="w-2/5 grid grid-cols-2 grid-rows-2 gap-1">
-                        {option.images[1] ? <img src={option.images[1]} alt={`${option.name} 2`} className="w-full h-full object-cover" /> : <div className="bg-slate-200"></div>}
-                        {option.images[2] ? <img src={option.images[2]} alt={`${option.name} 3`} className="w-full h-full object-cover rounded-tr-xl" /> : <div className="bg-slate-200 rounded-tr-xl"></div>}
-                        {option.images[3] ? <img src={option.images[3]} alt={`${option.name} 4`} className="w-full h-full object-cover" /> : <div className="bg-slate-200"></div>}
-                        {option.images[4] ? (
-                            <div className="relative">
-                                <img src={option.images[4]} alt={`${option.name} 5`} className="w-full h-full object-cover rounded-br-xl" />
-                                {option.images.length > 5 && (
-                                    <div className="absolute inset-0 bg-black/60 flex items-center justify-center text-white font-bold text-lg rounded-br-xl cursor-pointer">
-                                        +{option.images.length - 5}
-                                    </div>
-                                )}
-                            </div>
-                        ) : <div className="bg-slate-200 rounded-br-xl"></div> }
-                    </div>
-                </div>
-                
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent pointer-events-none rounded-t-xl" />
-                
-                <div className="absolute bottom-4 left-4 text-white">
-                    <h4 className="text-xl font-bold drop-shadow-md">{option.name}</h4>
-                    <div className="flex items-center space-x-1 mt-1">
-                        <StarIcon className="h-5 w-5 text-yellow-400" />
-                        <span className="font-semibold drop-shadow-sm">{option.rating > 0 ? option.rating.toFixed(1) : 'Novo'}</span>
-                        {option.rating > 0 && <span className="text-sm text-white/90 drop-shadow-sm">Muito bom</span>}
-                    </div>
-                </div>
-            </div>
-
             <div className="p-5">
+                {/* Accommodation Header (Name and Rating) */}
+                <div className="flex justify-between items-start mb-4">
+                    <div>
+                        <h4 className="text-xl font-bold text-slate-800">{option.name}</h4>
+                        <div className="flex items-center space-x-1 mt-1 text-slate-600">
+                            <StarIcon className="h-5 w-5 text-yellow-500" />
+                            <span className="font-semibold">{option.rating > 0 ? option.rating.toFixed(1) : 'Novo'}</span>
+                            {option.rating > 0 && <span className="text-sm">({option.rating >= 9 ? 'Fantástico' : 'Muito bom'})</span>}
+                        </div>
+                    </div>
+                </div>
+
                 <div className="flex justify-between items-center mb-4 pb-4 border-b border-slate-200">
                     <div>
                         <p className="text-2xl font-bold text-slate-800">
@@ -73,7 +47,7 @@ const AccommodationCard: React.FC<{ option: AccommodationOption }> = ({ option }
                         </p>
                     </div>
                     <a href={option.bookingUrl} target="_blank" rel="noopener noreferrer" className="bg-blue-600 hover:bg-blue-700 text-white font-semibold px-5 py-2.5 rounded-lg hover:shadow-lg hover:scale-105 transition-all text-sm flex items-center space-x-2">
-                        <span>Reservar</span>
+                        <span>Ver Fotos e Reservar</span>
                         <ExternalLinkIcon className="h-4 w-4" />
                     </a>
                 </div>

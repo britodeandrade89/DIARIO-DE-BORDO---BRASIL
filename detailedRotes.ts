@@ -10,13 +10,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 158,
                 totalPrice: 664,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/45000000/44920000/44913700/44913612/820573e0.jpg",
-                    "https://images.trvl-media.com/lodging/45000000/44920000/44913700/44913612/03d6f14b.jpg",
-                    "https://images.trvl-media.com/lodging/45000000/44920000/44913700/44913612/81e5b565.jpg",
-                    "https://images.trvl-media.com/lodging/45000000/44920000/44913700/44913612/8c92a6c8.jpg",
-                    "https://images.trvl-media.com/lodging/45000000/44920000/44913700/44913612/d4483863.jpg"
-                ],
                 amenities: ["Piscina", "Café da manhã incluído", "Wi-Fi Grátis", "Ar-condicionado"],
                 pros: ["Melhor preço encontrado", "Localização central (8 min da Passarela do Descobrimento)", "Piscina interna", "Reembolsável"],
                 cons: ["Avaliação 'Boa' (6.8), a mais baixa da lista", "Estrutura mais simples (2 estrelas)"],
@@ -30,13 +23,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 174,
                 totalPrice: 953,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/84000000/83460000/83458600/83458575/e6f1a07c.jpg",
-                    "https://images.trvl-media.com/lodging/84000000/83460000/83458600/83458575/3d102e3b.jpg",
-                    "https://images.trvl-media.com/lodging/84000000/83460000/83458600/83458575/62a7d432.jpg",
-                    "https://images.trvl-media.com/lodging/84000000/83460000/83458600/83458575/6d0012cb.jpg",
-                    "https://images.trvl-media.com/lodging/84000000/83460000/83458600/83458575/96d078ba.jpg"
-                ],
                 amenities: ["Estacionamento", "Restaurante", "Wi-Fi Grátis", "Jardim", "Churrasqueira"],
                 pros: ["Opção mais barata disponível", "Avaliação 'Muito boa' (9.0)", "Totalmente reembolsável", "Flexibilidade de pagamento"],
                 cons: ["Estrutura simples (3 estrelas)", "Pode não incluir café da manhã na tarifa mais baixa"],
@@ -50,13 +36,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 192,
                 totalPrice: 808,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/101000000/100010000/100001200/100001198/087948a3.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/100010000/100001200/100001198/e1ac912a.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/100010000/100001200/100001198/0b2b8e39.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/100010000/100001200/100001198/79a83d78.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/100010000/100001200/100001198/9560f855.jpg"
-                ],
                 amenities: ["Piscina", "Café da manhã incluído", "Wi-Fi Grátis", "Praia de areia branca"],
                 pros: ["Opção muito econômica", "Avaliação 'Muito boa' (8.0)", "Totalmente reembolsável", "Piscina e proximidade da praia"],
                 cons: ["Tarifa pode ser para quarto básico", "Estrutura mais simples (3 estrelas)"],
@@ -70,12 +49,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 114,
                 totalPrice: 456,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/18000000/17760000/17750100/17750044/e9e80a9f.jpg?impolicy=resizecrop&rw=1200&ra=fit",
-                    "https://images.trvl-media.com/lodging/18000000/17760000/17750100/17750044/c2303b71.jpg?impolicy=resizecrop&rw=1200&ra=fit",
-                    "https://images.trvl-media.com/lodging/18000000/17760000/17750100/17750044/a5a75308.jpg?impolicy=resizecrop&rw=1200&ra=fit",
-                    "https://images.trvl-media.com/lodging/18000000/17760000/17750100/17750044/d095a519.jpg?impolicy=resizecrop&rw=1200&ra=fit"
-                ],
                 amenities: ["Wi-Fi Grátis", "Jardim", "Sala de Jogos", "Arrumação diária"],
                 pros: ["Excelente localização (2 min da Rua do Mucugê)", "Ótimo custo-benefício", "Flexibilidade de pagamento ('Reserve agora, pague depois')"],
                 cons: ["Comodidades simples", "Pode não ter estacionamento", "Estrutura mais rústica"],
@@ -89,13 +62,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 209,
                 totalPrice: 879,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/7000000/6470000/6469000/6468921/b6ab50c0.jpg",
-                    "https://images.trvl-media.com/lodging/7000000/6470000/6469000/6468921/2e5e408d.jpg",
-                    "https://images.trvl-media.com/lodging/7000000/6470000/6469000/6468921/5120516c.jpg",
-                    "https://images.trvl-media.com/lodging/7000000/6470000/6469000/6468921/d1e2e1a3.jpg",
-                    "https://images.trvl-media.com/lodging/7000000/6470000/6469000/6468921/9c44569e.jpg"
-                ],
                 amenities: ["Piscina", "Restaurante", "Estacionamento", "Wi-Fi Grátis", "Café da manhã"],
                 pros: ["Avaliação 'Extraordinária' (9.0)", "Localização perto do Complexo Tôa Tôa", "Boa estrutura com piscina e restaurante"],
                 cons: ["Opção de tarifa não reembolsável", "Pode ser mais focado em famílias e agito"],
@@ -109,13 +75,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 213,
                 totalPrice: 896,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/85000000/84010000/84005700/84005650/0b1b9e2f.jpg",
-                    "https://images.trvl-media.com/lodging/85000000/84010000/84005700/84005650/09477e77.jpg",
-                    "https://images.trvl-media.com/lodging/85000000/84010000/84005700/84005650/47f547c3.jpg",
-                    "https://images.trvl-media.com/lodging/85000000/84010000/84005700/84005650/c255776d.jpg",
-                    "https://images.trvl-media.com/lodging/85000000/84010000/84005700/84005650/c888d3e6.jpg"
-                ],
                 amenities: ["3 piscinas", "Café da manhã incluído", "Wi-Fi grátis", "Ar-condicionado", "Permite animais"],
                 pros: ["Totalmente reembolsável", "Avaliação 'Boa' (8.2)", "Estrutura com 3 piscinas", "Permite animais de estimação grátis"],
                 cons: ["Preço um pouco mais alto que outras pousadas", "Localização pode ser movimentada"],
@@ -129,13 +88,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 215,
                 totalPrice: 905,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/122000000/121020000/121014600/121014593/d81615f2.jpg",
-                    "https://images.trvl-media.com/lodging/122000000/121020000/121014600/121014593/589ca3e6.jpg",
-                    "https://images.trvl-media.com/lodging/122000000/121020000/121014600/121014593/f512c5b3.jpg",
-                    "https://images.trvl-media.com/lodging/122000000/121020000/121014600/121014593/3a9a1170.jpg",
-                    "https://images.trvl-media.com/lodging/122000000/121020000/121014600/121014593/e009a0a4.jpg"
-                ],
                 amenities: ["Piscina externa", "Estacionamento", "Wi-Fi Grátis", "Serviço de arrumação"],
                 pros: ["Preço muito competitivo com desconto", "Totalmente reembolsável", "Ambiente charmoso com redes", "Possui piscina"],
                 cons: ["Distante do centro (necessário carro)", "Sem avaliação numérica de hóspedes", "Estrutura mais rústica"],
@@ -149,12 +101,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 216,
                 totalPrice: 937,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/105000000/104550000/104549994/104549994/0a7b6b15.jpg",
-                    "https://images.trvl-media.com/lodging/105000000/104550000/104549994/104549994/a30c5e7b.jpg",
-                    "https://images.trvl-media.com/lodging/105000000/104550000/104549994/104549994/d5c179c6.jpg",
-                    "https://images.trvl-media.com/lodging/105000000/104550000/104549994/104549994/b187514a.jpg"
-                ],
                 amenities: ["Wi-Fi Grátis", "Permite animais", "Serviço de arrumação", "Não fumante"],
                 pros: ["Preço competitivo", "Localização central (2 min da Rua do Mucugê)", "Totalmente reembolsável", "Permite animais de estimação grátis"],
                 cons: ["Estrutura simples (2 estrelas)", "Sem avaliação numérica visível", "Pode ser barulhento devido à localização"],
@@ -168,13 +114,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 220,
                 totalPrice: 926,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/28e3760a.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/2a36d2c1.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/e6f2129c.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/e6c98f98.jpg",
-                    "https://images.trvl-media.com/lodging/101000000/10070000/100699912/100699912/e29a8a76.jpg"
-                ],
                 amenities: ["Piscina com bar", "Estacionamento", "Café da manhã incluído", "Wi-Fi Grátis"],
                 pros: ["Avaliação 'Muito boa' (8.4)", "Totalmente reembolsável", "Piscina com bar", "Excelente localização (2 min da Rua do Mucugê)"],
                 cons: ["Preço intermediário", "Pode ter bastante movimento devido à localização"],
@@ -188,13 +127,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 224,
                 totalPrice: 1037,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/7000000/6310000/6307900/6307879/c1f51f5c.jpg",
-                    "https://images.trvl-media.com/lodging/7000000/6310000/6307900/6307879/c464c295.jpg",
-                    "https://images.trvl-media.com/lodging/7000000/6310000/6307900/6307879/3a8c3e80.jpg",
-                    "https://images.trvl-media.com/lodging/7000000/6310000/6307900/6307879/d1e1f185.jpg",
-                    "https://images.trvl-media.com/lodging/7000000/6310000/6307900/6307879/5a914c62.jpg"
-                ],
                 amenities: ["Acesso à praia", "Café da manhã incluído", "Wi-Fi Grátis", "Ar-condicionado"],
                 pros: ["Totalmente reembolsável", "Avaliação 'Muito boa' (8.0)", "Excelente café da manhã", "Localização central, a 2 min da Passarela do Descobrimento"],
                 cons: ["Estrutura pode ser mais simples que as demais", "Taxas elevam o preço final"],
@@ -208,12 +140,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 228,
                 totalPrice: 956,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/83000000/82910000/82903200/82903166/02a38210.jpg",
-                    "https://images.trvl-media.com/lodging/83000000/82910000/82903200/82903166/d5b035a0.jpg",
-                    "https://images.trvl-media.com/lodging/83000000/82910000/82903200/82903166/1b1386d3.jpg",
-                    "https://images.trvl-media.com/lodging/83000000/82910000/82903200/82903166/5b8f10b7.jpg"
-                ],
                 amenities: ["Piscina", "Café da manhã incluído", "Wi-Fi Grátis", "Ar-condicionado", "Permite animais"],
                 pros: ["Avaliação 'Excelente' (8.8)", "Totalmente reembolsável", "Ótima localização (3 min da Rua do Mucugê)", "Permite animais de estimação grátis"],
                 cons: ["Preço intermediário", "Disponibilidade pode ser limitada"],
@@ -227,13 +153,6 @@ const portoSeguroAccommodations: AccommodationOption[] = [
                 pricePerNight: 247,
                 totalPrice: 1038,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/16000000/15410000/15401000/15400993/9c7161b9.jpg",
-                    "https://images.trvl-media.com/lodging/16000000/15410000/15401000/15400993/78ab798e.jpg",
-                    "https://images.trvl-media.com/lodging/16000000/15410000/15401000/15400993/29c4287c.jpg",
-                    "https://images.trvl-media.com/lodging/16000000/15410000/15401000/15400993/3887f4fe.jpg",
-                    "https://images.trvl-media.com/lodging/16000000/15410000/15401000/15400993/461ca607.jpg"
-                ],
                 amenities: ["Piscina", "Café da manhã incluído", "Wi-Fi Grátis", "Ar-condicionado"],
                 pros: ["Localização central, perto da Passarela do Descobrimento", "Boa estrutura com piscina e terraço", "Café da manhã bem avaliado"],
                 cons: ["Preço mais elevado (inclui taxas)", "Avaliação ligeiramente inferior às outras", "Pode ser mais movimentado por ser no centro"],
@@ -250,13 +169,6 @@ const paratyAccommodations: AccommodationOption[] = [
         pricePerNight: 234,
         totalPrice: 983,
         nights: 4,
-        images: [
-            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/e8784a9e.jpg",
-            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/0e46a583.jpg",
-            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/6b95b8cf.jpg",
-            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/28491373.jpg",
-            "https://images.trvl-media.com/lodging/102000000/101040000/101036300/101036215/22239f67.jpg"
-        ],
         amenities: ["Estacionamento grátis", "Wi-Fi Grátis", "Jardim", "Ar-condicionado", "Serviço de traslado para a praia"],
         pros: ["Avaliação 'Maravilhosa' (9.0)", "Totalmente reembolsável", "Ambiente tranquilo e cercado de natureza", "Ótimos serviços como traslado"],
         cons: ["Fica um pouco fora do centro, ideal para quem está de carro e busca sossego."],
@@ -270,13 +182,6 @@ const paratyAccommodations: AccommodationOption[] = [
         pricePerNight: 287,
         totalPrice: 1207,
         nights: 4,
-        images: [
-            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/d217730e.jpg",
-            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/54f2c96c.jpg",
-            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/b042c1ef.jpg",
-            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/7eb7a030.jpg",
-            "https://images.trvl-media.com/lodging/6000000/5150000/5142800/514276/a4d5e219.jpg"
-        ],
         amenities: ["Piscina externa", "Café da manhã incluído", "Wi-Fi Grátis", "Estacionamento", "Sala de jogos"],
         pros: ["Avaliação 'Muito boa' (8.4)", "Café da manhã bem avaliado", "Piscina e área de lazer"],
         cons: ["Preço um pouco mais elevado", "Pode exigir uma pequena caminhada para o centro histórico"],
@@ -293,13 +198,6 @@ const ilhaGrandeAccommodations: AccommodationOption[] = [
         pricePerNight: 324,
         totalPrice: 648,
         nights: 2,
-        images: [
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990499.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990524.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990531.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990515.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990520.jpg"
-        ],
         amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Serviço de quarto", "Quartos para famílias"],
         pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda (geralmente esgotado)", "Comodidades modernas"],
         cons: ["Preço mais elevado em comparação a outras opções da região."],
@@ -313,13 +211,6 @@ const ilhaGrandeAccommodations: AccommodationOption[] = [
         pricePerNight: 350,
         totalPrice: 700,
         nights: 2,
-        images: [
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425482.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425487.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425492.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425497.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425500.jpg"
-        ],
         amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Ar-condicionado", "Café da manhã"],
         pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada", "Equipe atenciosa"],
         cons: ["Pode ser barulhento por estar perto do centro", "Estrutura pode ser mais simples"],
@@ -333,13 +224,6 @@ const ilhaGrandeAccommodations: AccommodationOption[] = [
         pricePerNight: 245,
         totalPrice: 490,
         nights: 2,
-        images: [
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039801.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039810.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039824.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039832.jpg",
-            "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039841.jpg"
-        ],
         amenities: ["Beira-mar", "Wi-Fi gratuito", "Varanda", "Ar-condicionado", "Quartos para famílias"],
         pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista para o mar", "Preço competitivo"],
         cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
@@ -426,13 +310,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pricePerNight: 324,
                 totalPrice: 1296,
                 nights: 4,
-                images: [
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990499.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990524.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990531.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990515.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/567990520.jpg"
-                ],
                 amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Serviço de quarto", "Quartos para famílias"],
                 pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda", "Comodidades modernas"],
                 cons: ["Preço mais elevado em comparação a outras opções da região."],
@@ -446,13 +323,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pricePerNight: 350,
                 totalPrice: 1400,
                 nights: 4,
-                images: [
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425482.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425487.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425492.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425497.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/254425500.jpg"
-                ],
                 amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Ar-condicionado", "Café da manhã"],
                 pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada"],
                 cons: ["Pode ser barulhento por estar perto do centro"],
@@ -466,13 +336,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pricePerNight: 245,
                 totalPrice: 980,
                 nights: 4,
-                images: [
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039801.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039810.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039824.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039832.jpg",
-                    "https://cf.bstatic.com/xdata/images/hotel/max1024x768/491039841.jpg"
-                ],
                 amenities: ["Beira-mar", "Wi-Fi gratuito", "Varanda", "Ar-condicionado", "Quartos para famílias"],
                 pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista", "Preço competitivo"],
                 cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
@@ -486,13 +349,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pricePerNight: 226,
                 totalPrice: 950,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/5e1a2f6b.jpg",
-                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/f3b8e2d4.jpg",
-                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/d6c8e3a2.jpg",
-                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/a7f5b4c1.jpg",
-                    "https://images.trvl-media.com/lodging/121000000/120630000/120620100/120620019/c9d0e1b3.jpg"
-                ],
                 amenities: ["Piscina externa", "Estacionamento grátis", "Wi-Fi Grátis", "Aceita animais de estimação"],
                 pros: ["Avaliação 'Extraordinária'", "Totalmente reembolsável", "Localização perto da praia", "Vista para o mar"],
                 cons: ["Taxas podem ser aplicadas para pets", "Pode precisar de carro para locomoção"],
@@ -541,13 +397,6 @@ export const detailedRoutes: Record<number, DetailedRoute> = {
                 pricePerNight: 181,
                 totalPrice: 1254,
                 nights: 4,
-                images: [
-                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/05030493.jpg",
-                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/3d68e278.jpg",
-                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/209c1181.jpg",
-                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/0e28f747.jpg",
-                    "https://images.trvl-media.com/lodging/120000000/119570000/119568100/119568035/5f1f9699.jpg"
-                ],
                 amenities: ["Spa de serviço completo", "Restaurante", "Buffet de café da manhã", "Wi-Fi Grátis", "Estacionamento"],
                 pros: ["Avaliação 'Excelente' (8.8)", "Ambiente focado em bem-estar com Spa", "Cercado por natureza", "Aceita cães e gatos"],
                 cons: ["Localização um pouco afastada, ideal para quem busca sossego", "O preço do quarto econômico pode não ter as melhores vistas"],

@@ -13,24 +13,24 @@ interface DashboardProps {
 
 const pageTitles = {
     destinations: {
-        icon: <CompassIcon className="h-12 w-12 mx-auto text-white/80" />,
+        icon: <LogoIcon className="h-12 w-12 mx-auto" />,
         title: "Explorar Roteiros",
         subtitle: "Inspire-se com nossos roteiros e veja uma estimativa de custos com base nas suas passagens salvas."
     },
     itineraries: {
-        icon: <BookOpenIcon className="h-12 w-12 mx-auto text-white/80" />,
+        icon: <LogoIcon className="h-12 w-12 mx-auto" />,
         title: "Minhas Viagens",
         subtitle: "Aqui estão todas as suas viagens, agrupadas por destino para facilitar o planejamento."
     },
     'ai-assistant': {
-        icon: <SparklesIcon className="h-12 w-12 mx-auto text-white/80" />,
+        icon: <LogoIcon className="h-12 w-12 mx-auto" />,
         title: "Assistente de Viagem IA",
         subtitle: "Peça roteiros, dicas de preços, hotéis, distâncias e o que mais sua imaginação permitir."
     }
 };
 
 const Dashboard: React.FC<DashboardProps> = ({ installPromptEvent, onInstallSuccess }) => {
-    const [activeTab, setActiveTab] = useState<'itineraries' | 'destinations' | 'ai-assistant'>('itineraries');
+    const [activeTab, setActiveTab] = useState<'itineraries' | 'destinations' | 'ai-assistant'>('destinations');
     const [selectedItinerary, setSelectedItinerary] = useState<Itinerary | null>(null);
 
     const currentTitle = pageTitles[activeTab];

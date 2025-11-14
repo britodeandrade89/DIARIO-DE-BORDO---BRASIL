@@ -69,7 +69,7 @@ const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, onSelec
                             Viagem de Carro
                         </h4>
                         
-                        <img src={destination.title.includes('Angra') ? "./assets/angra-map.svg" : "./assets/marica-mangaratiba-map.svg"} alt={`Mapa da rota para ${destination.title}`} className="rounded-md mb-3" />
+                        {carTrip.mapUrl && <img src={carTrip.mapUrl} alt={`Mapa da rota para ${destination.title}`} className="rounded-md mb-3" />}
 
                         
                         <div className="text-center text-slate-800">

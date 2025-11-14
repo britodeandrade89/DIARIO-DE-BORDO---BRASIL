@@ -129,6 +129,7 @@ export interface CarTripInfo {
   details: string;
   fuelCostOneWay: number;
   tollCostOneWay: number;
+  mapUrl?: string;
   additionalCosts?: {
     description: string;
     dailyRate?: number;

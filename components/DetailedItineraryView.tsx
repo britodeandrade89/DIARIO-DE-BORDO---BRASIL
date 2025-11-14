@@ -140,7 +140,7 @@ const DetailedItineraryView: React.FC<DetailedItineraryViewProps> = ({ selection
           </header>
 
           {/* Content */}
-          <div className="flex-grow overflow-y-auto p-6 space-y-8">
+          <div className="relative z-0 flex-grow overflow-y-auto p-6 space-y-8">
             {routeData ? (
               <>
                 {routeData.itinerary.map((cityPlan, cityIndex) => (

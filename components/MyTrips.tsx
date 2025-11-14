@@ -15,23 +15,26 @@ interface GroupedTrip {
 }
 
 const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
-    const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+    // FIX: Expanded the first trip card by default for better user experience.
+    const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
     const groupedTrips: { [key: string]: GroupedTrip } = {};
 
-    // 1. Initialize with all destinations from the "Explore" tab, especially for car trips
+    // 1. Initialize groups from all destinations.
+    // For destinations with dates in the title (like Porto Seguro), this creates a single
+    // group with a clean title, using the first destination found as a template.
     destinations.forEach(dest => {
-        const key = dest.title.split(' (')[0]; // Normalize key, e.g., "Natal em Porto Seguro (18/12)" -> "Natal em Porto Seguro"
+        const key = dest.title.split(' (')[0]; 
         if (!groupedTrips[key]) {
             groupedTrips[key] = {
-                destination: dest,
+                destination: { ...dest, title: key }, // Use the clean key as the new title
                 itineraries: [],
                 carTrips: dest.carTrips,
             };
         }
     });
     
-    // 2. Group itineraries from itineraries.ts
+    // 2. Group itineraries from itineraries.ts into the prepared groups.
     initialItineraries.forEach(itinerary => {
         let key = "Outros"; // Default group
         if (itinerary.title.includes('Porto Seguro')) {
@@ -40,40 +43,24 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
             key = 'Costa Verde: Ilha Grande, Paraty & Cunha';
         }
         
-        if (groupedTrips[key]) {
-            // Avoid duplicating itineraries if multiple destination cards match (e.g., Porto Seguro 18/12, 19/12)
-            if (!groupedTrips[key].itineraries.some(it => it.id === itinerary.id)) {
-                groupedTrips[key].itineraries.push(itinerary);
-            }
-        } else {
-            // Create a new group if it doesn't exist from the destinations list
+        // Find or create the group. This handles cases where an itinerary doesn't match a predefined destination.
+        if (!groupedTrips[key]) {
             const firstEvent = itinerary.events[0];
             groupedTrips[key] = {
                 destination: { title: key, icon: firstEvent.company.logo, themeColor: '#64748b' },
-                itineraries: [itinerary],
+                itineraries: [],
             };
+        }
+         // Avoid duplicating itineraries if multiple destination cards match (e.g., Porto Seguro 18/12, 19/12)
+        if (!groupedTrips[key].itineraries.some(it => it.id === itinerary.id)) {
+            groupedTrips[key].itineraries.push(itinerary);
         }
     });
 
-    // Post-processing to consolidate Porto Seguro flights under one card
-    const portoSeguroKeys = Object.keys(groupedTrips).filter(k => k.includes('Porto Seguro'));
-    if (portoSeguroKeys.length > 1) {
-        const allPortoSeguroItineraries = portoSeguroKeys.flatMap(k => groupedTrips[k].itineraries);
-        const uniqueItineraries = [...new Map(allPortoSeguroItineraries.map(item => [item.id, item])).values()];
-        
-        // Use the first Porto Seguro destination entry as the base
-        const baseKey = portoSeguroKeys[0];
-        groupedTrips[baseKey].itineraries = uniqueItineraries.sort((a,b) => a.totalPrice - b.totalPrice);
-        groupedTrips[baseKey].destination.title = 'Porto Seguro'; // Generic title
-
-        // Remove the other Porto Seguro entries
-        portoSeguroKeys.slice(1).forEach(k => delete groupedTrips[k]);
-    }
-
-
-    const finalTrips = Object.values(groupedTrips).filter(
-        trip => trip.itineraries.length > 0 || trip.carTrips
-    );
+    const finalTrips = Object.values(groupedTrips)
+      .filter(trip => (trip.itineraries && trip.itineraries.length > 0) || (trip.carTrips && trip.carTrips.length > 0))
+      // Sort itineraries within each trip by price
+      .map(trip => ({...trip, itineraries: trip.itineraries.sort((a, b) => a.totalPrice - b.totalPrice)}));
 
     return (
         <div className="space-y-4">

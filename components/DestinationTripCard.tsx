@@ -42,18 +42,22 @@ const ItineraryRow: React.FC<{ itinerary: Itinerary, onClick: () => void }> = ({
     const isMonitored = itinerary.monitoring?.enabled && itinerary.priceHistory && itinerary.priceHistory.length > 0;
     const displayPrice = isMonitored ? itinerary.priceHistory![itinerary.priceHistory!.length - 1].price : itinerary.totalPrice;
 
+    // FIX: Remove date from title for a cleaner display, e.g., "LATAM: ... (18/12)" -> "LATAM: ..."
+    const displayTitle = itinerary.title.replace(/ \(\d{1,2}\/\d{1,2}\)$/, '');
+
     return (
+        // FIX: Reworked flexbox layout to prevent content overlap and ensure truncation works correctly.
         <div onClick={onClick} className="p-3 -mx-3 rounded-lg flex items-center justify-between hover:bg-slate-100 transition-colors duration-200 cursor-pointer">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-3 flex-1 min-w-0">
                 <div className="flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full bg-white border">
                     {React.cloneElement(firstEvent.company.logo as React.ReactElement, { className: "h-5 w-auto" })}
                 </div>
-                <div>
-                    <p className="font-semibold text-sm text-slate-800 truncate" title={itinerary.title}>{itinerary.title}</p>
+                <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-sm text-slate-800 truncate" title={itinerary.title}>{displayTitle}</p>
                     <p className="text-xs text-slate-500">{firstEvent.startDate}, {firstEvent.startTime}</p>
                 </div>
             </div>
-            <div className="text-right flex items-center space-x-2">
+            <div className="text-right flex items-center space-x-2 flex-shrink-0 ml-4">
                 {isMonitored && <BellIcon className="h-4 w-4 text-blue-500" title="Monitoramento de preço ativo" />}
                 <div>
                     <p className="font-bold text-sm text-blue-700">R$ {displayPrice.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}</p>

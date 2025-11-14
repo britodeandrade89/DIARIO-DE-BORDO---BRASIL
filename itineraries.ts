@@ -92,31 +92,31 @@ export const initialItineraries: Itinerary[] = [
         {
             provider: 'Reserve com a Decolar',
             price: 487.00,
-            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" })
         },
         {
             provider: 'Reserve com a ViajaNet',
             price: 487.00,
-            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(ViajaNetLogoIcon, { className: "h-10 w-10 p-1" })
         },
         {
             provider: 'Reserve com a Booking.com',
             price: 512.00,
-            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(BookingLogoIcon, { className: "h-10 w-10 p-1" })
         },
         {
             provider: 'Reserve com a Trip.com',
             price: 535.00,
-            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" })
         },
         {
             provider: 'Reserve com a maxmilhas',
             price: 638.00,
-            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhptEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQ05GKgJBRDIENDUwNSIgCgNDTkYSCjIwMjUtMTItMTgaA0JQUyoCQUQyBDI2MDZqDAgCEggvbS8wNmdtcnINCAISCS9tLzAyYmZmOUABSAFwAYIBCwj___________8BmAEC&tfu=CnRDalJJTVdaeFVWVnJhRWhJVUdkQlF5MTBSMmRDUnkwdExTMHRMUzB0TFMxalpYTm5OMEZCUVVGQlIydFlUSEIzVDFobFlqUkJFZzFCUkRRMU1EVjhRVVF5TmpBMkdnc0l1dndDRUFJYUEwSlNURGdjY09CSBIGCAAgAigEIgA&hl=pt-BR&gl=br&curr=BRL',
+            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
             logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
         }
     ],
@@ -158,20 +158,20 @@ export const initialItineraries: Itinerary[] = [
       {
         provider: 'Reserve com a maxmilhas',
         price: 537.00,
-        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVFVoRU1Va3hObnBsUjBGQlFrRlpRa0ZDUnkwdExTMHRMUzB0TFdOblluUmxOMEZCUVVGQlIydFlUa0U0UVhSM1YwVkJFZ1pNUVRNd01UTWFDd2p6b2dNUUFob0RRbEpNT0J4d2dFOD0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
         logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
       },
       {
         provider: 'Reserve com a LATAM',
         price: 580.00,
-        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVFVoRU1Va3hObnBsUjBGQlFrRlpRa0ZDUnkwdExTMHRMUzB0TFdOblluUmxOMEZCUVVGQlIydFlUa0U0UVhSM1YwVkJFZ1pNUVRNd01UTWFDd2p6b2dNUUFob0RRbEpNT0J4d2dFOD0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
         logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
         tag: 'Companhia aérea'
       },
       {
         provider: 'Reserve com a Decolar',
         price: 584.00,
-        url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE4IiAKA0dJRxIKMjAyNS0xMi0xOBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVFVoRU1Va3hObnBsUjBGQlFrRlpRa0ZDUnkwdExTMHRMUzB0TFdOblluUmxOMEZCUVVGQlIydFlUa0U0UVhSM1YwVkJFZ1pNUVRNd01UTWFDd2p6b2dNUUFob0RRbEpNT0J4d2dFOD0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
+        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE4agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
         logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" })
       },
     ],
@@ -241,9 +241,9 @@ export const initialItineraries: Itinerary[] = [
     id: 16,
     title: 'LATAM: Rio de Janeiro → Porto Seguro (20/12)',
     subtitle: 'Só Ida · Econômica · 1 passageiro',
-    savedDate: '2024-07-26 17:48',
-    totalPrice: 499.00,
-    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+    savedDate: '2024-07-31 21:00',
+    totalPrice: 542.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTIwIiAKA0dJRxIKMjAyNS0xMi0yMBoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVFVoRU1Va3hObnBsUjBGQlFrSnZSV2RDUnkwdExTMHRMUzB0TFdOblluUmxOMEZCUVVGQlIydFlUbGt3UjJOU2RtZEJFZ1pNUVRNd01UTWFDd2ozcGdNUUFob0RRbEpNT0J4dzRVOD0SBggAIAIoBiIDEgEw&hl=pt-BR&gl=br&curr=BRL',
     events: [
       {
         type: 'flight',
@@ -265,20 +265,17 @@ export const initialItineraries: Itinerary[] = [
       checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
     },
     bookingOptions: [
-        {
-            provider: 'Reserve com a LATAM',
-            price: 532.00,
-            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
-            logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
-            tag: 'Companhia aérea'
-        },
-        {
-            provider: 'Reserve com a maxmilhas',
-            price: 499.00,
-            url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
-            logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
-        }
+        { provider: 'Reserve com a maxmilhas', price: 542.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })},
+        { provider: 'Reserve com a LATAM', price: 580.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }), tag: 'Companhia aérea' },
+        { provider: 'Reserve com a Decolar', price: 590.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Trip.com', price: 605.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Expedia', price: 663.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIwagoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ExpediaLogoIcon, { className: "h-10 w-10 p-1" }) },
     ],
+    monitoring: { enabled: true },
+    priceHistory: [
+        { timestamp: new Date('2024-07-26T17:48:00'), price: 499.00 },
+        { timestamp: new Date('2024-07-31T21:00:00'), price: 542.00 },
+    ]
   },
   {
     id: 17,
@@ -306,11 +303,11 @@ export const initialItineraries: Itinerary[] = [
         checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
     },
     bookingOptions: [
-        { provider: 'Reserve com a maxmilhas', price: 556.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } }) },
-        { provider: 'Reserve com a LATAM', price: 580.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }), tag: 'Companhia aérea' },
-        { provider: 'Reserve com a Decolar', price: 590.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
-        { provider: 'Reserve com a Trip.com', price: 605.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
-        { provider: 'Reserve com a Expedia', price: 663.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJMQTIEMzAxM2oMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJTUVaMlZFaHVWbTFMVHpoQlEzcHljMmRDUnkwdExTMHRMUzB0TFMxalpYaGpOa0ZCUVVGQlIydFlUa3haVDNKV01pMUJFZ1pNUVRNd01UTWFDd2pYc1FNUUFob0RRbEpNT0J4dzVWRT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ExpediaLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a maxmilhas', price: 556.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } }) },
+        { provider: 'Reserve com a LATAM', price: 580.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }), tag: 'Companhia aérea' },
+        { provider: 'Reserve com a Decolar', price: 590.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Trip.com', price: 605.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Expedia', price: 663.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ExpediaLogoIcon, { className: "h-10 w-10 p-1" }) },
     ],
     monitoring: { enabled: true },
     priceHistory: [{ timestamp: new Date(), price: 556.00 }],
@@ -341,10 +338,10 @@ export const initialItineraries: Itinerary[] = [
         checked: { status: 'Taxa Adicional', details: 'Sem bagagem despachada' },
     },
     bookingOptions: [
-        { provider: 'Reserve com a Zupper', price: 574.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ZupperLogoIcon, { className: "h-10 w-10 p-1" }) },
-        { provider: 'Reserve com a ViajaNet', price: 578.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ViajaNetLogoIcon, { className: "h-10 w-10 p-1" }) },
-        { provider: 'Reserve com a Decolar', price: 578.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
-        { provider: 'Reserve com a Gol', price: 580.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA0dJRxIKMjAyNS0xMi0xORoDQlBTKgJHMzIEMTg1MWoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUVVeU5sVTJibFJrTmpSQlF6Qk1hRkZDUnkwdExTMHRMUzB0TFMxalpYWmpPRUZCUVVGQlIydFlUbEpSUlZRdE1UUkJFZ1pITXpFNE5URWFDd2lNd0FNUUFob0RRbEpNT0J4d3dWUT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(GolLogoIcon, { className: "h-10 w-10 p-1" }), tag: 'Companhia aérea' },
+        { provider: 'Reserve com a Zupper', price: 574.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ZupperLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a ViajaNet', price: 578.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ViajaNetLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Decolar', price: 578.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Gol', price: 580.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(GolLogoIcon, { className: "h-10 w-10 p-1" }), tag: 'Companhia aérea' },
     ],
     monitoring: { enabled: true },
     priceHistory: [{ timestamp: new Date(), price: 574.00 }],
@@ -375,11 +372,11 @@ export const initialItineraries: Itinerary[] = [
         checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
     },
     bookingOptions: [
-        { provider: 'Reserve com a LATAM', price: 620.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }), tag: 'Companhia aérea' },
-        { provider: 'Reserve com a Kiwi.com', price: 620.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(KiwiLogoIcon, { className: "h-10 w-10 p-1" }) },
-        { provider: 'Reserve com a Decolar', price: 628.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
-        { provider: 'Reserve com a Expedia', price: 691.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ExpediaLogoIcon, { className: "h-10 w-10 p-1" }) },
-        { provider: 'Reserve com a Trip.com', price: 713.00, url: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTE5IiAKA1NEVRIKMjAyNS0xMi0xORoDQlBTKgJMQTIENDU0MmoMCAISCC9tLzA2Z21ycg0IAhIJL20vMDJiZmY5QAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJUWpVelVsbGhVWGRIZFd0QlF6a3RRV2RDUnkwdExTMHRMUzB0TFMxalpYZG1OVUZCUVVGQlIydFlUbFZKUTA5cE0xTkJFZ1pNUVRRMU5ESWFDd2ozNHdNUUFob0RRbEpNT0J4d29scz0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a LATAM', price: 620.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }), tag: 'Companhia aérea' },
+        { provider: 'Reserve com a Kiwi.com', price: 620.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(KiwiLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Decolar', price: 628.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Expedia', price: 691.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ExpediaLogoIcon, { className: "h-10 w-10 p-1" }) },
+        { provider: 'Reserve com a Trip.com', price: 713.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTE5agwIAhIIL20vMDZnbXJyDQgCEgkvbS8wMmJmZjlAAUgBcAGCAQsI____________AZgBAg&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
     ],
     monitoring: { enabled: true },
     priceHistory: [{ timestamp: new Date(), price: 620.00 }],
@@ -388,9 +385,9 @@ export const initialItineraries: Itinerary[] = [
     id: 21,
     title: 'LATAM: Porto Seguro → Rio de Janeiro (23/12)',
     subtitle: 'Só Ida · Econômica · 1 passageiro',
-    savedDate: '2024-07-26 17:54',
-    totalPrice: 297.00,
-    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+    savedDate: '2024-07-31 21:00',
+    totalPrice: 338.00,
+    sourceUrl: 'https://www.google.com/travel/flights/booking?tfs=CBwQAhpLEgoyMDI1LTEyLTIzIiAKA0JQUxIKMjAyNS0xMi0yMxoDR0lHKgJMQTIEMzc1MmoNCAISCS9tLzAyYmZmOXIMCAISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=CmxDalJJVUhGbVYwUnhUak0yYm5kQlF6WkliMUZDUnkwdExTMHRMUzB0TFMxalpYWmlNVUZCUVVGQlIydFlUbWcwUTJkbmVFTkJFZ1pNUVRNM05USWFDd2p0aHdJUUFob0RRbEpNT0J4dzRURT0SBggAIAIoBiIA&hl=pt-BR&gl=br&curr=BRL',
     events: [{
       type: 'flight',
       startTime: '03:35',
@@ -410,20 +407,86 @@ export const initialItineraries: Itinerary[] = [
       checked: { status: 'Taxa Adicional', details: 'Uma bagagem despachada cobrada à parte' },
     },
     bookingOptions: [
-      {
-        provider: 'Reserve com a LATAM',
-        price: 337.00,
-        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
-        logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }),
-        tag: 'Companhia aérea'
-      },
-      {
-        provider: 'Reserve com a maxmilhas',
-        price: 297.00,
-        url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
-        logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } })
-      }
+      { provider: 'Reserve com a maxmilhas', price: 338.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } }) },
+      { provider: 'Reserve com a LATAM', price: 386.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(LatamLogoIcon, { className: "h-10 w-10" }), tag: 'Companhia aérea' },
+      { provider: 'Reserve com a Decolar', price: 401.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+      { provider: 'Reserve com a Expedia', price: 453.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ExpediaLogoIcon, { className: "h-10 w-10 p-1" }) },
+      { provider: 'Reserve com a Trip.com', price: 492.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
     ],
+    monitoring: { enabled: true },
+    priceHistory: [
+        { timestamp: new Date('2024-07-26T17:54:00'), price: 297.00 },
+        { timestamp: new Date('2024-07-31T21:00:00'), price: 338.00 },
+    ],
+  },
+  {
+    id: 33,
+    title: 'Azul: Porto Seguro → Rio de Janeiro (23/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-31 21:00',
+    totalPrice: 411.00,
+    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
+      type: 'flight',
+      startTime: '21:00',
+      endTime: '00:35',
+      startDate: '23/12',
+      endDate: '24/12',
+      startLocation: 'BPS',
+      endLocation: 'GIG',
+      duration: '3h 35m',
+      details: '1 parada',
+      company: { name: 'Azul', logo: React.createElement(AzulLogoIcon, { className: "h-10 w-10" }) },
+      operator: 'Operado por Azul Linhas Aéreas',
+    }],
+    baggage: {
+      personal: { status: 'Inclusa', details: 'Item pessoal (bolsa ou mochila)' },
+      carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
+      checked: { status: 'Taxa Adicional', details: 'Bagagem despachada cobrada à parte' },
+    },
+    bookingOptions: [
+      { provider: 'Reserve com a Decolar', price: 411.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+      { provider: 'Reserve com a ViajaNet', price: 411.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ViajaNetLogoIcon, { className: "h-10 w-10 p-1" }) },
+      { provider: 'Reserve com a Booking.com', price: 417.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(BookingLogoIcon, { className: "h-10 w-10 p-1" }) },
+      { provider: 'Reserve com a Trip.com', price: 435.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
+      { provider: 'Reserve com a maxmilhas', price: 519.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(MaxMilhasLogoIcon, { className: "h-10 w-10 p-1", style: { borderRadius: '8px' } }) },
+    ],
+    monitoring: { enabled: true },
+    priceHistory: [{ timestamp: new Date(), price: 411.00 }],
+  },
+  {
+    id: 34,
+    title: 'GOL: Porto Seguro → Rio de Janeiro (23/12)',
+    subtitle: 'Só Ida · Econômica · 1 passageiro',
+    savedDate: '2024-07-31 21:00',
+    totalPrice: 449.00,
+    sourceUrl: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL',
+    events: [{
+      type: 'flight',
+      startTime: '18:30',
+      endTime: '20:00',
+      startDate: '23/12',
+      endDate: '23/12',
+      startLocation: 'BPS',
+      endLocation: 'GIG',
+      duration: '1h 30m',
+      details: 'Sem escalas',
+      company: { name: 'GOL', logo: React.createElement(GolLogoIcon, { className: "h-10 w-10 p-1" }) },
+      operator: 'Operado por GOL Linhas Aéreas',
+    }],
+    baggage: {
+        personal: { status: 'Não disponível', details: 'Informação não disponível' },
+        carryOn: { status: 'Inclusa', details: '1 bagagem de mão incluída' },
+        checked: { status: 'Taxa Adicional', details: 'Sem bagagem despachada' },
+    },
+    bookingOptions: [
+      { provider: 'Reserve com a Gol', price: 449.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(GolLogoIcon, { className: "h-10 w-10 p-1" }), tag: 'Companhia aérea' },
+      { provider: 'Reserve com a Decolar', price: 451.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(DecolarLogoIcon, { className: "h-10 w-10 p-1" }) },
+      { provider: 'Reserve com a ViajaNet', price: 451.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(ViajaNetLogoIcon, { className: "h-10 w-10 p-1" }) },
+      { provider: 'Reserve com a Trip.com', price: 528.00, url: 'https://www.google.com/travel/flights/search?tfs=CBwQAhopEgoyMDI1LTEyLTIzagoMCAISCS9tLzAyYmZmOXINCgISCC9tLzA2Z21yQAFIAXABggELCP___________wGYAQI&tfu=EgYIACACKAQiAA&hl=pt-BR&gl=br&curr=BRL', logo: React.createElement(TripLogoIcon, { className: "h-10 w-10 p-1" }) },
+    ],
+    monitoring: { enabled: true },
+    priceHistory: [{ timestamp: new Date(), price: 449.00 }],
   },
   {
     id: 22,

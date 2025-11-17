@@ -1,224 +1,96 @@
 import React from 'react';
 import type { Destination, AccommodationOption } from './types';
 import { 
-    SunIcon,
-    ShipIcon,
-    ActivityIcon,
-    MountainPeakIcon,
-    RouteIcon,
+    SparklesIcon,
     ParkingIcon,
-    SparklesIcon, // Added for the new card
 } from './components/icons';
 
 
-// START: Accommodation and additional cost data moved here from detailedRotes.ts for consolidation.
-const ilhaGrandeAccommodations: AccommodationOption[] = [
+// Acomodações em Paraty para 2 noites
+const paratyAccommodations: AccommodationOption[] = [
     {
-        name: "Pousada Sakura Rio Mar",
-        city: "Ilha Grande",
-        rating: 9.3,
-        pricePerNight: 324,
-        totalPrice: 648,
+        name: "Pousada Literária de Paraty",
+        city: "Paraty",
+        rating: 9.5,
+        pricePerNight: 1250,
+        totalPrice: 2500,
         nights: 2,
-        amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Serviço de quarto", "Quartos para famílias"],
-        pros: ["Avaliação 'Fantástica' (9.3)", "Localização excelente", "Alta demanda (geralmente esgotado)", "Comodidades modernas"],
-        cons: ["Preço mais elevado em comparação a outras opções da região."],
-        distanceToCenter: "Localização central em Abraão, próximo ao cais.",
-        bookingUrl: "https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
+        amenities: ["Piscina de luxo", "Wi-Fi Grátis", "Biblioteca", "Spa e centro de bem-estar", "Restaurante premiado"],
+        pros: ["Avaliação 'Excepcional' (9.5)", "Localização perfeita no Centro Histórico", "Serviço impecável e ambiente sofisticado", "Considerada uma das melhores pousadas do Brasil"],
+        cons: ["Custo muito elevado."],
+        distanceToCenter: "No coração do Centro Histórico.",
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-literaria.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
     },
     {
-        name: "Pousada Oásis",
-        city: "Ilha Grande",
-        rating: 9.3,
+        name: "Pousada do Ouro",
+        city: "Paraty",
+        rating: 8.9,
+        pricePerNight: 580,
+        totalPrice: 1160,
+        nights: 2,
+        amenities: ["Piscina externa", "Café da manhã incluído", "Wi-Fi Grátis", "Bar", "Sauna"],
+        pros: ["Avaliação 'Fabulosa' (8.9)", "Belo casarão colonial com piscina", "Excelente localização central", "Café da manhã muito elogiado"],
+        cons: ["Pode ter ruído por ser central", "Estacionamento pode ser limitado"],
+        distanceToCenter: "A 2 minutos a pé da praça principal.",
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-do-ouro.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
+    },
+    {
+        name: "Pousada Villaggio",
+        city: "Paraty",
+        rating: 9.1,
         pricePerNight: 350,
         totalPrice: 700,
         nights: 2,
-        amenities: ["Wi-Fi gratuito", "Quartos para não fumantes", "Ar-condicionado", "Café da manhã"],
-        pros: ["Avaliação 'Fantástica' (9.3)", "Café da manhã excelente", "Localização privilegiada", "Equipe atenciosa"],
-        cons: ["Pode ser barulhento por estar perto do centro", "Estrutura pode ser mais simples"],
-        distanceToCenter: "A 100m da Praia do Abraão.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-oasis.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
-    },
-    {
-        name: "Suítes Golfo",
-        city: "Ilha Grande",
-        rating: 8.6,
-        pricePerNight: 245,
-        totalPrice: 490,
-        nights: 2,
-        amenities: ["Beira-mar", "Wi-Fi gratuito", "Varanda", "Ar-condicionado", "Quartos para famílias"],
-        pros: ["Avaliação 'Fabulosa' (8.6)", "Localização em frente à praia com vista para o mar", "Preço competitivo"],
-        cons: ["Não serve café da manhã", "A tarifa mais barata não é reembolsável"],
-        distanceToCenter: "Em frente à Praia do Abraão.",
-        bookingUrl: "https://www.booking.com/hotel/br/suites-golfo.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-622861&dest_type=city"
-    }
-];
-
-const paratyAccommodationsTwoNights: AccommodationOption[] = [
-    {
-        name: "Pousada Entre Folhas",
-        city: "Paraty",
-        rating: 9.0,
-        pricePerNight: 234,
-        totalPrice: 492,
-        nights: 2,
-        amenities: ["Estacionamento grátis", "Wi-Fi Grátis", "Jardim", "Ar-condicionado", "Serviço de traslado para a praia"],
-        pros: ["Avaliação 'Maravilhosa' (9.0)", "Totalmente reembolsável", "Ambiente tranquilo e cercado de natureza", "Ótimos serviços como traslado"],
-        cons: ["Fica um pouco fora do centro, ideal para quem está de carro e busca sossego."],
-        distanceToCenter: "A 9 min de carro do Centro Histórico.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-entre-folhas.pt-br.html?aid=340301&checkin=2025-12-22&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
-    },
-    {
-        name: "Pousada Camila",
-        city: "Paraty",
-        rating: 8.4,
-        pricePerNight: 287,
-        totalPrice: 604,
-        nights: 2,
-        amenities: ["Piscina externa", "Café da manhã incluído", "Wi-Fi Grátis", "Estacionamento", "Sala de jogos"],
-        pros: ["Avaliação 'Muito boa' (8.4)", "Café da manhã bem avaliado", "Piscina e área de lazer"],
-        cons: ["Preço um pouco mais elevado", "Pode exigir uma pequena caminhada para o centro histórico"],
-        distanceToCenter: "A 19 min de caminhada da Igreja Matriz.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-camila.pt-br.html?aid=340301&checkin=2025-12-22&checkout=2025-12-24&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
+        amenities: ["Piscina externa", "Wi-Fi Grátis", "Estacionamento grátis", "Quartos para famílias"],
+        pros: ["Avaliação 'Fantástica' (9.1)", "Ótimo custo-benefício", "Ambiente tranquilo e familiar", "Perto do centro, mas fora do barulho"],
+        cons: ["Decoração mais simples em comparação com as pousadas históricas."],
+        distanceToCenter: "A 10 minutos a pé do Centro Histórico.",
+        bookingUrl: "https://www.booking.com/hotel/br/pousada-villaggio.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
     }
 ].sort((a, b) => a.pricePerNight - b.pricePerNight);
-// END: Data move.
 
 
 export const destinations: Destination[] = [
     {
-        id: 26,
-        title: "Opção 1: Costa Verde: Ilha Grande, Paraty & Cunha",
+        id: 30,
+        title: "Fim de Semana em Paraty & Cunha",
         category: "Sudeste",
-        places: ['Maricá', 'Ilha Grande', 'Paraty', 'Cunha', 'Santa Cruz da Serra'],
-        description: 'Uma jornada completa pela serra e mar, com todos os trechos de carro, paradas e custos planejados.',
-        themeColor: '#0d9488', // teal-600
-        icon: React.createElement(RouteIcon),
+        places: ['Rio de Janeiro', 'Paraty', 'Cunha'],
+        description: 'Combine o charme colonial de Paraty com a beleza dos campos de lavanda em Cunha em um roteiro único.',
+        themeColor: '#8b5cf6', // violet-500
+        icon: React.createElement(SparklesIcon),
         carTrips: [
             {
-                title: "Trecho 1: Maricá → Mangaratiba",
-                duration: "aprox. 2h 6min",
-                distance: "153,6 km",
-                totalCostOneWay: 82.77,
-                fuelCostOneWay: 77.97,
-                tollCostOneWay: 4.80,
+                title: "Trecho 1: Rio → Paraty (Ida)",
+                duration: "aprox. 4h 52min",
+                distance: "296,4 km",
+                totalCostOneWay: 167.90,
+                fuelCostOneWay: 150.40,
+                tollCostOneWay: 17.50,
                 details: "Via Rodovia Rio-Santos",
-                mapUrl: './assets/marica-mangaratiba-map.svg',
-                additionalCosts: [
-                    {
-                        description: "Estacionamento em Mangaratiba (em frente ao cais)",
-                        dailyRate: 40.00,
-                        icon: React.createElement(ParkingIcon, {className: "h-5 w-5 text-slate-400"})
-                    }
-                ]
+                mapUrl: './assets/angra-map.svg', // Reutilizando mapa genérico da região
             },
             {
-                title: "Trecho 2: Mangaratiba → Paraty",
-                duration: "aprox. 2h 51min",
-                distance: "147,7 km",
-                totalCostOneWay: 79.85,
-                fuelCostOneWay: 74.95,
-                tollCostOneWay: 4.90,
-                details: "Via Rodovia Rio-Santos -- BR-101",
-                mapUrl: './assets/mangaratiba-paraty-map.svg',
-            },
-             {
-                title: "Trecho 3: Paraty ↔ Cunha (Passeio)",
-                duration: "aprox. 3h 23min",
-                distance: "92,2 km",
-                totalCostOneWay: 46.81,
-                fuelCostOneWay: 46.81,
+                title: "Trecho 2: Paraty ↔ Cunha (Bate-volta)",
+                duration: "aprox. 1h 30min",
+                distance: "94 km (total)",
+                totalCostOneWay: 43.08, // Custo para ida e volta
+                fuelCostOneWay: 43.08,
                 tollCostOneWay: 0.00,
-                details: "Via RJ-165, Rod. Vice-Prefeito Salvador Pacetti",
+                details: "Via RJ-165, Rod. Salvador Pacetti",
                 mapUrl: './assets/paraty-cunha-map.svg',
             },
             {
-                title: "Trecho 4: Paraty → Santa Cruz da Serra (Volta)",
-                duration: "aprox. 4h 3min",
-                distance: "248,3 km",
-                totalCostOneWay: 150.91,
-                fuelCostOneWay: 126.01,
-                tollCostOneWay: 24.90,
-                details: "Via Rod. Rio-Santos, Arco Metropolitano",
-                mapUrl: './assets/paraty-santacruz-map.svg',
+                title: "Trecho 3: Paraty → Rio (Volta)",
+                duration: "aprox. 4h 52min",
+                distance: "296,4 km",
+                totalCostOneWay: 167.90,
+                fuelCostOneWay: 150.40,
+                tollCostOneWay: 17.50,
+                details: "Via Rodovia Rio-Santos",
+                mapUrl: './assets/paraty-santacruz-map.svg', // Reutilizando mapa de volta
             }
         ],
-        // START: Added detailed costs and accommodation options
-        additionalCosts: [
-            {
-                description: "Barca (Ida e Volta)",
-                amount: 41.00,
-                details: "Mangaratiba <-> Ilha Grande (por pessoa)",
-                icon: React.createElement(ShipIcon, {className: "h-5 w-5 text-slate-400"})
-            },
-            {
-                description: "Estacionamento (2 diárias)",
-                amount: 80.00,
-                details: "Estacionamento em Mangaratiba (em frente ao cais)",
-                icon: React.createElement(ParkingIcon, {className: "h-5 w-5 text-slate-400"})
-            }
-        ],
-        accommodations: [
-            ...ilhaGrandeAccommodations,
-            ...paratyAccommodationsTwoNights
-        ],
-        // END: Added details
-    },
-    {
-        id: 25,
-        title: "Opção 2: Natureza e Arte em Cunha",
-        category: "Sudeste",
-        places: ['Rio de Janeiro', 'Cunha', 'Rio de Janeiro'],
-        description: 'Explore os ateliês de cerâmica, cachoeiras e campos de lavanda desta cidade serrana em SP.',
-        themeColor: '#84cc16', // lime-500
-        icon: React.createElement(MountainPeakIcon),
-        carTrips: [{
-            title: "Rio de Janeiro ↔ Cunha",
-            duration: "aprox. 4h 55min",
-            distance: "354,2 km",
-            totalCostOneWay: 213.72,
-            fuelCostOneWay: 179.72,
-            tollCostOneWay: 34.00,
-            details: "Via Rodovia Presidente Dutra, Rodovia Paulo Virgínio",
-            mapUrl: './assets/angra-map.svg'
-        }]
-    },
-     {
-        id: 24,
-        title: "Opção 3: Charme Histórico de Paraty",
-        category: "Sudeste",
-        places: ['Rio de Janeiro', 'Paraty', 'Rio de Janeiro'],
-        description: 'Explore o centro histórico colonial e as praias paradisíacas de Paraty. Uma viagem no tempo.',
-        themeColor: '#16a34a', // green-600
-        icon: React.createElement(ActivityIcon),
-        carTrips: [{
-            title: "Rio de Janeiro ↔ Paraty",
-            duration: "aprox. 4h 52min",
-            distance: "296,4 km",
-            totalCostOneWay: 167.90,
-            fuelCostOneWay: 150.40,
-            tollCostOneWay: 17.50,
-            details: "Via Avenida Brasil, Rodovia Rio-Santos",
-            mapUrl: './assets/angra-map.svg'
-        }]
-    },
-    {
-        id: 23,
-        title: "Opção 4: Verão em Angra dos Reis",
-        category: "Sudeste",
-        places: ['Rio de Janeiro', 'Angra dos Reis', 'Rio de Janeiro'],
-        description: 'Descubra as ilhas paradisíacas e o mar cristalino de Angra. Veja opções de estadia e monte sua viagem.',
-        themeColor: '#14b8a6', // teal-500
-        icon: React.createElement(ShipIcon),
-        carTrips: [{
-            title: "Rio de Janeiro ↔ Angra dos Reis",
-            duration: "aprox. 5h 51min",
-            distance: "408,1 km",
-            totalCostOneWay: 232.50,
-            fuelCostOneWay: 207.10,
-            tollCostOneWay: 25.40,
-            details: "Via Avenida Brasil, Rodovia Rio-Santos",
-            mapUrl: './assets/angra-map.svg'
-        }]
+        accommodations: paratyAccommodations,
     },
 ];

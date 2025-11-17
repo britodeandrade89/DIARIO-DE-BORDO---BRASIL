@@ -174,9 +174,9 @@ const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, isExpan
     const { destination, carTrips, itineraries } = trip;
     const themeColor = 'themeColor' in destination ? destination.themeColor : '#64748b';
 
-    // FIX: The `destination` object is a union type. The type guard is used here to safely access properties that only exist on the `Destination` type, ensuring `accommodations` and `additionalCosts` are correctly typed as arrays and resolving 'unknown' type errors.
-    const accommodations = 'id' in destination ? (destination.accommodations ?? []) : [];
-    const additionalCosts = 'id' in destination ? (destination.additionalCosts ?? []) : [];
+    // FIX: The `destination` object is a union type. Explicitly typing these constants ensures that TypeScript correctly infers them as arrays, resolving the 'unknown' type errors in subsequent method calls.
+    const accommodations: AccommodationOption[] = 'id' in destination ? (destination.accommodations ?? []) : [];
+    const additionalCosts: AdditionalCost[] = 'id' in destination ? (destination.additionalCosts ?? []) : [];
     
     const summaryParts = [];
     if (carTrips && carTrips.length > 0) summaryParts.push(`${carTrips.length} trecho${carTrips.length > 1 ? 's' : ''} de carro`);

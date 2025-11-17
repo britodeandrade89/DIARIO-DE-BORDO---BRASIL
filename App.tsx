@@ -29,12 +29,11 @@ const App: React.FC = () => {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        // FIX: Reverted the service worker registration to use a standard relative path ('./sw.js').
-        // This is the most robust and standard method, relying on the browser's default behavior
-        // to resolve the path against the correct application origin. Previous attempts to construct
-        // an absolute URL failed due to the sandboxed environment providing an incorrect base URL ('https://ai.studio').
-        // This change corrects the origin mismatch error for good.
-        navigator.serviceWorker.register('./sw.js')
+        // A robust way to construct the service worker URL to avoid cross-origin issues in sandboxed environments.
+        const swPath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf('/') + 1) + 'sw.js';
+        const swUrl = new URL(swPath, window.location.origin).href;
+
+        navigator.serviceWorker.register(swUrl)
           .then(registration => {
             console.log('Service Worker registered with scope:', registration.scope);
           })

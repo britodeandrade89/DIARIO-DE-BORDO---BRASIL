@@ -3,9 +3,10 @@
     <style>
       .road { fill: none; stroke: #a5b4fc; stroke-width: 3; stroke-dasharray: 6, 4; }
       .city-label { font-family: sans-serif; font-size: 12px; font-weight: bold; fill: #1e293b; }
-      .toll-label { font-family: sans-serif; font-size: 9px; fill: #475569; }
-      .city-dot { fill: #4338ca; }
-      .toll-dot { fill: #f59e0b; stroke: white; stroke-width: 1.5; }
+      .start-dot { fill: #3b82f6; }
+      .end-dot { fill: #ef4444; }
+      .toll-dot { fill: #f59e0b; }
+      .toll-p-label { font-family: sans-serif; font-size: 5px; font-weight: bold; fill: white; text-anchor: middle; dominant-baseline: central; }
     </style>
     <linearGradient id="background-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#eff6ff;stop-opacity:1" />
@@ -20,25 +21,25 @@
 
   <!-- Cities -->
   <g>
-    <circle cx="40" cy="110" r="5" class="city-dot" />
+    <circle cx="40" cy="110" r="5" class="start-dot" />
     <text x="30" y="130" class="city-label">Rio de Janeiro</text>
   </g>
   <g>
-    <circle cx="310" cy="70" r="5" class="city-dot" />
+    <circle cx="310" cy="70" r="5" class="end-dot" />
     <text x="285" y="55" class="city-label">Angra dos Reis</text>
   </g>
 
   <!-- Tolls -->
   <g>
-    <circle cx="120" cy="98" r="4" class="toll-dot" />
-    <text x="90" y="85" class="toll-label">Pedágio 1</text>
+    <circle cx="120" cy="98" r="5" class="toll-dot" />
+    <text x="120" y="98" class="toll-p-label">P</text>
   </g>
   <g>
-    <circle cx="205" cy="45" r="4" class="toll-dot" />
-    <text x="175" y="32" class="toll-label">Pedágio 2</text>
+    <circle cx="205" cy="45" r="5" class="toll-dot" />
+    <text x="205" y="45" class="toll-p-label">P</text>
   </g>
     <g>
-    <circle cx="275" cy="68" r="4" class="toll-dot" />
-    <text x="245" y="88" class="toll-label">Pedágio 3</text>
+    <circle cx="275" cy="68" r="5" class="toll-dot" />
+    <text x="275" y="68" class="toll-p-label">P</text>
   </g>
 </svg>

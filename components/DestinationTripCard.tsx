@@ -78,7 +78,7 @@ const CarTripLegCard: React.FC<{ leg: CarTripLeg }> = ({ leg }) => {
                     <div className="absolute inset-0 flex items-center justify-around px-4">
                         {Array.from({ length: tollCount }).map((_, i) => (
                             <div key={i} className="bg-white px-1">
-                                <TollBoothIcon className="h-8 w-8 text-slate-500" />
+                                <TollBoothIcon className="h-8 w-8" />
                             </div>
                         ))}
                     </div>
@@ -178,11 +178,13 @@ const AccommodationOptionCard: React.FC<{ option: AccommodationOption }> = ({ op
 const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, isExpanded, onToggle, onSelectItinerary }) => {
     const { destination, carTrips, itineraries } = trip;
     const themeColor = 'themeColor' in destination ? destination.themeColor : '#64748b';
-    // FIX: Safely access optional array properties from the union-typed 'destination' object.
-    // By checking for property existence and using `Array.isArray` as a type guard, TypeScript correctly infers
-    // 'accommodations' and 'additionalCosts' as arrays, resolving 'unknown' type errors for array methods.
-    const accommodations = 'accommodations' in destination && Array.isArray(destination.accommodations) ? destination.accommodations : [];
-    const additionalCosts = 'additionalCosts' in destination && Array.isArray(destination.additionalCosts) ? destination.additionalCosts : [];
+    // FIX: The ternary operator with an `in` guard was not reliably narrowing the `destination` union type for property access,
+    // resulting in properties being inferred as `unknown`. This was corrected by first assigning the narrowed `Destination` object
+    // or `null` to an intermediate variable (`fullDestination`), which allows TypeScript to correctly resolve the type
+    // before attempting to access optional properties like `accommodations` and `additionalCosts`.
+    const fullDestination = 'id' in destination ? destination : null;
+    const accommodations = fullDestination?.accommodations ?? [];
+    const additionalCosts = fullDestination?.additionalCosts ?? [];
     
     const summaryParts = [];
     if (carTrips && carTrips.length > 0) summaryParts.push(`${carTrips.length} trecho${carTrips.length > 1 ? 's' : ''} de carro`);

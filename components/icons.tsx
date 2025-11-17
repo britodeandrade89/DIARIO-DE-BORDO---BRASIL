@@ -360,7 +360,7 @@ export const ThumbsUpIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => 
 
 export const ThumbsDownIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M6.633 10.5c.806 0 1.533.446 2.031 1.08a9.041 9.041 0 012.861 2.4c.723.384 1.35.956 1.653 1.715a4.498 4.498 0 00.322 1.672V21a.75.75 0 01-.75.75A2.25 2.25 0 0113.5 19.5c0-1.152.26-2.243.723-3.218.266-.558-.107-1.282-.725-1.282H9.375c-1.026 0-1.945-.694-2.054-1.715A11.949 11.949 0 016.633 10.5zm-1.884-.523c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 002.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 00-.75-.75A2.25 2.25 0 0013.5 4.5c0 1.152.26 2.243.723 3.218.266.558-.107-1.282-.725-1.282H9.375c-1.026 0-1.945.694-2.054-1.715A11.949 11.949 0 014.749 10z" />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M6.633 10.5c.806 0 1.533.446 2.031 1.08a9.041 9.041 0 012.861 2.4c.723.384 1.35.956 1.653 1.715a4.498 4.498 0 00.322 1.672V21a.75.75 0 01-.75.75A2.25 2.25 0 0113.5 19.5c0-1.152.26-2.243.723-3.218.266-.558-.107-1.282-.725-1.282H9.375c-1.026 0-1.945-.694-2.054-1.715A11.949 11.949 0 016.633 10.5zm-1.884-.523c.806 0 1.533-.446 2.031-1.08a9.041 9.041 0 002.861-2.4c.723-.384 1.35-.956 1.653-1.715a4.498 4.498 0 00.322-1.672V3a.75.75 0 00-.75-.75A2.25 2.25 0 0013.5 4.5c0 1.152.26 2.243.723 3.218.266.558-.107-1.282-.725-1.282H9.375c-1.026 0-1.945-.694-2.054-1.715A11.949 11.949 0 014.749 10z" />
   </svg>
 );
 
@@ -407,22 +407,23 @@ export const FuelIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
 );
 
 export const LocationMarkerAIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z" stroke="currentColor" />
-    <text x="12" y="12" textAnchor="middle" dy=".3em" fontSize="4" fill="currentColor" fontWeight="bold">A</text>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="#3b82f6" viewBox="0 0 24 24" stroke="#1d4ed8" strokeWidth="1" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z" />
+    <text x="12" y="10.5" textAnchor="middle" dy=".3em" fontSize="8" fill="white" fontWeight="bold" stroke="none">A</text>
   </svg>
 );
 
 export const LocationMarkerBIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z" stroke="currentColor" />
-    <text x="12" y="12" textAnchor="middle" dy=".3em" fontSize="4" fill="currentColor" fontWeight="bold">B</text>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="#ef4444" viewBox="0 0 24 24" stroke="#b91c1c" strokeWidth="1" {...props}>
+    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1 1 15 0z" />
+    <text x="12" y="10.5" textAnchor="middle" dy=".3em" fontSize="8" fill="white" fontWeight="bold" stroke="none">B</text>
   </svg>
 );
 
 export const TollBoothIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" {...props}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h6M9 12h6m-6 5.25h6M5.25 6h.008v.008H5.25V6Zm.75 0h.008v.008H6V6Zm0 5.25h.008v.008H6v-.008Zm0 5.25h.008v.008H6v-.008Zm12-10.5h.008v.008H18V6Zm-.75 0h.008v.008h-.008V6Zm0 5.25h.008v.008h-.008v-.008Zm0 5.25h.008v.008h-.008v-.008Z" />
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" {...props}>
+    <circle cx="12" cy="12" r="10" fill="#f59e0b" />
+    <text x="12" y="12" textAnchor="middle" dy=".3em" fontSize="10" fill="white" fontWeight="bold">P</text>
   </svg>
 );
 

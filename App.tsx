@@ -29,14 +29,14 @@ const App: React.FC = () => {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        // FIX: Replaced `window.location.href` with `document.baseURI`.
-        // In sandboxed environments, `location.href` can be 'about:blank',
-        // which is not a valid base for the URL constructor, causing a TypeError.
-        // `document.baseURI` provides a reliable base URL to construct the absolute path to the service worker.
-        const swUrl = new URL('sw.js', document.baseURI);
-        navigator.serviceWorker.register(swUrl, { scope: './' })
+        // FIX: Reverted the service worker registration to use a standard relative path ('./sw.js').
+        // This is the most robust and standard method, relying on the browser's default behavior
+        // to resolve the path against the correct application origin. Previous attempts to construct
+        // an absolute URL failed due to the sandboxed environment providing an incorrect base URL ('https://ai.studio').
+        // This change corrects the origin mismatch error for good.
+        navigator.serviceWorker.register('./sw.js')
           .then(registration => {
-            console.log('Service Worker registered with base URI:', registration.scope);
+            console.log('Service Worker registered with scope:', registration.scope);
           })
           .catch(err => {
             console.error('Falha no registro do Service Worker:', err);

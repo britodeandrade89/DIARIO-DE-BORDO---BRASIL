@@ -194,3 +194,26 @@ export interface DetailedRoute {
   accommodations?: AccommodationOption[];
 }
 // END: Added interfaces for detailed day-by-day itineraries
+
+// FIX: Added missing interfaces for trip combinations and grouped trips to resolve import errors and provide a single source of truth for these types.
+export interface TripOption {
+  departureFlight: Itinerary;
+  returnFlight: Itinerary;
+  returnDate: string;
+  duration: string;
+  totalCost: number;
+}
+
+export interface BestTripCombination {
+  type: 'Menor Preço' | 'Melhor Custo-Benefício';
+  totalCost: number;
+  departureFlight: Itinerary;
+  returnFlight: Itinerary;
+  accommodation: AccommodationOption;
+}
+
+export interface GroupedTrip {
+    destination: Destination | { title: string; themeColor?: string, icon?: React.ReactElement };
+    itineraries: Itinerary[];
+    carTrips?: CarTripLeg[];
+}

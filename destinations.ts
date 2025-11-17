@@ -87,15 +87,6 @@ const paratyAccommodationsTwoNights: AccommodationOption[] = [
 
 export const destinations: Destination[] = [
     {
-        id: 100, // Unique ID for the smart suggestion card
-        title: "Melhor Opção: Final de ano em Porto Seguro",
-        category: "Sugestões Inteligentes",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Analisamos todos os voos e hotéis para trazer a melhor combinação de preço e custo-benefício para você.',
-        themeColor: '#7c3aed', // violet-600
-        icon: React.createElement(SparklesIcon),
-    },
-    {
         id: 26,
         title: "Opção 1: Costa Verde: Ilha Grande, Paraty & Cunha",
         category: "Sudeste",
@@ -229,32 +220,5 @@ export const destinations: Destination[] = [
             details: "Via Avenida Brasil, Rodovia Rio-Santos",
             mapUrl: './assets/angra-map.svg'
         }]
-    },
-    {
-        id: 18,
-        title: "Natal em Porto Seguro (18/12)",
-        category: "Nordeste",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#f97316', // orange-500
-        icon: React.createElement(SunIcon),
-    },
-    {
-        id: 19,
-        title: "Natal em Porto Seguro (19/12)",
-        category: "Nordeste",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#f59e0b', // amber-500
-        icon: React.createElement(SunIcon),
-    },
-    {
-        id: 20,
-        title: "Natal em Porto Seguro (20/12)",
-        category: "Nordeste",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#ea580c', // orange-600
-        icon: React.createElement(SunIcon),
     },
 ];

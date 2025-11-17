@@ -1,7 +1,7 @@
 import React from 'react';
-import type { Destination, Itinerary, AccommodationOption } from '../types';
+// FIX: Changed import to pull TripOption and BestTripCombination from the centralized types file, resolving the module export error.
+import type { Destination, Itinerary, AccommodationOption, TripOption, BestTripCombination } from '../types';
 import { MapPinIcon, StarIcon, CarIcon, HomeIcon, PlaneTakeoffIcon, PriceTagIcon, CheckShieldIcon } from './icons';
-import { TripOption, BestTripCombination } from './Destinations';
 
 interface DestinationCardProps {
   destination: Destination;

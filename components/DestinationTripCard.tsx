@@ -1,5 +1,6 @@
 import React from 'react';
-import type { Itinerary, Destination, TripEventType, CarTripLeg, AccommodationOption, AdditionalCost } from '../types';
+// FIX: Removed local GroupedTrip interface and imported it from types.ts to resolve 'unknown' type inference errors.
+import type { Itinerary, Destination, CarTripLeg, AccommodationOption, AdditionalCost, GroupedTrip } from '../types';
 import { 
     PlaneTakeoffIcon, 
     BusIcon, 
@@ -19,12 +20,6 @@ import {
     ExternalLinkIcon,
     HomeIcon,
 } from './icons';
-
-interface GroupedTrip {
-    destination: Destination | { title: string; themeColor?: string, icon?: React.ReactElement };
-    itineraries: Itinerary[];
-    carTrips?: Destination['carTrips'];
-}
 
 interface DestinationTripCardProps {
     trip: GroupedTrip;
@@ -179,11 +174,9 @@ const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, isExpan
     const { destination, carTrips, itineraries } = trip;
     const themeColor = 'themeColor' in destination ? destination.themeColor : '#64748b';
 
-    // FIX: The `destination` object is a union type. A type guard is used to safely narrow the type to `Destination` before accessing properties that might not exist on all types in the union.
-    const fullDestination = 'id' in destination ? destination : null;
-    
-    const accommodations = fullDestination?.accommodations ?? [];
-    const additionalCosts = fullDestination?.additionalCosts ?? [];
+    // FIX: The `destination` object is a union type. The type guard is used here to safely access properties that only exist on the `Destination` type, ensuring `accommodations` and `additionalCosts` are correctly typed as arrays and resolving 'unknown' type errors.
+    const accommodations = 'id' in destination ? (destination.accommodations ?? []) : [];
+    const additionalCosts = 'id' in destination ? (destination.additionalCosts ?? []) : [];
     
     const summaryParts = [];
     if (carTrips && carTrips.length > 0) summaryParts.push(`${carTrips.length} trecho${carTrips.length > 1 ? 's' : ''} de carro`);

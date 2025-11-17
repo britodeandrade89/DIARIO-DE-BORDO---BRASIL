@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { initialItineraries } from '../itineraries';
 import { destinations } from '../destinations';
-import type { Itinerary, Destination } from '../types';
+// FIX: Removed local GroupedTrip interface definition and imported it from types.ts to ensure type consistency.
+import type { Itinerary, Destination, GroupedTrip } from '../types';
 import DestinationTripCard from './DestinationTripCard';
 import ImageUploader from './ImageUploader';
 
 interface MyTripsProps {
     onSelectItinerary: (itinerary: Itinerary) => void;
-}
-
-interface GroupedTrip {
-    destination: Destination | { title: string; themeColor?: string, icon?: React.ReactElement };
-    itineraries: Itinerary[];
-    carTrips?: Destination['carTrips'];
 }
 
 // Helper function to parse date strings like "DD/MM" for sorting
@@ -59,9 +54,7 @@ const MyTrips: React.FC<MyTripsProps> = ({ onSelectItinerary }) => {
     // 2. Group itineraries from state into the prepared groups.
     itineraries.forEach(itinerary => {
         let key = "Outros"; // Default group
-        if (itinerary.title.includes('Porto Seguro')) {
-            key = 'Natal em Porto Seguro';
-        } else if (itinerary.title.includes('Paraty') || itinerary.title.includes('Mangaratiba') || itinerary.title.includes('Sakura Rio Mar')) {
+        if (itinerary.title.includes('Paraty') || itinerary.title.includes('Mangaratiba') || itinerary.title.includes('Sakura Rio Mar')) {
             key = 'Costa Verde: Ilha Grande, Paraty & Cunha';
         }
         

@@ -6,50 +6,6 @@ import {
 } from './components/icons';
 
 
-// Acomodações em Paraty para 2 noites
-const paratyAccommodations: AccommodationOption[] = [
-    {
-        name: "Pousada Literária de Paraty",
-        city: "Paraty",
-        rating: 9.5,
-        pricePerNight: 1250,
-        totalPrice: 2500,
-        nights: 2,
-        amenities: ["Piscina de luxo", "Wi-Fi Grátis", "Biblioteca", "Spa e centro de bem-estar", "Restaurante premiado"],
-        pros: ["Avaliação 'Excepcional' (9.5)", "Localização perfeita no Centro Histórico", "Serviço impecável e ambiente sofisticado", "Considerada uma das melhores pousadas do Brasil"],
-        cons: ["Custo muito elevado."],
-        distanceToCenter: "No coração do Centro Histórico.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-literaria.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
-    },
-    {
-        name: "Pousada do Ouro",
-        city: "Paraty",
-        rating: 8.9,
-        pricePerNight: 580,
-        totalPrice: 1160,
-        nights: 2,
-        amenities: ["Piscina externa", "Café da manhã incluído", "Wi-Fi Grátis", "Bar", "Sauna"],
-        pros: ["Avaliação 'Fabulosa' (8.9)", "Belo casarão colonial com piscina", "Excelente localização central", "Café da manhã muito elogiado"],
-        cons: ["Pode ter ruído por ser central", "Estacionamento pode ser limitado"],
-        distanceToCenter: "A 2 minutos a pé da praça principal.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-do-ouro.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
-    },
-    {
-        name: "Pousada Villaggio",
-        city: "Paraty",
-        rating: 9.1,
-        pricePerNight: 350,
-        totalPrice: 700,
-        nights: 2,
-        amenities: ["Piscina externa", "Wi-Fi Grátis", "Estacionamento grátis", "Quartos para famílias"],
-        pros: ["Avaliação 'Fantástica' (9.1)", "Ótimo custo-benefício", "Ambiente tranquilo e familiar", "Perto do centro, mas fora do barulho"],
-        cons: ["Decoração mais simples em comparação com as pousadas históricas."],
-        distanceToCenter: "A 10 minutos a pé do Centro Histórico.",
-        bookingUrl: "https://www.booking.com/hotel/br/pousada-villaggio.pt-br.html?aid=340301&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1&dest_id=-661483&dest_type=city"
-    }
-].sort((a, b) => a.pricePerNight - b.pricePerNight);
-
-
 export const destinations: Destination[] = [
     {
         id: 30,
@@ -91,6 +47,20 @@ export const destinations: Destination[] = [
                 mapUrl: './assets/paraty-santacruz-map.svg', // Reutilizando mapa de volta
             }
         ],
-        accommodations: paratyAccommodations,
+        accommodations: [
+            {
+                name: 'Pousada Bella Tulip',
+                city: 'Paraty',
+                rating: 9.2,
+                pricePerNight: 324,
+                totalPrice: 648,
+                nights: 2,
+                amenities: ['Wi-Fi Gratuito', 'Ar-condicionado', 'Café da manhã incluso'],
+                pros: ['Localização excelente perto do Centro Histórico', 'Café da manhã muito elogiado pelos hóspedes', 'Atendimento cordial e prestativo'],
+                cons: ['Quartos podem ser considerados pequenos', 'O sinal de Wi-Fi pode ser instável em alguns quartos'],
+                distanceToCenter: 'a 400m do Centro Histórico',
+                bookingUrl: 'https://www.booking.com/hotel/br/bella-tulip.pt-br.html?aid=340301&sid=79d0cc3ebada820ffd8e7f87c3b455c3&checkin=2025-12-20&checkout=2025-12-22&group_adults=2&no_rooms=1'
+            }
+        ],
     },
 ];

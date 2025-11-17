@@ -29,10 +29,14 @@ const App: React.FC = () => {
   useEffect(() => {
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        // FIX: Changed path to be relative to the document's location to avoid cross-origin errors.
-        navigator.serviceWorker.register('./sw.js')
+        // FIX: Replaced `window.location.href` with `document.baseURI`.
+        // In sandboxed environments, `location.href` can be 'about:blank',
+        // which is not a valid base for the URL constructor, causing a TypeError.
+        // `document.baseURI` provides a reliable base URL to construct the absolute path to the service worker.
+        const swUrl = new URL('sw.js', document.baseURI);
+        navigator.serviceWorker.register(swUrl, { scope: './' })
           .then(registration => {
-            console.log('Service Worker registrado com sucesso:', registration.scope);
+            console.log('Service Worker registered with base URI:', registration.scope);
           })
           .catch(err => {
             console.error('Falha no registro do Service Worker:', err);

@@ -97,8 +97,8 @@ export const destinations: Destination[] = [
     },
     {
         id: 26,
-        title: "Costa Verde: Ilha Grande, Paraty & Cunha",
-        category: "Roteiros Personalizados",
+        title: "Opção 1: Costa Verde: Ilha Grande, Paraty & Cunha",
+        category: "Sudeste",
         places: ['Maricá', 'Ilha Grande', 'Paraty', 'Cunha', 'Santa Cruz da Serra'],
         description: 'Uma jornada completa pela serra e mar, com todos os trechos de carro, paradas e custos planejados.',
         themeColor: '#0d9488', // teal-600
@@ -174,55 +174,28 @@ export const destinations: Destination[] = [
         // END: Added details
     },
     {
-        id: 18,
-        title: "Natal em Porto Seguro (18/12)",
-        category: "Férias no Brasil",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#f97316', // orange-500
-        icon: React.createElement(SunIcon),
-    },
-    {
-        id: 19,
-        title: "Natal em Porto Seguro (19/12)",
-        category: "Férias no Brasil",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#f59e0b', // amber-500
-        icon: React.createElement(SunIcon),
-    },
-    {
-        id: 20,
-        title: "Natal em Porto Seguro (20/12)",
-        category: "Férias no Brasil",
-        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
-        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
-        themeColor: '#ea580c', // orange-600
-        icon: React.createElement(SunIcon),
-    },
-    {
-        id: 23,
-        title: "Verão em Angra dos Reis",
-        category: "Destinos Próximos ao Rio",
-        places: ['Rio de Janeiro', 'Angra dos Reis', 'Rio de Janeiro'],
-        description: 'Descubra as ilhas paradisíacas e o mar cristalino de Angra. Veja opções de estadia e monte sua viagem.',
-        themeColor: '#14b8a6', // teal-500
-        icon: React.createElement(ShipIcon),
+        id: 25,
+        title: "Opção 2: Natureza e Arte em Cunha",
+        category: "Sudeste",
+        places: ['Rio de Janeiro', 'Cunha', 'Rio de Janeiro'],
+        description: 'Explore os ateliês de cerâmica, cachoeiras e campos de lavanda desta cidade serrana em SP.',
+        themeColor: '#84cc16', // lime-500
+        icon: React.createElement(MountainPeakIcon),
         carTrips: [{
-            title: "Rio de Janeiro ↔ Angra dos Reis",
-            duration: "aprox. 5h 51min",
-            distance: "408,1 km",
-            totalCostOneWay: 232.50,
-            fuelCostOneWay: 207.10,
-            tollCostOneWay: 25.40,
-            details: "Via Avenida Brasil, Rodovia Rio-Santos",
+            title: "Rio de Janeiro ↔ Cunha",
+            duration: "aprox. 4h 55min",
+            distance: "354,2 km",
+            totalCostOneWay: 213.72,
+            fuelCostOneWay: 179.72,
+            tollCostOneWay: 34.00,
+            details: "Via Rodovia Presidente Dutra, Rodovia Paulo Virgínio",
             mapUrl: './assets/angra-map.svg'
         }]
     },
      {
         id: 24,
-        title: "Charme Histórico de Paraty",
-        category: "Destinos Próximos ao Rio",
+        title: "Opção 3: Charme Histórico de Paraty",
+        category: "Sudeste",
         places: ['Rio de Janeiro', 'Paraty', 'Rio de Janeiro'],
         description: 'Explore o centro histórico colonial e as praias paradisíacas de Paraty. Uma viagem no tempo.',
         themeColor: '#16a34a', // green-600
@@ -239,22 +212,49 @@ export const destinations: Destination[] = [
         }]
     },
     {
-        id: 25,
-        title: "Natureza e Arte em Cunha",
-        category: "Destinos Próximos ao Rio",
-        places: ['Rio de Janeiro', 'Cunha', 'Rio de Janeiro'],
-        description: 'Explore os ateliês de cerâmica, cachoeiras e campos de lavanda desta cidade serrana em SP.',
-        themeColor: '#84cc16', // lime-500
-        icon: React.createElement(MountainPeakIcon),
+        id: 23,
+        title: "Opção 4: Verão em Angra dos Reis",
+        category: "Sudeste",
+        places: ['Rio de Janeiro', 'Angra dos Reis', 'Rio de Janeiro'],
+        description: 'Descubra as ilhas paradisíacas e o mar cristalino de Angra. Veja opções de estadia e monte sua viagem.',
+        themeColor: '#14b8a6', // teal-500
+        icon: React.createElement(ShipIcon),
         carTrips: [{
-            title: "Rio de Janeiro ↔ Cunha",
-            duration: "aprox. 4h 55min",
-            distance: "354,2 km",
-            totalCostOneWay: 213.72,
-            fuelCostOneWay: 179.72,
-            tollCostOneWay: 34.00,
-            details: "Via Rodovia Presidente Dutra, Rodovia Paulo Virgínio",
+            title: "Rio de Janeiro ↔ Angra dos Reis",
+            duration: "aprox. 5h 51min",
+            distance: "408,1 km",
+            totalCostOneWay: 232.50,
+            fuelCostOneWay: 207.10,
+            tollCostOneWay: 25.40,
+            details: "Via Avenida Brasil, Rodovia Rio-Santos",
             mapUrl: './assets/angra-map.svg'
         }]
+    },
+    {
+        id: 18,
+        title: "Natal em Porto Seguro (18/12)",
+        category: "Nordeste",
+        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
+        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
+        themeColor: '#f97316', // orange-500
+        icon: React.createElement(SunIcon),
+    },
+    {
+        id: 19,
+        title: "Natal em Porto Seguro (19/12)",
+        category: "Nordeste",
+        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
+        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
+        themeColor: '#f59e0b', // amber-500
+        icon: React.createElement(SunIcon),
+    },
+    {
+        id: 20,
+        title: "Natal em Porto Seguro (20/12)",
+        category: "Nordeste",
+        places: ['Rio de Janeiro', 'Porto Seguro', 'Rio de Janeiro'],
+        description: 'Combine esta data de ida com as melhores opções de volta e planeje sua viagem para o paraíso baiano.',
+        themeColor: '#ea580c', // orange-600
+        icon: React.createElement(SunIcon),
     },
 ];

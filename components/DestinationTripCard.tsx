@@ -178,11 +178,10 @@ const AccommodationOptionCard: React.FC<{ option: AccommodationOption }> = ({ op
 const DestinationTripCard: React.FC<DestinationTripCardProps> = ({ trip, isExpanded, onToggle, onSelectItinerary }) => {
     const { destination, carTrips, itineraries } = trip;
     const themeColor = 'themeColor' in destination ? destination.themeColor : '#64748b';
-    // FIX: The ternary operator with an `in` guard was not reliably narrowing the `destination` union type for property access,
-    // resulting in properties being inferred as `unknown`. This was corrected by first assigning the narrowed `Destination` object
-    // or `null` to an intermediate variable (`fullDestination`), which allows TypeScript to correctly resolve the type
-    // before attempting to access optional properties like `accommodations` and `additionalCosts`.
+
+    // FIX: The `destination` object is a union type. A type guard is used to safely narrow the type to `Destination` before accessing properties that might not exist on all types in the union.
     const fullDestination = 'id' in destination ? destination : null;
+    
     const accommodations = fullDestination?.accommodations ?? [];
     const additionalCosts = fullDestination?.additionalCosts ?? [];
     
